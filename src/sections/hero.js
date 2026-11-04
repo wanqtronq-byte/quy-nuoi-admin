@@ -4,10 +4,10 @@ import { esc } from '../lib/dom.js';
 
 const content = {
   badge: 'Admin nghèo nhưng vui',
-  titleBefore: 'Xin ',
-  titleHighlight: 'tí tiền',
-  titleAfter: ',<br>không có lý do gì đâu',
-  lead: 'Không bệnh, không nợ, không gây quỹ gì hết. Thấy người ta mở trang donate nên tui cũng mở thử. Ai cho thì tui cảm ơn, ai không cho thì cũng cảm ơn vì đã ghé.',
+  titleBefore: 'Cho admin xin ',
+  titleHighlight: 'miếng bánh',
+  titleAfter: '<br>nha bạn ơi',
+  lead: 'Ăn xin thời AI: không ngồi lề đường, không áo rách, không bát sứt. Có qua có lại nè: tui chia sẻ kiến thức, bạn cho tui chén cơm, người người cùng vui. Không cho cũng không sao, cảm ơn bạn đã ghé, vào ô chat nhận một lời chúc từ tui nha.',
   primary: { label: 'Nuôi tui liền', href: '#ung-ho' },
   secondary: { label: 'Xem quà cảm ơn', href: '#qua' },
 };

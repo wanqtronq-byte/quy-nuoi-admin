@@ -5,8 +5,8 @@ import { esc } from '../lib/dom.js';
 const content = {
   title: 'Chuyện là…',
   paragraphs: [
-    'Ban ngày tui làm HR, tối về ngồi vibe code mấy tool nhỏ. Cuối tháng tới thì ví mỏng như wifi quán cà phê.',
-    'Không mục tiêu, không kế hoạch, không hứa hẹn gì hết. Đơn giản là tui xin tiền, bạn thấy vui thì cho. Vậy thôi á.',
+    'Ban ngày tui làm HR, tối về ngồi vibe code mấy tool nhỏ.',
+    'Bán mình cho tư bản mà lương chỉ đủ uống nước cầm hơi. Xin thí chủ một miếng bánh để tui có thêm động lực chia sẻ nhiều điều thú vị hơn nha.',
   ],
 };
 

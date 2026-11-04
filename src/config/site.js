@@ -30,6 +30,6 @@ export default {
     title: 'Admin',
     subtitle: 'AI trả lời thay admin',
     greeting: 'Ê chào bạn! Tui là AI trả lời thay admin nè. Hỏi mẹo HR, vibe code hay tám chuyện gì cũng được.',
-    suggestions: ['Mẹo viết CV đi', 'Cho xin prompt vibe code', 'Sao lại đi xin tiền?'],
+    suggestions: ['Chúc tui một câu đi', 'Mẹo viết CV đi', 'Cho xin prompt vibe code'],
   },
 };

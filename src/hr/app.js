@@ -83,26 +83,34 @@ function renderHome() {
     <div class="hr-meme">${START_MEME.art}<div class="hr-bubble">${esc(START_MEME.line)}</div></div>
   </section>
 
-  <section class="hr-facts">
-    <div class="card hr-fact"><b>${data.quizzes.length} đề</b><span>trắc nghiệm kiến thức, mỗi đề ${[...new Set(data.quizzes.map((t) => t.questions.length))].join('–')} câu</span></div>
-    <div class="card hr-fact"><b>${Math.min(...quizMin)}–${Math.max(...quizMin)} phút</b><span>cho mỗi đề trắc nghiệm, cả ${data.quizzes.length} đề khoảng ${Math.round(quizMin.reduce((a, b) => a + b, 0) / 6) / 10} tiếng</span></div>
-    <div class="card hr-fact"><b>${data.surveys.length} bộ</b><span>tự đánh giá hành vi, mỗi bộ chỉ ${Math.max(...surveyMin)} phút</span></div>
-    <div class="card hr-fact"><b>${esc(set.perHint)}</b><span>8 hành vi, 4 cấp độ cho mỗi năng lực</span></div>
+  <section class="hr-modes">
+    <a class="card hr-mode pop" href="#ds-de">
+      <b class="display">Làm từng năng lực</b>
+      <span>Chọn 1 bài bạn thích, ${Math.min(...surveyMin)}–${Math.max(...quizMin)} phút là xong.</span>
+      <em>Chọn bài bên dưới ↓</em>
+    </a>
+    <button class="card hr-mode pop" type="button" data-all>
+      <b class="display">Làm hết một lượt</b>
+      <span>Cả ${data.quizzes.length + data.surveys.length} bài liền nhau, khoảng ${Math.round((quizMin.reduce((a, b) => a + b, 0) + surveyMin.reduce((a, b) => a + b, 0)) / 6) / 10} tiếng. Giữa các bài được nghỉ, dừng lúc nào cũng được.</span>
+      <em>Bắt đầu luôn →</em>
+    </button>
   </section>
 
-  <section class="hr-two">
-    <div class="card hr-box">
-      <h2>Ai nên làm?</h2>
+  <section class="card hr-box hr-tips">
+    <h2>3 điều cần nhớ</h2>
+    <ul>
+      <li>Không chắc thì chọn <b>"Tôi không biết"</b>, đừng đoán mò.</li>
+      <li>Phần tự đánh giá: chọn theo việc bạn <b>thật sự làm</b> 3–6 tháng qua.</li>
+      <li>Kết quả chỉ lưu trên máy bạn, không ai xem được.</li>
+    </ul>
+    <details>
+      <summary>Dành cho ai, tính cấp thế nào?</summary>
       <ul>${AUDIENCE.map((a) => `<li>${esc(a)}</li>`).join('')}</ul>
-      <p>Không cần làm hết một lần. Chọn năng lực bạn tò mò nhất, làm xong cái nào biết cái đó.</p>
-    </div>
-    <div class="card hr-box">
-      <h2>Làm sao cho chuẩn?</h2>
-      ${HOW_IT_WORKS.map((h) => `<div><h3>${esc(h.title)}</h3><p>${esc(h.text)}</p></div>`).join('')}
-    </div>
+      ${HOW_IT_WORKS.map((h) => `<p><b>${esc(h.title)}:</b> ${esc(h.text)}</p>`).join('')}
+    </details>
   </section>
 
-  <section class="hr-stack" style="gap:18px">
+  <section class="hr-stack" id="ds-de" style="gap:18px">
     <div class="hr-section-title"><h2>Trắc nghiệm kiến thức</h2><span>${totalQuiz} câu tất cả · có xem lại đáp án sau khi nộp</span></div>
     <div class="hr-tests">${data.quizzes.map((t) => testCard(t, 'quiz')).join('')}</div>
   </section>
@@ -125,6 +133,12 @@ function renderHome() {
 </div>`;
 
   app.querySelectorAll('[data-start]').forEach((b) => b.addEventListener('click', () => startTest(b.dataset.start, b.dataset.code)));
+  app.querySelector('[data-all]').addEventListener('click', () => {
+    const queue = [...data.quizzes.map((t) => ['quiz', t.code]), ...data.surveys.map((t) => ['survey', t.code])];
+    const batch = { queue, total: queue.length, done: [] };
+    const [type, code] = batch.queue.shift();
+    startTest(type, code, batch);
+  });
   const clear = app.querySelector('[data-clear]');
   if (clear) clear.addEventListener('click', () => {
     if (clear.dataset.sure) {
@@ -138,9 +152,9 @@ function renderHome() {
 }
 
 // ---------- làm bài ----------
-function startTest(type, code) {
+function startTest(type, code, batch = null) {
   const test = findTest(type, code);
-  run = { type, test, i: 0, answers: {}, started: Date.now() };
+  run = { type, test, i: 0, answers: {}, started: Date.now(), batch };
   stopTimer();
   timerId = setInterval(() => {
     const el = document.getElementById('hr-timer');
@@ -172,7 +186,7 @@ function renderQuestion(showWarn = false) {
 <div class="wrap">
   <div class="hr-run">
     <div class="hr-run-head">
-      <h1>${esc(test.name)} <small style="font-size:16px;color:var(--muted)">· ${isQuiz ? 'Trắc nghiệm' : 'Tự đánh giá'}</small></h1>
+      <h1>${esc(test.name)} <small style="font-size:16px;color:var(--muted)">· ${isQuiz ? 'Trắc nghiệm' : 'Tự đánh giá'}${run.batch ? ` · bài ${run.batch.done.length + 1}/${run.batch.total}` : ''}</small></h1>
       <span class="hr-timer" id="hr-timer">${fmtTime(Math.floor((Date.now() - run.started) / 1000))} / gợi ý ${test.minutes} phút</span>
     </div>
     <div class="hr-progress" aria-label="Đã trả lời ${answered}/${n} câu"><i style="width:${(answered / n) * 100}%"></i></div>
@@ -216,11 +230,98 @@ function finish() {
   const result = type === 'quiz' ? scoreQuiz(test, answers) : scoreSurvey(test, answers);
   const minutes = Math.max(1, Math.round((Date.now() - started) / 60000));
   saveResult(testKey(type, test.code), { final: result.final, at: Date.now() });
-  renderResult(test, type, result, answers, minutes);
+  const batch = run.batch;
+  if (batch) {
+    batch.done.push({ test, type, result, answers, minutes });
+    if (batch.queue.length) renderBreak(batch); else renderBatch(batch);
+  } else {
+    renderResult(test, type, result, answers, minutes);
+  }
   scrollTop();
 }
 
-function renderResult(test, type, r, answers, minutes) {
+// Nghỉ giữa các bài khi làm hết một lượt
+function renderBreak(batch) {
+  const last = batch.done[batch.done.length - 1];
+  const [nType, nCode] = batch.queue[0];
+  const next = findTest(nType, nCode);
+  app.innerHTML = `
+<div class="wrap"><div class="hr-run">
+  <section class="card hr-result-top">
+    <div class="meme">${MEMES[last.result.final].art}</div>
+    <div class="copy">
+      <span class="hr-kicker">Xong bài ${batch.done.length}/${batch.total}</span>
+      <div class="hr-level" style="font-size:32px">${esc(last.test.name)}: ${esc(LEVEL_NAMES[last.result.final])}</div>
+      <p class="muted" style="font-size:16px;line-height:1.6">Uống ngụm nước rồi làm tiếp nha. Bài sau: <b>${esc(next.name)}</b> (${nType === 'quiz' ? 'trắc nghiệm' : 'tự đánh giá'}, ~${next.minutes} phút).</p>
+      <div class="hr-nav" style="justify-content:flex-start">
+        <button class="hr-btn primary" type="button" data-next-test>Làm tiếp</button>
+        <button class="hr-btn" type="button" data-stop>Dừng, xem kết quả tới đây</button>
+      </div>
+    </div>
+  </section>
+</div></div>`;
+  app.querySelector('[data-next-test]').addEventListener('click', () => {
+    const [t, c] = batch.queue.shift();
+    startTest(t, c, batch);
+  });
+  app.querySelector('[data-stop]').addEventListener('click', () => { renderBatch(batch); scrollTop(); });
+}
+
+// Kết quả tổng khi làm nhiều bài một lượt
+function renderBatch(batch) {
+  run = null;
+  const items = batch.done;
+  const avg = Math.floor(items.reduce((a, d) => a + d.result.final, 0) / items.length);
+  const meme = MEMES[avg];
+  const chart = items.length >= 3 ? radar(items.map((d) => ({
+    label: d.test.code + (d.type === 'survey' ? ' (TĐG)' : ''),
+    sub: `Cấp ${d.result.final}`,
+    value: d.result.final / 4,
+    pass: 0.5,
+  })), { ringLabels: ['C1', 'C2', 'C3', 'C4'], title: 'Biểu đồ nhện tổng các bài vừa làm' }) : '';
+  const aiQuiz = items.find((d) => d.type === 'quiz' && d.test.code === 'AI-01');
+  const aiSurvey = items.find((d) => d.type === 'survey' && d.test.code === 'AI-01');
+  const aiNote = aiQuiz && aiSurvey
+    ? `<p>Ứng dụng AI tính chung là <b>Cấp ${Math.min(aiQuiz.result.final, aiSurvey.result.final)}</b> (lấy cấp thấp hơn giữa trắc nghiệm và tự đánh giá).</p>` : '';
+
+  app.innerHTML = `
+<div class="wrap hr-stack">
+  <section class="card hr-result-top">
+    <div class="meme">${meme.art}</div>
+    <div class="copy">
+      <span class="hr-kicker">Đã làm ${items.length}/${batch.total} bài</span>
+      <div class="hr-level">Mức chung: ${esc(LEVEL_NAMES[avg])}</div>
+      <div class="hr-bubble" style="text-align:left;max-width:none">${esc(meme.line)}</div>
+      ${aiNote}
+    </div>
+  </section>
+  <section class="hr-two">
+    <div class="card hr-box">
+      <h2>Biểu đồ nhện tổng</h2>
+      ${chart || '<p class="hr-empty">Làm từ 3 bài trở lên mới vẽ được biểu đồ tổng.</p>'}
+    </div>
+    <div class="card hr-box">
+      <h2>Từng bài</h2>
+      <div class="table-scroll"><table class="hr-table">
+        <thead><tr><th>Năng lực</th><th>Loại</th><th>Cấp</th><th></th></tr></thead>
+        <tbody>${items.map((d, k) => `<tr><td><b>${esc(d.test.code)}</b> ${esc(d.test.name)}</td><td>${d.type === 'quiz' ? 'Trắc nghiệm' : 'Tự đánh giá'}</td><td class="num">${d.result.final}</td><td><button class="hr-btn" style="min-height:40px;white-space:nowrap" type="button" data-detail="${k}">Chi tiết</button></td></tr>`).join('')}</tbody>
+      </table></div>
+    </div>
+  </section>
+  <div class="hr-nav" style="justify-content:flex-start">
+    <button class="hr-btn" type="button" data-home>Về danh sách bài</button>
+    <a class="hr-btn" href="/#chat">Kể cho admin nghe</a>
+  </div>
+</div>`;
+  app.querySelectorAll('[data-detail]').forEach((b) => b.addEventListener('click', () => {
+    const d = items[Number(b.dataset.detail)];
+    renderResult(d.test, d.type, d.result, d.answers, d.minutes, batch);
+    scrollTop();
+  }));
+  app.querySelector('[data-home]').addEventListener('click', () => { renderHome(); scrollTop(); });
+}
+
+function renderResult(test, type, r, answers, minutes, batch = null) {
   const meme = MEMES[r.final];
   const isQuiz = type === 'quiz';
   const statusText = { pass: 'Đạt', fail: 'Chưa đạt', excluded: 'Chưa xét' };
@@ -297,13 +398,16 @@ function renderResult(test, type, r, answers, minutes) {
   ${review}
 
   <div class="hr-nav" style="justify-content:flex-start">
-    <button class="hr-btn primary" type="button" data-again>Làm lại bài này</button>
+    ${batch ? '<button class="hr-btn primary" type="button" data-back-batch>← Về kết quả tổng</button>' : ''}
+    <button class="hr-btn${batch ? '' : ' primary'}" type="button" data-again>Làm lại bài này</button>
     <button class="hr-btn" type="button" data-home>Về danh sách bài</button>
     <a class="hr-btn" href="/#chat" >Kể cho admin nghe</a>
   </div>
 </div>`;
 
   app.querySelector('[data-again]').addEventListener('click', () => startTest(type, test.code));
+  const back = app.querySelector('[data-back-batch]');
+  if (back) back.addEventListener('click', () => { renderBatch(batch); scrollTop(); });
   app.querySelector('[data-home]').addEventListener('click', () => { renderHome(); scrollTop(); });
 }
 

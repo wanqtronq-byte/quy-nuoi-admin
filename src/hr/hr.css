@@ -105,3 +105,15 @@
 .hr-review .ok { color: var(--deep); }
 .hr-review .no { color: #8A2238; }
 .hr-review p { margin-top: 8px; font-size: 15px; line-height: 1.55; color: var(--muted); }
+
+/* Hai cách làm */
+.hr-modes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px; }
+.hr-mode { padding: 22px; display: flex; flex-direction: column; gap: 8px; text-align: left; text-decoration: none; color: var(--ink); font: inherit; cursor: pointer; }
+.hr-mode:hover { color: var(--ink); }
+.hr-mode b { font-size: 28px; line-height: 1.15; }
+.hr-mode span { font-size: 16px; line-height: 1.55; color: var(--muted); }
+.hr-mode em { font-style: normal; font-weight: 700; color: var(--deep); }
+.hr-mode:nth-child(2) { background: var(--mint); }
+.hr-tips ul { gap: 6px; }
+.hr-tips details summary { cursor: pointer; font-weight: 700; color: var(--deep); min-height: 32px; }
+.hr-tips details[open] { display: flex; flex-direction: column; gap: 10px; }

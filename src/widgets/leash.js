@@ -57,7 +57,7 @@ export function leash(fab) {
   const layer = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   layer.setAttribute('class', 'leash-layer');
   layer.setAttribute('aria-hidden', 'true');
-  layer.hidden = true;
+  layer.style.display = 'none';
   layer.innerHTML = '<path d=""/><circle r="6"/>';
   document.body.appendChild(layer);
   const path = layer.querySelector('path');
@@ -164,7 +164,7 @@ export function leash(fab) {
       facingLeft = cursor[0] < r.left + r.height / 2;
       walker.style.transform = `translate(${pos[0]}px, ${pos[1]}px)`;
       walker.hidden = false;
-      layer.hidden = false;
+      layer.style.display = 'block';
       fab.classList.add('walking');
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(frame);
@@ -178,7 +178,7 @@ export function leash(fab) {
     if (walking) {
       released = true;
       justDragged = true;
-      layer.hidden = true; // thả tay là mất dây
+      layer.style.display = 'none'; // thả tay là mất dây
     }
   });
 

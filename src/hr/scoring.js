@@ -1,3 +1,4 @@
+import { lang } from '../lib/i18n.js';
 // Chấm điểm theo "Hướng dẫn tính điểm" của bộ khung năng lực HRM/HRD.
 // Câu → Hành vi (đạt ≥ 2/3 số câu, làm tròn lên) → Cấp (đạt cả 2 hành vi)
 // → Năng lực (cấp cao nhất đạt LIÊN TIẾP từ Cấp 1).
@@ -62,4 +63,6 @@ export function scoreSurvey(test, answers) {
   return { type: 'survey', behaviors, correct, total: test.questions.length, ...rollUp(behaviors) };
 }
 
-export const LEVEL_NAMES = ['Chưa đạt cấp nào', 'Cấp 1 · Nền tảng', 'Cấp 2 · Vận dụng', 'Cấp 3 · Thành thạo', 'Cấp 4 · Chuyên gia'];
+export const LEVEL_NAMES = lang === 'en'
+  ? ['No level yet', 'Level 1 · Foundation', 'Level 2 · Applying', 'Level 3 · Proficient', 'Level 4 · Expert']
+  : ['Chưa đạt cấp nào', 'Cấp 1 · Nền tảng', 'Cấp 2 · Vận dụng', 'Cấp 3 · Thành thạo', 'Cấp 4 · Chuyên gia'];

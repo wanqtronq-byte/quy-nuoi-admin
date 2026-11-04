@@ -1,16 +1,20 @@
 // Phần mở đầu: tiêu đề, lời giới thiệu, 2 nút, chú cún và khung cảnh hoạt hình.
 
 import { esc } from '../lib/dom.js';
+import { localize } from '../lib/i18n.js';
 
-const content = {
-  badge: 'Admin nghèo nhưng vui',
-  titleBefore: 'Cho admin xin ',
-  titleHighlight: 'miếng bánh',
-  titleAfter: '<br>nha bạn ơi',
-  lead: 'Ăn xin thời AI: không ngồi lề đường, không áo rách, không bát sứt. Có qua có lại nè: tui chia sẻ kiến thức, bạn cho tui chén cơm, người người cùng vui. Không cho cũng không sao, cảm ơn bạn đã ghé, vào ô chat nhận một lời chúc từ tui nha.',
-  primary: { label: 'Nuôi tui liền', href: '#ung-ho' },
-  secondary: { label: 'Xem quà cảm ơn', href: '#qua' },
-};
+const content = localize({
+  badge: { vi: 'Admin nghèo nhưng vui', en: 'Broke admin, happy admin' },
+  titleBefore: { vi: 'Cho admin xin ', en: 'Spare the admin ' },
+  titleHighlight: { vi: 'miếng bánh', en: 'a snack' },
+  titleAfter: { vi: '<br>nha bạn ơi', en: '<br>maybe?' },
+  lead: {
+    vi: 'Ăn xin thời AI: không ngồi lề đường, không áo rách, không bát sứt. Có qua có lại nè: tui chia sẻ kiến thức, bạn cho tui chén cơm, người người cùng vui. Không cho cũng không sao, cảm ơn bạn đã ghé, vào ô chat nhận một lời chúc từ tui nha.',
+    en: 'Begging, AI edition: no street corner, no torn clothes, no chipped bowl. It goes both ways: I share what I know, you buy me a meal, everyone wins. No snack? No problem. Thanks for dropping by, and grab a good-luck wish from me in the chat.',
+  },
+  primary: { label: { vi: 'Nuôi tui liền', en: 'Feed the admin' }, href: '#ung-ho' },
+  secondary: { label: { vi: 'Xem quà cảm ơn', en: 'See the thank-you gifts' }, href: '#qua' },
+});
 
 const STAR = 'M12 1 L14.5 9.5 L23 12 L14.5 14.5 L12 23 L9.5 14.5 L1 12 L9.5 9.5 Z';
 
@@ -22,18 +26,20 @@ export default {
 .hero { position: relative; padding-top: 48px; }
 .hero-inner { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; padding-bottom: 96px; }
 .hero-text { flex: 999 1 500px; min-width: 0; display: flex; flex-direction: column; gap: 22px; }
-.hero-badge { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; background: var(--sun); border: 2.5px solid var(--ink); border-radius: 999px; padding: 6px 16px; font-weight: 700; font-size: 15px; animation: wobble 2.5s ease-in-out infinite; }
+.hero-badge { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; background: var(--sun); border: 2.5px solid var(--ink); border-radius: 999px; padding: 6px 16px; font-weight: 700; font-size: 15px; color: #17342B; animation: wobble 2.5s ease-in-out infinite; }
 .hero h1 { font-size: clamp(42px, 6vw, 76px); line-height: 1.12; letter-spacing: -.01em; animation: rise .7s ease-out both; }
-.hero h1 em { font-style: normal; color: var(--deep); text-decoration: underline wavy var(--mint2); text-decoration-thickness: 4px; text-underline-offset: 10px; }
+.hero h1 em { font-style: normal; color: var(--accent); text-decoration: underline wavy var(--mint2); text-decoration-thickness: 4px; text-underline-offset: 10px; }
 .hero-lead { font-size: 20px; line-height: 1.65; color: var(--muted); max-width: 580px; }
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 6px; }
 .hero-scene-col { flex: 1 1 380px; min-width: 0; display: flex; justify-content: center; }
 .hero-scene { position: relative; width: 460px; max-width: 100%; aspect-ratio: 1 / 1; }
 .hero-scene .deco { position: absolute; height: auto; }
-.hero-frame { position: absolute; inset: 12%; background: var(--paper); border: 4px solid var(--ink); border-radius: 36px; box-shadow: 10px 10px 0 var(--mint2); display: flex; align-items: center; justify-content: center; padding: 18px; }
+.hero-frame { position: absolute; inset: 12%; background: #fff; border: 4px solid var(--ink); border-radius: 36px; box-shadow: 10px 10px 0 var(--mint2); display: flex; align-items: center; justify-content: center; padding: 18px; }
 .hero-frame img { width: 100%; height: 100%; object-fit: contain; display: block; animation: dogbounce 2.8s ease-in-out infinite; }
 .hero-frame img.swap { opacity: 0; transform: scale(.9); }
 .hero-frame img { transition: opacity .35s ease, transform .35s ease; }
+.hero-grass path { fill: var(--mint); stroke: var(--line); }
+.hero-scene .deco path, .hero-scene .deco circle { stroke: var(--line); }
 .hero-grass { position: absolute; left: 0; bottom: -2px; width: 100%; height: 72px; display: block; }
 `,
 

@@ -6,6 +6,23 @@ import { scoreQuiz, scoreSurvey, LEVEL_NAMES } from './scoring.js';
 import { radar } from './radar.js';
 import { MEMES, START_MEME, BREAK_MEME } from './memes.js';
 import { esc } from '../lib/dom.js';
+import { L, lang } from '../lib/i18n.js';
+import { togglesHtml, bindToggles } from '../lib/prefs.js';
+
+// Tên và mô tả năng lực bằng tiếng Anh (câu hỏi vẫn giữ tiếng Việt).
+const EN = {
+  'PB-01': ['Critical thinking', 'Questioning, checking sources and spotting weak arguments before deciding.'],
+  'NS-02': ['Performance management', 'Setting goals, running reviews, coaching and linking performance to rewards.'],
+  'NS-06': ['HR analytics & workforce planning', 'Using people data and forecasts to plan the workforce.'],
+  'AI-01': ['Using AI at work', 'Using generative AI safely, effectively and responsibly in HR work.'],
+  'DL-01': ['Data thinking', 'Reading, organizing and questioning data to draw useful conclusions.'],
+  'TA-02': ['Agility & adaptability', 'Staying effective and positive when plans, tools or priorities change.'],
+  'LN-02': ['Empathy', 'Understanding how others feel and responding in a way that helps.'],
+};
+const nm = (t) => L(t.name, EN[t.code]?.[0] || t.name);
+const def = (t) => L(t.definition || '', EN[t.code]?.[1] || t.definition || '');
+const KIND = (type) => (type === 'quiz' ? L('Trắc nghiệm', 'Quiz') : L('Tự đánh giá', 'Self-check'));
+const SELF = L('TĐG', 'self');
 
 const params = new URLSearchParams(location.search);
 const set = SETS[params.get('bo')] || SETS['rut-gon'];
@@ -43,91 +60,93 @@ function renderHome() {
 
   const testCard = (t, type) => {
     const r = results[testKey(type, t.code)];
-    const kind = type === 'quiz' ? 'Trắc nghiệm' : 'Tự đánh giá';
+    const kind = KIND(type);
     return `
 <article class="card hr-test">
   <span class="code">${esc(t.code)} · ${kind}</span>
-  <h3>${esc(t.name)}</h3>
-  <p>${esc(t.definition || '')}</p>
+  <h3>${esc(nm(t))}</h3>
+  <p>${esc(def(t))}</p>
   <div class="hr-meta">
-    <span>${t.questions.length} câu</span>
-    <span>~${t.minutes} phút</span>
-    ${r ? `<span class="done">Lần trước: ${esc(LEVEL_NAMES[r.final])}</span>` : ''}
+    <span>${t.questions.length} ${L('câu', 'questions')}</span>
+    <span>~${t.minutes} ${L('phút', 'min')}</span>
+    ${r ? `<span class="done">${L('Lần trước', 'Last time')}: ${esc(LEVEL_NAMES[r.final])}</span>` : ''}
   </div>
-  <button class="btn btn-primary pop hr-go" type="button" data-start="${type}" data-code="${esc(t.code)}">${r ? 'Làm lại' : 'Bắt đầu'}</button>
+  <button class="btn btn-primary pop hr-go" type="button" data-start="${type}" data-code="${esc(t.code)}">${r ? L('Làm lại', 'Retake') : L('Bắt đầu', 'Start')}</button>
 </article>`;
   };
 
   const done = Object.entries(results);
   const overview = done.length >= 3
     ? `<div class="radar-wrap">${radar(done.map(([k, v]) => ({
-        label: k.split(':')[1] + (k.startsWith('survey') ? ' (TĐG)' : ''),
-        sub: `Cấp ${v.final}`,
+        label: k.split(':')[1] + (k.startsWith('survey') ? ` (${SELF})` : ''),
+        sub: `${L('Cấp', 'Level')} ${v.final}`,
         value: v.final / 4,
         pass: 0.5,
-      })), { ringLabels: ['C1', 'C2', 'C3', 'C4'], title: 'Tổng quan cấp năng lực các bài đã làm' })}</div>`
+      })), { ringLabels: ['C1', 'C2', 'C3', 'C4'], title: L('Tổng quan cấp năng lực các bài đã làm', 'Overview of levels from completed tests') })}</div>`
     : '';
 
   const totalQuiz = data.quizzes.reduce((s, t) => s + t.questions.length, 0);
   const quizMin = data.quizzes.map((t) => t.minutes);
   const surveyMin = data.surveys.map((t) => t.minutes);
+  const hours = Math.round((quizMin.reduce((a, b) => a + b, 0) + surveyMin.reduce((a, b) => a + b, 0)) / 6) / 10;
 
   app.innerHTML = `
 <div class="wrap hr-stack">
   <section class="hr-intro">
     <div class="hr-intro-text">
       <span class="hr-kicker">${esc(set.name)} · ${esc(set.tag)}</span>
-      <h1 class="display">Thử sức năng lực HR</h1>
-      <p>${esc(set.blurb)} Làm xong là có ngay biểu đồ nhện, biết mình mạnh chỗ nào, hụt chỗ nào, nên học gì tiếp. Kết quả chỉ lưu trên máy bạn, không ai xem được.</p>
+      <h1 class="display">${L('Thử sức năng lực HR', 'HR skills check')}</h1>
+      <p>${esc(set.blurb)} ${L('Làm xong là có ngay biểu đồ nhện, biết mình mạnh chỗ nào, hụt chỗ nào, nên học gì tiếp. Kết quả chỉ lưu trên máy bạn, không ai xem được.', 'You get a spider chart right away: where you are strong, where you fall short, what to learn next. Results stay on your device only.')}</p>
+      ${lang === 'en' ? '<p class="hr-langnote">Heads up: the questions themselves are in Vietnamese for now.</p>' : ''}
     </div>
     <div class="hr-meme">${START_MEME.art}<div class="hr-bubble">${esc(START_MEME.line)}</div></div>
   </section>
 
   <section class="hr-modes">
     <a class="card hr-mode pop" href="#ds-de">
-      <b class="display">Làm từng năng lực</b>
-      <span>Chọn 1 bài bạn thích, ${Math.min(...surveyMin)}–${Math.max(...quizMin)} phút là xong.</span>
-      <em>Chọn bài bên dưới ↓</em>
+      <b class="display">${L('Làm từng năng lực', 'One skill at a time')}</b>
+      <span>${L(`Chọn 1 bài bạn thích, ${Math.min(...surveyMin)}–${Math.max(...quizMin)} phút là xong.`, `Pick any test, ${Math.min(...surveyMin)}–${Math.max(...quizMin)} minutes each.`)}</span>
+      <em>${L('Chọn bài bên dưới ↓', 'Choose below ↓')}</em>
     </a>
     <button class="card hr-mode pop" type="button" data-all>
-      <b class="display">Làm hết một lượt</b>
-      <span>Cả ${data.quizzes.length + data.surveys.length} bài liền nhau, khoảng ${Math.round((quizMin.reduce((a, b) => a + b, 0) + surveyMin.reduce((a, b) => a + b, 0)) / 6) / 10} tiếng. Giữa các bài được nghỉ, dừng lúc nào cũng được.</span>
-      <em>Bắt đầu luôn →</em>
+      <b class="display">${L('Làm hết một lượt', 'Everything in one go')}</b>
+      <span>${L(`Cả ${data.quizzes.length + data.surveys.length} bài liền nhau, khoảng ${hours} tiếng. Giữa các bài được nghỉ, dừng lúc nào cũng được.`, `All ${data.quizzes.length + data.surveys.length} tests back to back, about ${hours} hours. Breaks in between, stop any time.`)}</span>
+      <em>${L('Bắt đầu luôn →', 'Start now →')}</em>
     </button>
   </section>
 
   <section class="card hr-box hr-tips">
-    <h2>3 điều cần nhớ</h2>
+    <h2>${L('3 điều cần nhớ', '3 things to know')}</h2>
     <ul>
-      <li>Không chắc thì chọn <b>"Tôi không biết"</b>, đừng đoán mò.</li>
-      <li>Phần tự đánh giá: chọn theo việc bạn <b>thật sự làm</b> 3–6 tháng qua.</li>
-      <li>Kết quả chỉ lưu trên máy bạn, không ai xem được.</li>
+      <li>${L('Không chắc thì chọn <b>"Tôi không biết"</b>, đừng đoán mò.', 'Not sure? Pick <b>"I don\'t know"</b> instead of guessing.')}</li>
+      <li>${L('Phần tự đánh giá: chọn theo việc bạn <b>thật sự làm</b> 3–6 tháng qua.', 'Self-checks: answer based on what you <b>actually did</b> in the last 3–6 months.')}</li>
+      <li>${L('Kết quả chỉ lưu trên máy bạn, không ai xem được.', 'Results stay on your device, nobody else sees them.')}</li>
     </ul>
     <details>
-      <summary>Dành cho ai, tính cấp thế nào?</summary>
+      <summary>${L('Dành cho ai, tính cấp thế nào?', 'Who is it for, how are levels worked out?')}</summary>
       <ul>${AUDIENCE.map((a) => `<li>${esc(a)}</li>`).join('')}</ul>
       ${HOW_IT_WORKS.map((h) => `<p><b>${esc(h.title)}:</b> ${esc(h.text)}</p>`).join('')}
     </details>
   </section>
 
   <section class="hr-stack" id="ds-de" style="gap:18px">
-    <div class="hr-section-title"><h2>Trắc nghiệm kiến thức</h2><span>${totalQuiz} câu tất cả · có xem lại đáp án sau khi nộp</span></div>
+    <div class="hr-section-title"><h2>${L('Trắc nghiệm kiến thức', 'Knowledge quizzes')}</h2><span>${L(`${totalQuiz} câu tất cả · có xem lại đáp án sau khi nộp`, `${totalQuiz} questions in total · answers shown after you submit`)}</span></div>
     <div class="hr-tests">${data.quizzes.map((t) => testCard(t, 'quiz')).join('')}</div>
   </section>
 
   <section class="hr-stack" style="gap:18px">
-    <div class="hr-section-title"><h2>Tự đánh giá hành vi</h2><span>Trả lời theo việc bạn thật sự làm, không phải việc bạn biết</span></div>
+    <div class="hr-section-title"><h2>${L('Tự đánh giá hành vi', 'Behavior self-checks')}</h2><span>${L('Trả lời theo việc bạn thật sự làm, không phải việc bạn biết', 'Answer by what you do, not what you know')}</span></div>
     <div class="hr-tests">${data.surveys.map((t) => testCard(t, 'survey')).join('')}</div>
   </section>
 
   <section class="card hr-overview">
     ${overview}
     <div class="copy">
-      <h2 class="h2" style="font-size:30px">Biểu đồ nhện tổng</h2>
+      <h2 class="h2" style="font-size:30px">${L('Biểu đồ nhện tổng', 'Overall spider chart')}</h2>
       ${done.length >= 3
-        ? '<p class="hr-empty">Mỗi cánh là một bài bạn đã làm, càng xa tâm càng cao cấp. TĐG là tự đánh giá. Với Ứng dụng AI, kết quả cuối nên lấy cấp thấp hơn giữa trắc nghiệm và tự đánh giá: biết mà không làm, hoặc làm mà không hiểu rủi ro, đều chưa đủ.</p>'
-        : `<p class="hr-empty">Làm từ 3 bài trở lên là biểu đồ tổng hiện ra ở đây. Hiện bạn đã làm ${done.length} bài.</p>`}
-      ${done.length ? '<button class="hr-btn" type="button" data-clear>Xoá kết quả đã lưu</button>' : ''}
+        ? `<p class="hr-empty">${L('Mỗi cánh là một bài bạn đã làm, càng xa tâm càng cao cấp. TĐG là tự đánh giá. Với Ứng dụng AI, kết quả cuối nên lấy cấp thấp hơn giữa trắc nghiệm và tự đánh giá: biết mà không làm, hoặc làm mà không hiểu rủi ro, đều chưa đủ.', 'Each spoke is a test you took; further out means a higher level. "self" marks a self-check. For Using AI, take the lower of the quiz and self-check levels: knowing without doing, or doing without understanding the risks, is not enough.')}</p>`
+        : `<p class="hr-empty">${L(`Làm từ 3 bài trở lên là biểu đồ tổng hiện ra ở đây. Hiện bạn đã làm ${done.length} bài.`, `Finish 3 or more tests to see the overall chart here. You have done ${done.length} so far.`)}</p>`}
+      ${done.length ? `<button class="hr-btn" type="button" data-clear>${L('Xoá kết quả đã lưu', 'Clear saved results')}</button>` : ''}
     </div>
   </section>
 </div>`;
@@ -146,7 +165,7 @@ function renderHome() {
       renderHome();
     } else {
       clear.dataset.sure = '1';
-      clear.textContent = 'Bấm lần nữa để xoá thật';
+      clear.textContent = L('Bấm lần nữa để xoá thật', 'Click again to really clear');
     }
   });
 }
@@ -158,14 +177,14 @@ function startTest(type, code, batch = null) {
   stopTimer();
   timerId = setInterval(() => {
     const el = document.getElementById('hr-timer');
-    if (el) el.textContent = `${fmtTime(Math.floor((Date.now() - run.started) / 1000))} / gợi ý ${run.test.minutes} phút`;
+    if (el) el.textContent = `${fmtTime(Math.floor((Date.now() - run.started) / 1000))} / ${L('gợi ý', 'suggested')} ${run.test.minutes} ${L('phút', 'min')}`;
   }, 1000);
   renderQuestion();
   scrollTop();
 }
 
-const QUIZ_EXTRA = [['E', 'Không có đáp án nào đúng'], ['F', 'Tôi không biết']];
-const SURVEY_OPTS = [['yes', 'Nhất quán', 'Mình làm việc này thường xuyên, chủ động.'], ['no', 'Chưa nhất quán', 'Có làm nhưng chưa đều, đôi khi còn phải nhắc.'], ['na', 'Chưa có cơ hội', 'Chưa gặp tình huống để làm.']];
+const QUIZ_EXTRA = [['E', L('Không có đáp án nào đúng', 'None of these is correct')], ['F', L('Tôi không biết', 'I don\'t know')]];
+const SURVEY_OPTS = [['yes', L('Nhất quán', 'Consistent'), L('Mình làm việc này thường xuyên, chủ động.', 'I do this regularly and on my own.')], ['no', L('Chưa nhất quán', 'Not yet consistent'), L('Có làm nhưng chưa đều, đôi khi còn phải nhắc.', 'I do it, but not always; sometimes I need a nudge.')], ['na', L('Chưa có cơ hội', 'No chance yet'), L('Chưa gặp tình huống để làm.', 'The situation has not come up.')]];
 
 function renderQuestion(showWarn = false) {
   const { test, type, i, answers } = run;
@@ -186,26 +205,26 @@ function renderQuestion(showWarn = false) {
 <div class="wrap">
   <div class="hr-run">
     <div class="hr-run-head">
-      <h1>${esc(test.name)} <small style="font-size:16px;color:var(--muted)">· ${isQuiz ? 'Trắc nghiệm' : 'Tự đánh giá'}${run.batch ? ` · bài ${run.batch.done.length + 1}/${run.batch.total}` : ''}</small></h1>
-      <span class="hr-timer" id="hr-timer">${fmtTime(Math.floor((Date.now() - run.started) / 1000))} / gợi ý ${test.minutes} phút</span>
+      <h1>${esc(nm(test))} <small style="font-size:16px;color:var(--muted)">· ${KIND(type)}${run.batch ? ` · ${L('bài', 'test')} ${run.batch.done.length + 1}/${run.batch.total}` : ''}</small></h1>
+      <span class="hr-timer" id="hr-timer">${fmtTime(Math.floor((Date.now() - run.started) / 1000))} / ${L('gợi ý', 'suggested')} ${test.minutes} ${L('phút', 'min')}</span>
     </div>
-    <div class="hr-progress" aria-label="Đã trả lời ${answered}/${n} câu"><i style="width:${(answered / n) * 100}%"></i></div>
+    <div class="hr-progress" aria-label="${L('Đã trả lời', 'Answered')} ${answered}/${n}"><i style="width:${(answered / n) * 100}%"></i></div>
     <article class="card hr-q">
-      <span class="label">Câu ${i + 1}/${n} · Cấp ${q.level}${isQuiz && q.topic ? ` · ${esc(q.topic)}` : ''}</span>
-      <h2>${isQuiz ? '' : 'Trong 3–6 tháng gần đây, mình… '}${esc(q.q)}</h2>
+      <span class="label">${L('Câu', 'Question')} ${i + 1}/${n} · ${L('Cấp', 'Level')} ${q.level}${isQuiz && q.topic ? ` · ${esc(q.topic)}` : ''}</span>
+      <h2>${isQuiz ? '' : L('Trong 3–6 tháng gần đây, mình… ', 'In the last 3–6 months, I… ')}${esc(q.q)}</h2>
       <div class="hr-opts">${opts}</div>
     </article>
     <div class="hr-nav">
-      <button class="hr-btn" type="button" data-prev ${i === 0 ? 'disabled' : ''}>← Câu trước</button>
+      <button class="hr-btn" type="button" data-prev ${i === 0 ? 'disabled' : ''}>← ${L('Câu trước', 'Back')}</button>
       ${last
-        ? '<button class="hr-btn primary" type="button" data-submit>Nộp bài, xem kết quả</button>'
-        : '<button class="hr-btn primary" type="button" data-next>Câu tiếp →</button>'}
+        ? `<button class="hr-btn primary" type="button" data-submit>${L('Nộp bài, xem kết quả', 'Submit and see results')}</button>`
+        : `<button class="hr-btn primary" type="button" data-next>${L('Câu tiếp →', 'Next →')}</button>`}
     </div>
-    ${showWarn && missing ? `<div class="hr-warn"><span>Còn ${missing} câu chưa trả lời, câu trống sẽ tính ${isQuiz ? 'là sai' : 'là "Chưa có cơ hội"'}.</span><button class="hr-btn" type="button" data-force>Nộp luôn</button></div>` : ''}
-    <div class="hr-dots" aria-label="Chuyển nhanh tới câu">
-      ${test.questions.map((qq, k) => `<button type="button" data-go="${k}" class="${answers[qq.id] ? 'on' : ''} ${k === i ? 'cur' : ''}" aria-label="Câu ${k + 1}">${k + 1}</button>`).join('')}
+    ${showWarn && missing ? `<div class="hr-warn"><span>${L(`Còn ${missing} câu chưa trả lời, câu trống sẽ tính ${isQuiz ? 'là sai' : 'là "Chưa có cơ hội"'}.`, `${missing} unanswered; blanks count as ${isQuiz ? 'wrong' : '"No chance yet"'}.`)}</span><button class="hr-btn" type="button" data-force>${L('Nộp luôn', 'Submit anyway')}</button></div>` : ''}
+    <div class="hr-dots" aria-label="${L('Chuyển nhanh tới câu', 'Jump to question')}">
+      ${test.questions.map((qq, k) => `<button type="button" data-go="${k}" class="${answers[qq.id] ? 'on' : ''} ${k === i ? 'cur' : ''}" aria-label="${L('Câu', 'Question')} ${k + 1}">${k + 1}</button>`).join('')}
     </div>
-    <button class="hr-btn" type="button" data-quit style="align-self:flex-start">Thoát, về danh sách</button>
+    <button class="hr-btn" type="button" data-quit style="align-self:flex-start">${L('Thoát, về danh sách', 'Quit to the list')}</button>
   </div>
 </div>`;
 
@@ -250,12 +269,12 @@ function renderBreak(batch) {
   <section class="card hr-result-top">
     <div class="meme">${BREAK_MEME.art}</div>
     <div class="copy">
-      <span class="hr-kicker">Xong bài ${batch.done.length}/${batch.total}</span>
-      <div class="hr-level" style="font-size:32px">${esc(last.test.name)}: ${esc(LEVEL_NAMES[last.result.final])}</div>
-      <p class="muted" style="font-size:16px;line-height:1.6">Uống ngụm nước rồi làm tiếp nha. Bài sau: <b>${esc(next.name)}</b> (${nType === 'quiz' ? 'trắc nghiệm' : 'tự đánh giá'}, ~${next.minutes} phút).</p>
+      <span class="hr-kicker">${L('Xong bài', 'Finished test')} ${batch.done.length}/${batch.total}</span>
+      <div class="hr-level" style="font-size:32px">${esc(nm(last.test))}: ${esc(LEVEL_NAMES[last.result.final])}</div>
+      <p class="muted" style="font-size:16px;line-height:1.6">${esc(BREAK_MEME.line)} ${L('Bài sau', 'Next up')}: <b>${esc(nm(next))}</b> (${KIND(nType)}, ~${next.minutes} ${L('phút', 'min')}).</p>
       <div class="hr-nav" style="justify-content:flex-start">
-        <button class="hr-btn primary" type="button" data-next-test>Làm tiếp</button>
-        <button class="hr-btn" type="button" data-stop>Dừng, xem kết quả tới đây</button>
+        <button class="hr-btn primary" type="button" data-next-test>${L('Làm tiếp', 'Continue')}</button>
+        <button class="hr-btn" type="button" data-stop>${L('Dừng, xem kết quả tới đây', 'Stop and see results so far')}</button>
       </div>
     </div>
   </section>
@@ -274,43 +293,43 @@ function renderBatch(batch) {
   const avg = Math.floor(items.reduce((a, d) => a + d.result.final, 0) / items.length);
   const meme = MEMES[avg];
   const chart = items.length >= 3 ? radar(items.map((d) => ({
-    label: d.test.code + (d.type === 'survey' ? ' (TĐG)' : ''),
-    sub: `Cấp ${d.result.final}`,
+    label: d.test.code + (d.type === 'survey' ? ` (${SELF})` : ''),
+    sub: `${L('Cấp', 'Level')} ${d.result.final}`,
     value: d.result.final / 4,
     pass: 0.5,
-  })), { ringLabels: ['C1', 'C2', 'C3', 'C4'], title: 'Biểu đồ nhện tổng các bài vừa làm' }) : '';
+  })), { ringLabels: ['C1', 'C2', 'C3', 'C4'], title: L('Biểu đồ nhện tổng các bài vừa làm', 'Overall spider chart for this session') }) : '';
   const aiQuiz = items.find((d) => d.type === 'quiz' && d.test.code === 'AI-01');
   const aiSurvey = items.find((d) => d.type === 'survey' && d.test.code === 'AI-01');
   const aiNote = aiQuiz && aiSurvey
-    ? `<p>Ứng dụng AI tính chung là <b>Cấp ${Math.min(aiQuiz.result.final, aiSurvey.result.final)}</b> (lấy cấp thấp hơn giữa trắc nghiệm và tự đánh giá).</p>` : '';
+    ? `<p>${L('Ứng dụng AI tính chung là', 'Using AI overall:')} <b>${L('Cấp', 'Level')} ${Math.min(aiQuiz.result.final, aiSurvey.result.final)}</b> ${L('(lấy cấp thấp hơn giữa trắc nghiệm và tự đánh giá).', '(the lower of the quiz and the self-check).')}</p>` : '';
 
   app.innerHTML = `
 <div class="wrap hr-stack">
   <section class="card hr-result-top">
     <div class="meme">${meme.art}</div>
     <div class="copy">
-      <span class="hr-kicker">Đã làm ${items.length}/${batch.total} bài</span>
-      <div class="hr-level">Mức chung: ${esc(LEVEL_NAMES[avg])}</div>
+      <span class="hr-kicker">${L('Đã làm', 'Completed')} ${items.length}/${batch.total}</span>
+      <div class="hr-level">${L('Mức chung', 'Overall')}: ${esc(LEVEL_NAMES[avg])}</div>
       <div class="hr-bubble" style="text-align:left;max-width:none">${esc(meme.line)}</div>
       ${aiNote}
     </div>
   </section>
   <section class="hr-two">
     <div class="card hr-box">
-      <h2>Biểu đồ nhện tổng</h2>
-      ${chart || '<p class="hr-empty">Làm từ 3 bài trở lên mới vẽ được biểu đồ tổng.</p>'}
+      <h2>${L('Biểu đồ nhện tổng', 'Overall spider chart')}</h2>
+      ${chart || `<p class="hr-empty">${L('Làm từ 3 bài trở lên mới vẽ được biểu đồ tổng.', 'Finish 3 or more tests to draw the overall chart.')}</p>`}
     </div>
     <div class="card hr-box">
-      <h2>Từng bài</h2>
+      <h2>${L('Từng bài', 'Per test')}</h2>
       <div class="table-scroll"><table class="hr-table">
-        <thead><tr><th>Năng lực</th><th>Loại</th><th>Cấp</th><th></th></tr></thead>
-        <tbody>${items.map((d, k) => `<tr><td><b>${esc(d.test.code)}</b> ${esc(d.test.name)}</td><td>${d.type === 'quiz' ? 'Trắc nghiệm' : 'Tự đánh giá'}</td><td class="num">${d.result.final}</td><td><button class="hr-btn" style="min-height:40px;white-space:nowrap" type="button" data-detail="${k}">Chi tiết</button></td></tr>`).join('')}</tbody>
+        <thead><tr><th>${L('Năng lực', 'Skill')}</th><th>${L('Loại', 'Type')}</th><th>${L('Cấp', 'Level')}</th><th></th></tr></thead>
+        <tbody>${items.map((d, k) => `<tr><td><b>${esc(d.test.code)}</b> ${esc(nm(d.test))}</td><td>${KIND(d.type)}</td><td class="num">${d.result.final}</td><td><button class="hr-btn" style="min-height:40px;white-space:nowrap" type="button" data-detail="${k}">${L('Chi tiết', 'Details')}</button></td></tr>`).join('')}</tbody>
       </table></div>
     </div>
   </section>
   <div class="hr-nav" style="justify-content:flex-start">
-    <button class="hr-btn" type="button" data-home>Về danh sách bài</button>
-    <a class="hr-btn" href="/#chat">Kể cho admin nghe</a>
+    <button class="hr-btn" type="button" data-home>${L('Về danh sách bài', 'Back to the list')}</button>
+    <a class="hr-btn" href="/#chat">${L('Kể cho admin nghe', 'Tell the admin')}</a>
   </div>
 </div>`;
   app.querySelectorAll('[data-detail]').forEach((b) => b.addEventListener('click', () => {
@@ -324,7 +343,7 @@ function renderBatch(batch) {
 function renderResult(test, type, r, answers, minutes, batch = null) {
   const meme = MEMES[r.final];
   const isQuiz = type === 'quiz';
-  const statusText = { pass: 'Đạt', fail: 'Chưa đạt', excluded: 'Chưa xét' };
+  const statusText = { pass: L('Đạt', 'Pass'), fail: L('Chưa đạt', 'Not yet'), excluded: L('Chưa xét', 'Not rated') };
   const levelCls = { pass: 'pass', fail: 'fail', unknown: 'skip' };
 
   const chart = radar(r.behaviors.map((b) => ({
@@ -332,36 +351,36 @@ function renderResult(test, type, r, answers, minutes, batch = null) {
     sub: `C${b.level} · ${b.correct}/${isQuiz ? b.total : b.valid || 0}`,
     value: b.ratio,
     pass: b.need && (b.valid || b.total) ? b.need / (b.valid || b.total) : 0.66,
-  })), { ringLabels: ['25%', '50%', '75%', '100%'], title: `Biểu đồ nhện 8 hành vi của ${test.name}` });
+  })), { ringLabels: ['25%', '50%', '75%', '100%'], title: `${L('Biểu đồ nhện 8 hành vi của', '8-behavior spider chart for')} ${nm(test)}` });
 
   const rows = r.behaviors.map((b) => `
     <tr class="${r.focus.includes(b) ? 'hr-focus' : ''}">
       <td>C${b.level}</td>
       <td><b>${esc(b.code)}</b><br>${esc(b.text)}</td>
-      <td class="num">${b.correct}/${isQuiz ? b.total : (b.valid ?? 0)}${b.need ? ` (cần ${b.need})` : ''}</td>
+      <td class="num">${b.correct}/${isQuiz ? b.total : (b.valid ?? 0)}${b.need ? ` (${L('cần', 'need')} ${b.need})` : ''}</td>
       <td><span class="chip ${b.status}">${statusText[b.status]}</span></td>
     </tr>`).join('');
 
   const focusText = r.focus.length
-    ? `<p>Chuỗi cấp dừng ở <b>Cấp ${r.final + 1}</b>. Muốn lên cấp, tập trung vào: ${r.focus.map((b) => `<b>${esc(b.code)}</b> (${esc(b.text)})`).join('; ')}.</p>`
-    : '<p>Bạn đã qua đủ 4 cấp. Giờ là lúc chia sẻ lại cho người khác, kiểu như… cho admin xin miếng bánh chẳng hạn.</p>';
+    ? `<p>${L('Chuỗi cấp dừng ở', 'Your chain stops at')} <b>${L('Cấp', 'Level')} ${r.final + 1}</b>. ${L('Muốn lên cấp, tập trung vào', 'To level up, focus on')}: ${r.focus.map((b) => `<b>${esc(b.code)}</b> (${esc(b.text)})`).join('; ')}.</p>`
+    : `<p>${L('Bạn đã qua đủ 4 cấp. Giờ là lúc chia sẻ lại cho người khác, kiểu như… cho admin xin miếng bánh chẳng hạn.', 'You passed all 4 levels. Time to pass it on… or maybe buy the admin a snack.')}</p>`;
 
   const review = isQuiz ? `
   <section class="card hr-box hr-review">
-    <h2>Xem lại từng câu</h2>
-    <p>Bấm vào câu để xem đáp án đúng. Câu sai cũng là bài học miễn phí.</p>
+    <h2>${L('Xem lại từng câu', 'Review each question')}</h2>
+    <p>${L('Bấm vào câu để xem đáp án đúng. Câu sai cũng là bài học miễn phí.', 'Tap a question to see the right answer. Wrong answers are free lessons.')}</p>
     ${test.questions.map((q, k) => {
       const mine = answers[q.id];
       const ok = mine === q.answer;
-      const mineText = mine ? (q.options[mine] || QUIZ_EXTRA.find(([x]) => x === mine)?.[1]) : 'Bỏ trống';
-      return `<details><summary><span class="${ok ? 'ok' : 'no'}">${ok ? '✓' : '✗'}</span> Câu ${k + 1}: ${esc(q.q)}</summary>
-        <p>Bạn chọn: ${mine ? `<b>${mine}</b> · ` : ''}${esc(mineText)}<br>Đáp án đúng: <b>${q.answer}</b> · ${esc(q.options[q.answer])}<br>Hành vi: ${esc(q.behavior)} · ${esc(q.topic || '')}</p></details>`;
+      const mineText = mine ? (q.options[mine] || QUIZ_EXTRA.find(([x]) => x === mine)?.[1]) : L('Bỏ trống', 'Left blank');
+      return `<details><summary><span class="${ok ? 'ok' : 'no'}">${ok ? '✓' : '✗'}</span> ${L('Câu', 'Q')}${k + 1}: ${esc(q.q)}</summary>
+        <p>${L('Bạn chọn', 'Your answer')}: ${mine ? `<b>${mine}</b> · ` : ''}${esc(mineText)}<br>${L('Đáp án đúng', 'Correct answer')}: <b>${q.answer}</b> · ${esc(q.options[q.answer])}<br>${L('Hành vi', 'Behavior')}: ${esc(q.behavior)} · ${esc(q.topic || '')}</p></details>`;
     }).join('')}
   </section>` : `
   <section class="card hr-box">
-    <h2>Đọc kết quả tự đánh giá sao cho đúng?</h2>
-    <p>Đây là góc nhìn của riêng bạn. Bản chính thức cần thêm ý kiến cấp trên, đồng nghiệp và cấp dưới (trọng số 50% · 30% · 20%). Nếu bạn tự chấm cao hơn người khác nhìn từ 2 cấp trở lên, nên ngồi nói chuyện 1-1 để hiểu nhau hơn.</p>
-    <p>Câu chọn "Chưa có cơ hội" không bị tính là sai, nhưng nếu cả cấp đều chưa có cơ hội thì cấp đó chưa xét được, chuỗi cấp sẽ dừng ở đó.</p>
+    <h2>${L('Đọc kết quả tự đánh giá sao cho đúng?', 'How to read a self-check')}</h2>
+    <p>${L('Đây là góc nhìn của riêng bạn. Bản chính thức cần thêm ý kiến cấp trên, đồng nghiệp và cấp dưới (trọng số 50% · 30% · 20%). Nếu bạn tự chấm cao hơn người khác nhìn từ 2 cấp trở lên, nên ngồi nói chuyện 1-1 để hiểu nhau hơn.', 'This is your own view. An official 360 adds your manager, peers and reports (weighted 50% · 30% · 20%). If you rate yourself 2+ levels above how others see you, a 1-on-1 chat helps.')}</p>
+    <p>${L('Câu chọn "Chưa có cơ hội" không bị tính là sai, nhưng nếu cả cấp đều chưa có cơ hội thì cấp đó chưa xét được, chuỗi cấp sẽ dừng ở đó.', '"No chance yet" is not counted as wrong, but if a whole level has no chance yet it cannot be rated and the chain stops there.')}</p>
   </section>`;
 
   app.innerHTML = `
@@ -369,26 +388,26 @@ function renderResult(test, type, r, answers, minutes, batch = null) {
   <section class="card hr-result-top">
     <div class="meme">${meme.art}</div>
     <div class="copy">
-      <span class="hr-kicker">${esc(test.code)} · ${esc(test.name)} · ${isQuiz ? 'Trắc nghiệm' : 'Tự đánh giá'}</span>
+      <span class="hr-kicker">${esc(test.code)} · ${esc(nm(test))} · ${KIND(type)}</span>
       <div class="hr-level">${esc(LEVEL_NAMES[r.final])}</div>
       <div class="hr-bubble" style="text-align:left;max-width:none">${esc(meme.line)}</div>
-      <p class="muted" style="font-size:16px;line-height:1.6">${esc(meme.note)} ${isQuiz ? `Bạn đúng ${r.correct}/${r.total} câu` : `Bạn chọn "Nhất quán" ${r.correct}/${r.total} câu`}, mất khoảng ${minutes} phút.</p>
-      <div class="hr-ladder">${r.levels.map((l) => `<span class="${levelCls[l.status]}">Cấp ${l.level}: ${l.status === 'pass' ? 'qua' : l.status === 'fail' ? 'hụt' : 'chưa xét'}</span>`).join('')}</div>
+      <p class="muted" style="font-size:16px;line-height:1.6">${esc(meme.note)} ${isQuiz ? L(`Bạn đúng ${r.correct}/${r.total} câu`, `You got ${r.correct}/${r.total} right`) : L(`Bạn chọn "Nhất quán" ${r.correct}/${r.total} câu`, `You chose "Consistent" on ${r.correct}/${r.total}`)}, ${L(`mất khoảng ${minutes} phút`, `in about ${minutes} min`)}.</p>
+      <div class="hr-ladder">${r.levels.map((l) => `<span class="${levelCls[l.status]}">${L('Cấp', 'Level')} ${l.level}: ${l.status === 'pass' ? L('qua', 'passed') : l.status === 'fail' ? L('hụt', 'missed') : L('chưa xét', 'not rated')}</span>`).join('')}</div>
     </div>
   </section>
 
   <section class="hr-two">
     <div class="card hr-box">
-      <h2>Biểu đồ nhện 8 hành vi</h2>
+      <h2>${L('Biểu đồ nhện 8 hành vi', '8-behavior spider chart')}</h2>
       ${chart}
-      <p>Mỗi cánh là một hành vi. Chấm xanh là đạt, chấm hồng là chưa đạt. Càng xa tâm càng làm tốt.</p>
+      <p>${L('Mỗi cánh là một hành vi. Chấm xanh là đạt, chấm hồng là chưa đạt. Càng xa tâm càng làm tốt.', 'Each spoke is a behavior. Green dots passed, pink dots not yet. Further out means better.')}</p>
     </div>
     <div class="card hr-box">
-      <h2>Nên tập trung</h2>
+      <h2>${L('Nên tập trung', 'Focus on')}</h2>
       ${focusText}
       <div class="table-scroll">
         <table class="hr-table">
-          <thead><tr><th>Cấp</th><th>Hành vi</th><th>${isQuiz ? 'Đúng' : 'Nhất quán'}</th><th>Kết quả</th></tr></thead>
+          <thead><tr><th>${L('Cấp', 'Level')}</th><th>${L('Hành vi', 'Behavior')}</th><th>${isQuiz ? L('Đúng', 'Correct') : L('Nhất quán', 'Consistent')}</th><th>${L('Kết quả', 'Result')}</th></tr></thead>
           <tbody>${rows}</tbody>
         </table>
       </div>
@@ -398,10 +417,10 @@ function renderResult(test, type, r, answers, minutes, batch = null) {
   ${review}
 
   <div class="hr-nav" style="justify-content:flex-start">
-    ${batch ? '<button class="hr-btn primary" type="button" data-back-batch>← Về kết quả tổng</button>' : ''}
-    <button class="hr-btn${batch ? '' : ' primary'}" type="button" data-again>Làm lại bài này</button>
-    <button class="hr-btn" type="button" data-home>Về danh sách bài</button>
-    <a class="hr-btn" href="/#chat" >Kể cho admin nghe</a>
+    ${batch ? `<button class="hr-btn primary" type="button" data-back-batch>← ${L('Về kết quả tổng', 'Back to overall results')}</button>` : ''}
+    <button class="hr-btn${batch ? '' : ' primary'}" type="button" data-again>${L('Làm lại bài này', 'Retake this test')}</button>
+    <button class="hr-btn" type="button" data-home>${L('Về danh sách bài', 'Back to the list')}</button>
+    <a class="hr-btn" href="/#chat">${L('Kể cho admin nghe', 'Tell the admin')}</a>
   </div>
 </div>`;
 
@@ -415,9 +434,12 @@ function renderResult(test, type, r, answers, minutes, batch = null) {
 document.querySelectorAll('[data-set]').forEach((a) => {
   if (a.dataset.set === set.id) a.setAttribute('aria-current', 'page');
 });
-document.title = `Thử sức năng lực HR · ${set.name}`;
+document.title = `${L('Thử sức năng lực HR', 'HR skills check')} · ${set.name}`;
+const slot = document.getElementById('prefs-slot');
+if (slot) { slot.innerHTML = togglesHtml(); bindToggles(slot); }
+document.querySelectorAll('[data-i18n-vi]').forEach((el) => { el.textContent = L(el.dataset.i18nVi, el.dataset.i18nEn); });
 
 fetch(set.data)
   .then((r) => r.json())
   .then((json) => { data = json; renderHome(); })
-  .catch(() => { app.innerHTML = '<div class="wrap"><p class="hr-empty">Không tải được bộ đề. Bạn tải lại trang thử nha.</p></div>'; });
+  .catch(() => { app.innerHTML = `<div class="wrap"><p class="hr-empty">${L('Không tải được bộ đề. Bạn tải lại trang thử nha.', 'Could not load the tests. Please reload the page.')}</p></div>`; });

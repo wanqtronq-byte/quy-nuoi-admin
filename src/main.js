@@ -4,13 +4,15 @@ import site from './config/site.js';
 import sections from './config/sections.js';
 import chat from './widgets/chat.js';
 import { injectCss, fragment, esc } from './lib/dom.js';
+import { pick } from './lib/i18n.js';
+import { togglesHtml, bindToggles } from './lib/prefs.js';
 
 function renderHeader() {
   const links = sections
     .filter((s) => s.nav)
-    .map((s) => `<a href="#${esc(s.id)}"${s.navHighlight ? ' class="is-cta"' : ''}>${esc(s.nav)}</a>`);
+    .map((s) => `<a href="#${esc(s.id)}"${s.navHighlight ? ' class="is-cta"' : ''}>${esc(pick(s.nav))}</a>`);
   if (site.chat && site.chat.enabled) {
-    links.push('<a href="#chat" data-open-chat>Chat với admin</a>');
+    links.push(`<a href="#chat" data-open-chat>${esc(site.nav.chat)}</a>`);
   }
   document.getElementById('site-header').replaceWith(fragment(`
     <div class="wrap site-header">
@@ -19,9 +21,13 @@ function renderHeader() {
           <span class="logo-img"><img src="${esc(site.mascot)}" alt=""></span>
           <span class="display logo-name">${esc(site.name)}</span>
         </a>
-        <nav class="nav" aria-label="Chính">${links.join('')}</nav>
+        <div class="bar-right">
+          <nav class="nav" aria-label="Menu">${links.join('')}</nav>
+          ${togglesHtml()}
+        </div>
       </header>
     </div>`));
+  bindToggles();
 }
 
 function renderSections() {
@@ -51,6 +57,7 @@ function renderFooter() {
     </footer>`));
 }
 
+document.title = site.name;
 renderHeader();
 renderSections();
 renderFooter();

@@ -1,18 +1,19 @@
 // Phần "Chuyện là…": vài đoạn kể chuyện, sửa trong mảng `paragraphs`.
 
 import { esc } from '../lib/dom.js';
+import { localize } from '../lib/i18n.js';
 
-const content = {
-  title: 'Chuyện là…',
+const content = localize({
+  title: { vi: 'Chuyện là…', en: 'The story' },
   paragraphs: [
-    'Ban ngày tui làm HR, tối về ngồi vibe code mấy tool nhỏ.',
-    'Bán mình cho tư bản mà lương chỉ đủ uống nước cầm hơi. Xin thí chủ một miếng bánh để tui có thêm động lực chia sẻ nhiều điều thú vị hơn nha.',
+    { vi: 'Ban ngày tui làm HR, tối về ngồi vibe code mấy tool nhỏ.', en: 'By day I work in HR. By night I vibe code little tools.' },
+    { vi: 'Bán mình cho tư bản mà lương chỉ đủ uống nước cầm hơi. Xin thí chủ một miếng bánh để tui có thêm động lực chia sẻ nhiều điều thú vị hơn nha.', en: 'Sold my soul to capitalism and the salary barely covers water. Spare a snack and I will be fueled to share more fun stuff.' },
   ],
-};
+});
 
 export default {
   id: 'chuyen-la',
-  nav: 'Chuyện là…',
+  nav: { vi: 'Chuyện là…', en: 'Story' },
 
   css: `
 .story { padding-block: 64px 24px; }

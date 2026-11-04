@@ -2,6 +2,7 @@
 <html lang="vi">
 <head>
 <meta charset="utf-8">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;if(localStorage.getItem("lang")==="en")document.documentElement.lang="en"}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Thử sức năng lực HR</title>
 <meta name="description" content="Bộ trắc nghiệm và tự đánh giá năng lực HRM/HRD, có biểu đồ nhện kết quả. Làm miễn phí, kết quả chỉ lưu trên máy bạn.">
@@ -20,24 +21,25 @@
   <header class="hr-bar">
     <a class="logo" href="/">
       <span class="logo-img"><img src="/assets/img/mascot.png" alt=""></span>
-      <span class="display logo-name">Quỹ Nuôi Admin</span>
+      <span class="display logo-name" data-i18n-vi="Quỹ Nuôi Admin" data-i18n-en="Feed The Admin">Quỹ Nuôi Admin</span>
     </a>
     <nav class="switch" aria-label="Chọn bộ đánh giá">
-      <a href="/danh-gia.html?bo=rut-gon" data-set="rut-gon">Bản rút gọn</a>
-      <a href="/danh-gia.html?bo=day-du" data-set="day-du">Bản đầy đủ</a>
-      <a href="/">Về trang chính</a>
+      <a href="/danh-gia.html?bo=rut-gon" data-set="rut-gon" data-i18n-vi="Bản rút gọn" data-i18n-en="Short set">Bản rút gọn</a>
+      <a href="/danh-gia.html?bo=day-du" data-set="day-du" data-i18n-vi="Bản đầy đủ" data-i18n-en="Full set">Bản đầy đủ</a>
+      <a href="/" data-i18n-vi="Về trang chính" data-i18n-en="Home">Về trang chính</a>
+      <span id="prefs-slot"></span>
     </nav>
   </header>
 </div>
-<main id="hr-app"><div class="wrap"><p class="hr-empty">Đang bày đề ra bàn…</p></div></main>
+<main id="hr-app"><div class="wrap"><p class="hr-empty" data-i18n-vi="Đang bày đề ra bàn…" data-i18n-en="Setting out the tests…">Đang bày đề ra bàn…</p></div></main>
 <footer class="site-footer">
   <div class="wrap">
-    <span>Bộ khung năng lực HRM/HRD do admin biên soạn lại, tình huống và tên người đều là giả định.</span>
-    <span>Kết quả để tự phát triển, đừng đem đi xét lương nha.</span>
+    <span data-i18n-vi="Bộ khung năng lực HRM/HRD do admin biên soạn lại, tình huống và tên người đều là giả định." data-i18n-en="HRM/HRD competency framework rewritten by the admin; all scenarios and names are fictional.">Bộ khung năng lực HRM/HRD do admin biên soạn lại, tình huống và tên người đều là giả định.</span>
+    <span data-i18n-vi="Kết quả để tự phát triển, đừng đem đi xét lương nha." data-i18n-en="Results are for self-development, not for salary decisions.">Kết quả để tự phát triển, đừng đem đi xét lương nha.</span>
   </div>
   <div class="wrap footer-legal">
-    <p class="footer-project">Dự án Nuôi Admin · làm bởi một bạn HR mê vibe code.</p>
-    <p>Miễn trừ trách nhiệm: Đây là dự án cá nhân làm cho vui. Ủng hộ là hoàn toàn tự nguyện, không phải gây quỹ từ thiện, không hoàn tiền và không kèm cam kết gì. Mẹo HR, bài đánh giá năng lực và câu trả lời của AI chỉ để tham khảo, không thay cho tư vấn chuyên môn về pháp lý, tài chính hay nhân sự; AI có thể trả lời sai. Đừng gửi thông tin cá nhân hay dữ liệu mật vào ô chat. Kết quả đánh giá chỉ để tự tham khảo và phát triển bản thân, không dùng để xét tuyển, lương thưởng hay kỷ luật. Hình ảnh meme thuộc về tác giả gốc.</p>
+    <p class="footer-project" data-i18n-vi="Dự án Nuôi Admin · làm bởi một bạn HR mê vibe code." data-i18n-en="The Feed The Admin project · made by an HR person who loves vibe coding.">Dự án Nuôi Admin · làm bởi một bạn HR mê vibe code.</p>
+    <p data-i18n-vi="Miễn trừ trách nhiệm: Đây là dự án cá nhân làm cho vui. Ủng hộ là hoàn toàn tự nguyện, không phải gây quỹ từ thiện, không hoàn tiền và không kèm cam kết gì. Mẹo HR, bài đánh giá năng lực và câu trả lời của AI chỉ để tham khảo, không thay cho tư vấn chuyên môn về pháp lý, tài chính hay nhân sự; AI có thể trả lời sai. Đừng gửi thông tin cá nhân hay dữ liệu mật vào ô chat. Kết quả đánh giá chỉ để tự tham khảo và phát triển bản thân, không dùng để xét tuyển, lương thưởng hay kỷ luật. Hình ảnh meme thuộc về tác giả gốc." data-i18n-en="Disclaimer: This is a personal project made for fun. Donations are fully voluntary, not charity fundraising, non-refundable and come with no promises. HR tips, skills assessments and AI replies are for reference only and do not replace professional legal, financial or HR advice; the AI can be wrong. Please do not share personal or confidential data in the chat. Assessment results are for self-reference and growth only, not for hiring, pay or disciplinary decisions. Meme images belong to their original creators.">Miễn trừ trách nhiệm: Đây là dự án cá nhân làm cho vui. Ủng hộ là hoàn toàn tự nguyện, không phải gây quỹ từ thiện, không hoàn tiền và không kèm cam kết gì. Mẹo HR, bài đánh giá năng lực và câu trả lời của AI chỉ để tham khảo, không thay cho tư vấn chuyên môn về pháp lý, tài chính hay nhân sự; AI có thể trả lời sai. Đừng gửi thông tin cá nhân hay dữ liệu mật vào ô chat. Kết quả đánh giá chỉ để tự tham khảo và phát triển bản thân, không dùng để xét tuyển, lương thưởng hay kỷ luật. Hình ảnh meme thuộc về tác giả gốc.</p>
   </div>
 </footer>
 <script type="module" src="/src/hr/app.js"></script>

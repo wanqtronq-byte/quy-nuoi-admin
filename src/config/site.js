@@ -20,6 +20,8 @@ export default {
   footer: {
     left: '© Quỹ Nuôi Admin · thương nhau thì nuôi nhau.',
     right: 'Trang làm cho vui thôi, đừng căng nha.',
+    project: 'Dự án Nuôi Admin · làm bởi một bạn HR mê vibe code.',
+    disclaimer: 'Miễn trừ trách nhiệm: Đây là dự án cá nhân làm cho vui. Ủng hộ là hoàn toàn tự nguyện, không phải gây quỹ từ thiện, không hoàn tiền và không kèm cam kết gì. Mẹo HR, bài đánh giá năng lực và câu trả lời của AI chỉ để tham khảo, không thay cho tư vấn chuyên môn về pháp lý, tài chính hay nhân sự; AI có thể trả lời sai. Đừng gửi thông tin cá nhân hay dữ liệu mật vào ô chat. Hình ảnh meme thuộc về tác giả gốc.',
   },
 
   // Thông tin chuyển khoản.

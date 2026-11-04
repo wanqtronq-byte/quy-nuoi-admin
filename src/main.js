@@ -44,6 +44,10 @@ function renderFooter() {
         <span>${esc(site.footer.left)}</span>
         <span>${esc(site.footer.right)}</span>
       </div>
+      <div class="wrap footer-legal">
+        ${site.footer.project ? `<p class="footer-project">${esc(site.footer.project)}</p>` : ''}
+        ${site.footer.disclaimer ? `<p>${esc(site.footer.disclaimer)}</p>` : ''}
+      </div>
     </footer>`));
 }
 

@@ -8,7 +8,7 @@ const content = {
   qrCaption: 'Quét một phát là xong',
   defaultPick: 2,
   options: [
-    { label: '10k', hint: 'ổ bánh mì không', msg: 'Ổ bánh mì không mà tui nhai ngon lành luôn. Cảm ơn bạn iu nha!' },
+    { label: '10k', hint: 'ổ bánh mì không', msg: 'Ổ bánh mì mà no cả ngày. Cảm ơn bạn iu nha!' },
     { label: '20k', hint: 'bánh mì thịt', msg: 'Bánh mì thịt đủ pate, tui no tới chiều. Thương ghê!' },
     { label: '50k', hint: 'bông lan trứng muối', msg: 'Bông lan trứng muối, sang chảnh quá trời. Bạn là nhất!' },
     { label: '100k', hint: 'nguyên hộp bánh quy', msg: 'Nguyên hộp bánh quy, tui chia cả xóm luôn. Cảm động muốn khóc.' },

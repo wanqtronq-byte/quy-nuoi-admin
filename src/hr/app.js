@@ -31,6 +31,16 @@ const STORE = `hr-results-${set.id}`;
 
 let data = null;
 let run = null;      // bài đang làm
+
+// Nhắc giữ trang: chưa có database, thoát là mất bài đang làm
+const KEEP_NOTE = `<div class="hr-keep" role="note"><b>${L('Giữ trang tới khi làm xong nha!', 'Please keep this page open until you finish!')}</b> ${L('Admin chưa có tiền mua database nên bài đang làm chỉ nằm trên trang này. Lỡ thoát hay tải lại trang là mất sạch, phải làm lại từ đầu đó.', 'The admin cannot afford a database yet, so your answers only live on this page. Leave or reload and they are gone.')}</div>`;
+
+window.addEventListener('beforeunload', (e) => {
+  if (run && (Object.keys(run.answers).length || (run.batch && run.batch.done.length))) {
+    e.preventDefault();
+    e.returnValue = '';
+  }
+});
 let timerId = null;
 
 // ---------- lưu kết quả trên máy người dùng ----------
@@ -53,7 +63,7 @@ function stopTimer() { if (timerId) clearInterval(timerId); timerId = null; }
 function scrollTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
 // ---------- màn hình danh sách ----------
-function renderHome() {
+function renderHome(view = 'gate') {
   stopTimer();
   run = null;
   const results = loadResults();
@@ -103,11 +113,11 @@ function renderHome() {
   </section>
 
   <section class="hr-modes">
-    <a class="card hr-mode pop" href="#ds-de">
-      <b class="display">${L('Làm từng năng lực', 'One skill at a time')}</b>
+    <button class="card hr-mode pop" type="button" data-list>
+      <b class="display">${L('Làm từng phần', 'One part at a time')}</b>
       <span>${L(`Chọn 1 bài bạn thích, ${Math.min(...surveyMin)}–${Math.max(...quizMin)} phút là xong.`, `Pick any test, ${Math.min(...surveyMin)}–${Math.max(...quizMin)} minutes each.`)}</span>
-      <em>${L('Chọn bài bên dưới ↓', 'Choose below ↓')}</em>
-    </a>
+      <em>${L('Chọn bài →', 'Pick a test →')}</em>
+    </button>
     <button class="card hr-mode pop" type="button" data-all>
       <b class="display">${L('Làm hết một lượt', 'Everything in one go')}</b>
       <span>${L(`Cả ${data.quizzes.length + data.surveys.length} bài liền nhau, khoảng ${hours} tiếng. Giữa các bài được nghỉ, dừng lúc nào cũng được.`, `All ${data.quizzes.length + data.surveys.length} tests back to back, about ${hours} hours. Breaks in between, stop any time.`)}</span>
@@ -151,8 +161,25 @@ function renderHome() {
   </section>
 </div>`;
 
+  // Chỉ hiện đúng phần cần thấy: cổng chọn cách làm, hoặc danh sách bài
+  if (view === 'gate') {
+    app.querySelectorAll('#ds-de, #ds-de ~ section').forEach((el) => el.remove());
+  } else {
+    app.querySelectorAll('.hr-modes, .hr-tips').forEach((el) => el.remove());
+    app.querySelector('.hr-intro').insertAdjacentHTML('afterend', `
+  <div class="hr-listbar">
+    <button class="hr-btn" type="button" data-gate>← ${L('Chọn lại cách làm', 'Change how to take it')}</button>
+  </div>
+  ${KEEP_NOTE}`);
+  }
+  const gate = app.querySelector('[data-gate]');
+  if (gate) gate.addEventListener('click', () => { renderHome('gate'); scrollTop(); });
+  const list = app.querySelector('[data-list]');
+  if (list) list.addEventListener('click', () => { renderHome('list'); scrollTop(); });
+
   app.querySelectorAll('[data-start]').forEach((b) => b.addEventListener('click', () => startTest(b.dataset.start, b.dataset.code)));
-  app.querySelector('[data-all]').addEventListener('click', () => {
+  const all = app.querySelector('[data-all]');
+  if (all) all.addEventListener('click', () => {
     const queue = [...data.quizzes.map((t) => ['quiz', t.code]), ...data.surveys.map((t) => ['survey', t.code])];
     const batch = { queue, total: queue.length, done: [] };
     const [type, code] = batch.queue.shift();
@@ -162,7 +189,7 @@ function renderHome() {
   if (clear) clear.addEventListener('click', () => {
     if (clear.dataset.sure) {
       try { localStorage.removeItem(STORE); } catch { /* bỏ qua */ }
-      renderHome();
+      renderHome('list');
     } else {
       clear.dataset.sure = '1';
       clear.textContent = L('Bấm lần nữa để xoá thật', 'Click again to really clear');
@@ -208,6 +235,7 @@ function renderQuestion(showWarn = false) {
       <h1>${esc(nm(test))} <small style="font-size:16px;color:var(--muted)">· ${KIND(type)}${run.batch ? ` · ${L('bài', 'test')} ${run.batch.done.length + 1}/${run.batch.total}` : ''}</small></h1>
       <span class="hr-timer" id="hr-timer">${fmtTime(Math.floor((Date.now() - run.started) / 1000))} / ${L('gợi ý', 'suggested')} ${test.minutes} ${L('phút', 'min')}</span>
     </div>
+    ${i === 0 && !Object.keys(answers).length ? KEEP_NOTE : ''}
     <div class="hr-progress" aria-label="${L('Đã trả lời', 'Answered')} ${answered}/${n}"><i style="width:${(answered / n) * 100}%"></i></div>
     <article class="card hr-q">
       <span class="label">${L('Câu', 'Question')} ${i + 1}/${n} · ${L('Cấp', 'Level')} ${q.level}${isQuiz && q.topic ? ` · ${esc(q.topic)}` : ''}</span>
@@ -238,7 +266,7 @@ function renderQuestion(showWarn = false) {
   on('[data-next]', () => { run.i += 1; renderQuestion(); });
   on('[data-submit]', () => (missing ? renderQuestion(true) : finish()));
   on('[data-force]', finish);
-  on('[data-quit]', () => { renderHome(); scrollTop(); });
+  on('[data-quit]', () => { const b = run && run.batch; run = null; renderHome(b ? 'gate' : 'list'); scrollTop(); });
   app.querySelectorAll('[data-go]').forEach((b) => b.addEventListener('click', () => { run.i = Number(b.dataset.go); renderQuestion(); }));
 }
 
@@ -254,6 +282,7 @@ function finish() {
     batch.done.push({ test, type, result, answers, minutes });
     if (batch.queue.length) renderBreak(batch); else renderBatch(batch);
   } else {
+    run = null;
     renderResult(test, type, result, answers, minutes);
   }
   scrollTop();
@@ -337,7 +366,7 @@ function renderBatch(batch) {
     renderResult(d.test, d.type, d.result, d.answers, d.minutes, batch);
     scrollTop();
   }));
-  app.querySelector('[data-home]').addEventListener('click', () => { renderHome(); scrollTop(); });
+  app.querySelector('[data-home]').addEventListener('click', () => { renderHome('gate'); scrollTop(); });
 }
 
 function renderResult(test, type, r, answers, minutes, batch = null) {
@@ -427,7 +456,7 @@ function renderResult(test, type, r, answers, minutes, batch = null) {
   app.querySelector('[data-again]').addEventListener('click', () => startTest(type, test.code));
   const back = app.querySelector('[data-back-batch]');
   if (back) back.addEventListener('click', () => { renderBatch(batch); scrollTop(); });
-  app.querySelector('[data-home]').addEventListener('click', () => { renderHome(); scrollTop(); });
+  app.querySelector('[data-home]').addEventListener('click', () => { renderHome(batch ? 'gate' : 'list'); scrollTop(); });
 }
 
 // ---------- khởi động ----------

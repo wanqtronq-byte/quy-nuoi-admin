@@ -1,0 +1,105 @@
+/* ============================================================
+   BASE — màu, chữ, nút, khung, hiệu ứng dùng chung.
+   CSS riêng của từng phần nằm trong file module của phần đó.
+   ============================================================ */
+
+:root {
+  --ink: #17342B;      /* chữ và viền */
+  --muted: #3F6157;    /* chữ phụ */
+  --bg: #E3F8EF;       /* nền mint nhạt */
+  --mint: #9EE6C9;     /* mint */
+  --mint2: #5FD3A8;    /* mint đậm */
+  --deep: #0E7A5A;     /* nút chính */
+  --sun: #FFD86B;      /* vàng */
+  --pink: #FFB5C2;     /* hồng */
+  --paper: #FFFFFF;
+  --font-display: 'Baloo 2', 'Be Vietnam Pro', system-ui, sans-serif;
+  --font-body: 'Be Vietnam Pro', system-ui, sans-serif;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; }
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { text-wrap: balance; }
+a { color: var(--ink); }
+a:hover { color: var(--deep); }
+:focus-visible { outline: 3px solid var(--mint2); outline-offset: 3px; }
+
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: max(24px, env(safe-area-inset-left, 0px));
+  padding-right: max(24px, env(safe-area-inset-right, 0px));
+}
+.display { font-family: var(--font-display); font-weight: 800; }
+.h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(32px, 4.5vw, 44px); line-height: 1.15; }
+.muted { color: var(--muted); }
+.sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+.card { background: var(--paper); border: 3px solid var(--ink); border-radius: 24px; box-shadow: 6px 6px 0 var(--ink); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 60px; padding: 0 32px;
+  font-weight: 700; font-size: 20px; text-decoration: none;
+  border-radius: 18px; border: 3px solid var(--ink);
+}
+.btn-primary { background: var(--deep); color: #fff; box-shadow: 5px 5px 0 var(--ink); }
+.btn-primary:hover { color: #fff; }
+.btn-ghost { background: var(--paper); color: var(--ink); box-shadow: 5px 5px 0 var(--mint); }
+
+.pop { transition: transform .15s ease, box-shadow .15s ease; }
+.pop:hover { transform: translate(-3px, -3px) scale(1.03); }
+.pop:active { transform: translate(2px, 2px) scale(.98); }
+
+/* Header */
+.site-header { padding-top: 20px; }
+.bar {
+  display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; justify-content: space-between;
+  padding: 10px 14px 10px 10px; background: var(--paper);
+  border: 3px solid var(--ink); border-radius: 999px; box-shadow: 5px 5px 0 var(--ink);
+}
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo-img { width: 52px; height: 52px; border-radius: 999px; background: var(--paper); border: 3px solid var(--ink); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.logo-img img { width: 46px; height: 46px; object-fit: contain; }
+.logo-name { font-size: 26px; line-height: 1; }
+.nav { display: flex; flex-wrap: wrap; gap: 6px; font-weight: 700; font-size: 16px; }
+.nav a { text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 2px solid transparent; }
+.nav a:hover { background: var(--bg); }
+.nav a.is-cta { background: var(--mint); border-color: var(--ink); }
+
+/* Footer */
+.site-footer { background: var(--ink); color: var(--bg); }
+.site-footer .wrap { padding-block: 24px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-size: 15px; }
+
+@media (max-width: 600px) {
+  .bar { border-radius: 28px; }
+  .nav { width: 100%; }
+}
+
+/* Hiệu ứng dùng chung */
+@keyframes drift { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(16px); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes bob { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-12px) rotate(14deg); } }
+@keyframes beat { 0%, 100% { transform: scale(1); } 15% { transform: scale(1.2); } 30% { transform: scale(1); } 45% { transform: scale(1.12); } }
+@keyframes twinkle { 0%, 100% { transform: scale(1) rotate(0); opacity: 1; } 50% { transform: scale(.55) rotate(45deg); opacity: .6; } }
+@keyframes wobble { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(2deg); } }
+@keyframes dogbounce { 0%, 100% { transform: translateY(0) rotate(0); } 25% { transform: translateY(-8px) rotate(-2deg); } 50% { transform: translateY(0) rotate(0); } 75% { transform: translateY(-8px) rotate(2deg); } }
+@keyframes tilt { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(5deg); } }
+@keyframes sway { 0%, 100% { transform: rotate(1.5deg); } 50% { transform: rotate(-1.5deg); } }
+@keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}

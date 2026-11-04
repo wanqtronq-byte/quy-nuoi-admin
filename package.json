@@ -1,0 +1,10 @@
+{
+  "name": "quy-nuoi-admin",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Trang xin donate vui vẻ, có chat AI (Gemini). Deploy trên Vercel.",
+  "engines": {
+    "node": ">=20"
+  }
+}

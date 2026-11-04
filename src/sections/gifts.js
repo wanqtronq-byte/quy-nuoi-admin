@@ -12,17 +12,10 @@ const ICONS = {
 const content = localize({
   title: { vi: 'Quà cảm ơn của bạn ở đây nè', en: 'Your thank-you gifts' },
   items: [
-    {
-      icon: 'hr',
-      title: { vi: 'Mẹo HR bỏ túi', en: 'Pocket HR tips' },
-      desc: { vi: 'CV · phỏng vấn · deal lương. Kèm bài thử sức năng lực HR có biểu đồ nhện:', en: 'CVs · interviews · salary talks. Plus an HR skills check with a spider chart:' },
-      links: [
-        { label: { vi: 'Bản rút gọn · 16 câu/đề', en: 'Short set · 16 questions/test' }, href: '/danh-gia.html?bo=rut-gon' },
-        { label: { vi: 'Bản đầy đủ · 24–28 câu/đề', en: 'Full set · 24–28 questions/test' }, href: '/danh-gia.html?bo=day-du' },
-      ],
-    },
-    { icon: 'code', title: { vi: 'Prompt vibe code', en: 'Vibe coding prompts' }, desc: { vi: 'Mấy prompt tui hay xài', en: 'The prompts I actually use' } },
+    { icon: 'hr', title: { vi: 'Mẹo HR', en: 'HR tips' }, href: '/meo.html?chu-de=hr' },
+    { icon: 'code', title: { vi: 'Mẹo Vibe code', en: 'Vibe coding tips' }, href: '/meo.html?chu-de=vibe-code' },
   ],
+  open: { vi: 'Mở xem →', en: 'Open →' },
   noteBefore: { vi: 'Có cho hay không cũng lấy được, ', en: 'Free either way, just ' },
   noteLink: { vi: 'nhắn tui', en: 'message me' },
   noteAfter: { vi: ' là có liền.', en: ' and they are yours.' },
@@ -36,7 +29,9 @@ export default {
 .gifts { background: var(--mint); }
 .gifts .wrap { padding-block: 40px 56px; display: flex; flex-direction: column; gap: 28px; }
 .gifts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 24px; }
-.gift { display: flex; align-items: center; gap: 24px; padding: 24px; }
+.gift { display: flex; align-items: center; gap: 24px; padding: 24px; text-decoration: none; color: var(--ink); }
+.gift:hover { color: var(--ink); }
+.gift-open { display: inline-block; margin-top: 8px; font-weight: 700; color: var(--accent); }
 .gift-tile { flex: 0 0 auto; width: 120px; height: 120px; border-radius: 26px; background: #E3F8EF; border: 3px solid var(--ink); display: flex; align-items: center; justify-content: center; animation: tilt 3s ease-in-out infinite; }
 .gift:nth-child(even) .gift-tile { animation-direction: reverse; }
 .gift h3 { font-size: 28px; line-height: 1.2; }
@@ -51,10 +46,10 @@ export default {
   render(site) {
     const chatOn = site.chat && site.chat.enabled;
     const items = content.items.map((it) => `
-      <div class="card gift">
+      <a class="card gift pop" href="${esc(it.href)}">
         <div class="gift-tile">${ICONS[it.icon] || ''}</div>
-        <div><h3 class="display">${esc(it.title)}</h3><p>${esc(it.desc)}</p>${it.links ? `<div class="gift-links">${it.links.map((l) => `<a class="pop" href="${esc(l.href)}">${esc(l.label)} →</a>`).join('')}</div>` : ''}</div>
-      </div>`).join('');
+        <div><h3 class="display">${esc(it.title)}</h3><span class="gift-open">${esc(content.open)}</span></div>
+      </a>`).join('');
     const note = chatOn
       ? `<p class="gifts-note">${ICONS.heart}<span>${esc(content.noteBefore)}<a href="#chat" data-open-chat>${esc(content.noteLink)}</a>${esc(content.noteAfter)}</span></p>`
       : '';

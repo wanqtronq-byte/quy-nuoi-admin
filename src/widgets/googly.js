@@ -4,7 +4,7 @@
 import { injectCss } from '../lib/dom.js';
 
 const EYES = [{ x: 44, y: 26 }, { x: 59.5, y: 26 }];
-const SIZE = 14; // % chiều rộng ảnh
+const SIZE = 15.5; // % chiều rộng ảnh
 
 injectCss('googly', `
 .googly { position: relative; display: inline-flex; flex: 0 0 auto; }
@@ -12,7 +12,7 @@ injectCss('googly', `
 .googly img { display: block; }
 .googly.zoom { border-radius: 999px; overflow: hidden; background: #fff; border: 2.5px solid #17342B; }
 .googly.zoom img { border: 0 !important; width: 100% !important; height: 100% !important; }
-.googly.zoom .googly-in { transform: scale(1.6); transform-origin: 50% 30%; }
+.googly.zoom .googly-in { transform: scale(2.5); transform-origin: 51.5% 18%; }
 .googly .eye { position: absolute; width: ${SIZE}%; aspect-ratio: 1; transform: translate(-50%, -50%); background: #fff; border: 1.5px solid #17342B; border-radius: 50%; overflow: hidden; animation: blink 5s infinite; transform-origin: center; }
 .googly .eye:nth-of-type(3) { animation-delay: .02s; }
 .googly .pupil { position: absolute; left: 50%; top: 50%; width: 58%; height: 58%; margin: -29% 0 0 -29%; background: #17342B; border-radius: 50%; transition: transform .08s linear; }
@@ -32,7 +32,8 @@ function look(x, y) {
     const cy = eye.top + eye.height / 2;
     const ang = Math.atan2(y - cy, x - cx);
     const dist = Math.min(1, Math.hypot(x - cx, y - cy) / 120);
-    const max = eye.width * 0.22;
+    // Con ngươi chiếm 58% mắt: chỉ cho lệch tối đa 15% để luôn còn thấy lòng đen.
+    const max = eye.width * 0.15;
     p.style.transform = `translate(${Math.cos(ang) * max * dist}px, ${Math.sin(ang) * max * dist}px)`;
   });
 }

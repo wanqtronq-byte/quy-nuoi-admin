@@ -3,6 +3,7 @@
 
 import { injectCss, fragment, esc } from '../lib/dom.js';
 import { googly } from './googly.js';
+import { leash } from './leash.js';
 import { lang } from '../lib/i18n.js';
 
 const css = `
@@ -177,6 +178,7 @@ export default {
     }
 
     fab.addEventListener('click', open);
+    leash(fab);
     panel.querySelector('.chat-x').addEventListener('click', close);
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !panel.hidden) close(); });
     document.addEventListener('click', (e) => {

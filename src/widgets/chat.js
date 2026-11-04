@@ -2,12 +2,17 @@
 // Cấu hình chữ, câu gợi ý trong src/config/site.js → chat.
 
 import { injectCss, fragment, esc } from '../lib/dom.js';
+import { googly } from './googly.js';
 
 const css = `
-.chat-fab { position: fixed; right: calc(20px + env(safe-area-inset-right, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 50; display: flex; align-items: center; gap: 10px; min-height: 60px; padding: 6px 20px 6px 6px; background: var(--deep); color: #fff; font: 700 17px var(--font-body); border: 3px solid var(--ink); border-radius: 999px; box-shadow: 5px 5px 0 var(--ink); cursor: pointer; animation: chat-bob 3s ease-in-out infinite; }
+.chat-fab { position: fixed; right: calc(20px + env(safe-area-inset-right, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 50; display: flex; align-items: center; gap: 10px; min-height: 72px; padding: 5px 22px 5px 5px; background: var(--deep); color: #fff; font: 700 17px var(--font-body); border: 3px solid var(--ink); border-radius: 999px; box-shadow: 5px 5px 0 var(--ink); cursor: pointer; animation: chat-bob 3s ease-in-out infinite; }
 .chat-fab[aria-expanded="true"] { display: none; }
 .chat-av { width: 40px; height: 40px; border-radius: 999px; background: #fff; border: 2.5px solid var(--ink); object-fit: contain; flex: 0 0 auto; }
-.chat-fab .chat-av { width: 46px; height: 46px; }
+.chat-fab .chat-av { width: 62px; height: 62px; }
+.chat-head .chat-av { width: 52px; height: 52px; }
+.chat-av { padding: 0; }
+.chat-fab .googly { width: 62px; height: 62px; }
+.chat-head .googly { width: 52px; height: 52px; }
 .chat-panel { position: fixed; right: calc(20px + env(safe-area-inset-right, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 60; width: min(390px, calc(100vw - 24px)); height: min(580px, calc(100dvh - 40px)); display: flex; flex-direction: column; background: #fff; border: 3px solid var(--ink); border-radius: 26px; box-shadow: 8px 8px 0 var(--ink); overflow: hidden; animation: rise .25s ease-out both; }
 .chat-panel[hidden] { display: none; }
 .chat-head { display: flex; align-items: center; gap: 12px; padding: 12px 12px 12px 16px; background: var(--mint); border-bottom: 3px solid var(--ink); }
@@ -64,6 +69,9 @@ export default {
   </form>
 </section>`);
     document.body.appendChild(ui);
+
+    // Mắt tròn nhìn theo chuột cho cún ở nút chat và đầu khung chat
+    document.querySelectorAll('#chat-fab .chat-av, #chat-panel .chat-head .chat-av').forEach((img) => googly(img, { zoom: true }));
 
     const fab = document.getElementById('chat-fab');
     const panel = document.getElementById('chat-panel');

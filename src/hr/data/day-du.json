@@ -1,0 +1,2383 @@
+{
+ "id": "day-du",
+ "quizzes": [
+  {
+   "code": "PB-01",
+   "name": "Tư duy phản biện",
+   "definition": "Đánh giá chất lượng thông tin, lập luận và giả định ẩn để đưa ra nhận định khách quan thay vì chấp nhận thụ động.",
+   "minutes": 36,
+   "behaviors": [
+    {
+     "code": "PB-01.1",
+     "level": 1,
+     "text": "Đặt câu hỏi 'Tại sao?', 'Bằng cách nào?' để làm rõ thông tin."
+    },
+    {
+     "code": "PB-01.2",
+     "level": 1,
+     "text": "Phân biệt được dữ kiện, ý kiến và giả định."
+    },
+    {
+     "code": "PB-01.3",
+     "level": 2,
+     "text": "Kiểm tra độ tin cậy của nguồn trước khi dùng."
+    },
+    {
+     "code": "PB-01.4",
+     "level": 2,
+     "text": "Nhận ra thiên kiến trong lập luận của mình và người khác."
+    },
+    {
+     "code": "PB-01.5",
+     "level": 3,
+     "text": "Tìm ra lỗ hổng, mâu thuẫn trong lập luận hoặc kế hoạch."
+    },
+    {
+     "code": "PB-01.6",
+     "level": 3,
+     "text": "Chủ động xem xét quan điểm trái chiều trước khi kết luận."
+    },
+    {
+     "code": "PB-01.7",
+     "level": 4,
+     "text": "Kiểm chứng các giả định quan trọng trước khi coi là đúng."
+    },
+    {
+     "code": "PB-01.8",
+     "level": 4,
+     "text": "Tự xây tiêu chí để đánh giá chất lượng thông tin trong lĩnh vực phức tạp."
+    }
+   ],
+   "questions": [
+    {
+     "id": "PB-01.1.1",
+     "level": 1,
+     "behavior": "PB-01.1",
+     "topic": "Mục đích của tư duy phản biện",
+     "q": "Bạn nhận được bản đề xuất mua phần mềm từ một phòng ban khác. Cách tiếp cận nào thể hiện đúng tư duy phản biện?",
+     "options": {
+      "A": "Tìm càng nhiều điểm yếu càng tốt để bác bỏ đề xuất",
+      "B": "Xem đề xuất đi từ dữ liệu đến kết luận ra sao, đánh dấu chỗ cần hỏi thêm rồi mới quyết định",
+      "C": "Chấp nhận vì phòng ban đó hiểu nghiệp vụ hơn mình",
+      "D": "Chỉ dùng đề xuất khi mọi con số đã được kiểm tra tuyệt đối chắc chắn"
+     },
+     "answer": "B"
+    },
+    {
+     "id": "PB-01.1.2",
+     "level": 1,
+     "behavior": "PB-01.1",
+     "topic": "Các loại câu hỏi phản biện",
+     "q": "Đồng nghiệp nói: “Tuần trước gửi email khuyến mãi lúc 8 giờ sáng có tỷ lệ mở cao, vậy từ nay luôn gửi lúc 8 giờ.” Câu hỏi nào nhắm đúng điểm yếu nhất của lập luận?",
+     "options": {
+      "A": "“Email đó do ai soạn?”",
+      "B": "“Mình sẽ gửi qua phần mềm nào?”",
+      "C": "“Chỉ một lần gửi thì có đủ để kết luận giờ gửi là nguyên nhân không?”",
+      "D": "“Sếp có đồng ý với kế hoạch này không?”"
+     },
+     "answer": "C"
+    },
+    {
+     "id": "PB-01.1.3",
+     "level": 1,
+     "behavior": "PB-01.1",
+     "topic": "Kỹ thuật hỏi “Tại sao” liên tiếp để tìm nguyên nhân gốc",
+     "q": "Khi dùng kỹ thuật hỏi “Tại sao?” nhiều lần để tìm nguyên nhân của một sự cố, nên dừng hỏi khi nào?",
+     "options": {
+      "A": "Khi đã hỏi đủ đúng 5 lần",
+      "B": "Khi tìm được người chịu trách nhiệm",
+      "C": "Khi mọi người trong nhóm đều đồng ý",
+      "D": "Khi chạm tới nguyên nhân mà tổ chức có thể xử lý để sự cố không lặp lại"
+     },
+     "answer": "D"
+    },
+    {
+     "id": "PB-01.2.1",
+     "level": 1,
+     "behavior": "PB-01.2",
+     "topic": "Nhận diện dữ kiện",
+     "q": "Phát biểu nào là một dữ kiện (có thể kiểm chứng)?",
+     "options": {
+      "A": "“Quý 3, có 42 hồ sơ ứng tuyển cho vị trí kế toán theo dữ liệu hệ thống tuyển dụng”",
+      "B": "“Vị trí kế toán đang rất khó tuyển”",
+      "C": "“Ứng viên ngày nay ít trung thành hơn trước”",
+      "D": "“Nếu tăng lương 10% sẽ tuyển được ngay”"
+     },
+     "answer": "A"
+    },
+    {
+     "id": "PB-01.2.2",
+     "level": 1,
+     "behavior": "PB-01.2",
+     "topic": "Nhận diện ý kiến không có từ “tôi nghĩ”",
+     "q": "Phát biểu nào là ý kiến dù không có cụm “tôi nghĩ”, “tôi cho rằng”?",
+     "options": {
+      "A": "“Chương trình hội nhập kéo dài 5 ngày”",
+      "B": "“Chương trình hội nhập hiện nay quá dài và nhàm chán”",
+      "C": "“Có 18 nhân viên mới tham gia hội nhập tháng 9”",
+      "D": "“Điểm khảo sát trung bình của khóa hội nhập là 3,9/5”"
+     },
+     "answer": "B"
+    },
+    {
+     "id": "PB-01.2.3",
+     "level": 1,
+     "behavior": "PB-01.2",
+     "topic": "Nhận diện giả định ẩn",
+     "q": "Kế hoạch ghi: “Mở thêm ca tối sẽ tăng 20% sản lượng, vì máy móc còn trống sau 17 giờ.” Giả định ẩn quan trọng nhất cần kiểm chứng là gì?",
+     "options": {
+      "A": "Máy móc thực sự trống sau 17 giờ",
+      "B": "Con số 20% được làm tròn hợp lý",
+      "C": "Sẽ tuyển hoặc bố trí đủ công nhân sẵn sàng làm ca tối với năng suất tương đương",
+      "D": "Nhà máy có đủ điện chiếu sáng"
+     },
+     "answer": "C"
+    },
+    {
+     "id": "PB-01.3.1",
+     "level": 2,
+     "behavior": "PB-01.3",
+     "topic": "Tiêu chí đánh giá độ tin cậy của nguồn",
+     "q": "Bạn cần số liệu lương thị trường. Nguồn nào nên làm căn cứ chính?",
+     "options": {
+      "A": "Bài đăng trên diễn đàn có nhiều lượt thích",
+      "B": "Khảo sát lương do đơn vị độc lập thực hiện năm nay, công bố rõ cỡ mẫu và phương pháp",
+      "C": "Số liệu do một ứng viên tự khai khi phỏng vấn",
+      "D": "Báo cáo lương năm 2019 của một trường đại học"
+     },
+     "answer": "B"
+    },
+    {
+     "id": "PB-01.3.2",
+     "level": 2,
+     "behavior": "PB-01.3",
+     "topic": "Phân biệt nguồn gốc và nguồn thứ cấp",
+     "q": "Hiểu đúng nhất về nguồn gốc (sơ cấp) và nguồn thứ cấp là gì?",
+     "options": {
+      "A": "Nguồn gốc luôn đúng, nguồn thứ cấp nên loại bỏ",
+      "B": "Nguồn gốc là do tổ chức lớn phát hành",
+      "C": "Nguồn gốc là bài công bố sớm nhất",
+      "D": "Nguồn gốc gắn trực tiếp với dữ liệu/sự kiện; nguồn thứ cấp diễn giải lại; mỗi loại có giá trị tùy mục đích"
+     },
+     "answer": "D"
+    },
+    {
+     "id": "PB-01.3.3",
+     "level": 2,
+     "behavior": "PB-01.3",
+     "topic": "Đối chiếu nhiều nguồn độc lập",
+     "q": "Ba trang tin cùng đưa tin “Công ty Y sắp cắt giảm 30% nhân sự”, nhưng cả ba trích cùng một câu và cùng con số. Nên xử lý thế nào?",
+     "options": {
+      "A": "Kết luận là đúng vì có ba nguồn",
+      "B": "Bỏ qua vì tin cắt giảm thường sai",
+      "C": "Coi đây có thể là một nguồn được đăng lại, cần tìm xác nhận độc lập (thông báo chính thức, nguồn khác) trước khi dùng",
+      "D": "Chọn trang có uy tín nhất và dùng ngay"
+     },
+     "answer": "C"
+    },
+    {
+     "id": "PB-01.4.1",
+     "level": 2,
+     "behavior": "PB-01.4",
+     "topic": "Nhận diện các thiên kiến phổ biến",
+     "q": "Trưởng nhóm đưa ra con số ngân sách 500 triệu ngay đầu buổi họp; mọi phương án sau đó đều dao động quanh con số này dù phạm vi đã đổi. Đây là thiên kiến gì?",
+     "options": {
+      "A": "Hiệu ứng mỏ neo",
+      "B": "Thiên kiến sống sót",
+      "C": "Hiệu ứng hào quang",
+      "D": "Thiên kiến tương đồng"
+     },
+     "answer": "A"
+    },
+    {
+     "id": "PB-01.4.2",
+     "level": 2,
+     "behavior": "PB-01.4",
+     "topic": "Hạn chế thiên kiến xác nhận",
+     "q": "Cách nào giúp nhóm hạn chế thiên kiến xác nhận khi kiểm tra một giả thuyết?",
+     "options": {
+      "A": "Thu thập thật nhiều dữ liệu",
+      "B": "Giao cho người giỏi nhất chọn dữ liệu",
+      "C": "Biểu quyết theo đa số",
+      "D": "Chủ động tìm bằng chứng có thể bác bỏ giả thuyết và thống nhất trước điều kiện để coi giả thuyết là sai"
+     },
+     "answer": "D"
+    },
+    {
+     "id": "PB-01.4.3",
+     "level": 2,
+     "behavior": "PB-01.4",
+     "topic": "Tư duy nhanh (trực giác) và tư duy chậm (phân tích)",
+     "q": "Nhận định nào đúng về hai kiểu tư duy nhanh – chậm khi ra quyết định?",
+     "options": {
+      "A": "Nên loại bỏ trực giác khỏi mọi quyết định",
+      "B": "Tư duy nhanh xử lý phần lớn việc quen thuộc nhưng dễ sinh thiên kiến; cần chủ động chuyển sang tư duy chậm với quyết định quan trọng",
+      "C": "Người giỏi chỉ dùng tư duy phân tích",
+      "D": "Khi tỉnh táo, thiên kiến không ảnh hưởng"
+     },
+     "answer": "B"
+    },
+    {
+     "id": "PB-01.5.1",
+     "level": 3,
+     "behavior": "PB-01.5",
+     "topic": "Các lỗi ngụy biện",
+     "q": "Một người nói: “Hoặc là áp dụng chấm công bằng khuôn mặt ngay tháng này, hoặc chấp nhận gian lận chấm công mãi mãi.” Đây là ngụy biện gì?",
+     "options": {
+      "A": "Tấn công cá nhân",
+      "B": "Viện dẫn số đông",
+      "C": "Lưỡng đề giả (chỉ đưa ra hai lựa chọn trong khi còn lựa chọn khác)",
+      "D": "Người rơm"
+     },
+     "answer": "C"
+    },
+    {
+     "id": "PB-01.5.2",
+     "level": 3,
+     "behavior": "PB-01.5",
+     "topic": "Cấu trúc lập luận",
+     "q": "“Nhân viên được đào tạo có tỷ lệ nghỉ việc thấp hơn. Ngân sách năm nay có hạn. Vì vậy nên ưu tiên đào tạo cho nhóm có nguy cơ nghỉ cao.” Phần nào là kết luận?",
+     "options": {
+      "A": "Câu đầu tiên",
+      "B": "Câu thứ hai",
+      "C": "Cả ba câu đều là tiền đề",
+      "D": "Câu cuối cùng"
+     },
+     "answer": "D"
+    },
+    {
+     "id": "PB-01.5.3",
+     "level": 3,
+     "behavior": "PB-01.5",
+     "topic": "Lỗi kết luận không suy ra từ tiền đề",
+     "q": "“Ứng viên này nói tiếng Anh rất tốt, nên chắc chắn sẽ quản lý nhóm giỏi.” Lỗ hổng chính là gì?",
+     "options": {
+      "A": "Khả năng ngoại ngữ không cho phép suy ra năng lực quản lý",
+      "B": "Chưa kiểm tra bằng cấp tiếng Anh",
+      "C": "Thiếu so sánh với ứng viên khác",
+      "D": "Câu nói quá dài"
+     },
+     "answer": "A"
+    },
+    {
+     "id": "PB-01.6.1",
+     "level": 3,
+     "behavior": "PB-01.6",
+     "topic": "Dựng phiên bản mạnh nhất của quan điểm đối lập",
+     "q": "Nhóm đang nghiêng về tự xây phần mềm. Phát biểu nào thể hiện đúng việc trình bày phiên bản MẠNH NHẤT của phương án mua sẵn?",
+     "options": {
+      "A": "“Mua sẵn có vài ưu điểm nhưng khó tùy biến”",
+      "B": "“Tính đủ chi phí duy trì, rủi ro chậm tiến độ và chi phí cơ hội, mua sẵn rẻ hơn và dùng được sớm hơn 12 tháng”",
+      "C": "“Nhiều công ty khác đã mua”",
+      "D": "“Hãy để nhà cung cấp tự thuyết trình”"
+     },
+     "answer": "B"
+    },
+    {
+     "id": "PB-01.6.2",
+     "level": 3,
+     "behavior": "PB-01.6",
+     "topic": "Nhận diện lỗi “người rơm”",
+     "q": "Đề xuất: “Cho phép làm việc linh hoạt 1 ngày/tuần, thử nghiệm 3 tháng.” Câu phản biện nào là lỗi người rơm (bóp méo đề xuất để dễ bác)?",
+     "options": {
+      "A": "“Thử nghiệm 3 tháng có đủ dài không?”",
+      "B": "“Nên đo năng suất thế nào trong thời gian thử?”",
+      "C": "“Vậy là muốn mọi người ở nhà, không cần đến công ty nữa à?”",
+      "D": "“Bộ phận nào nên thử trước?”"
+     },
+     "answer": "C"
+    },
+    {
+     "id": "PB-01.6.3",
+     "level": 3,
+     "behavior": "PB-01.6",
+     "topic": "Vai trò người phản biện chính thức",
+     "q": "Phòng đã có người đóng vai phản biện trong mỗi cuộc họp, nhưng họ chỉ nêu rủi ro chung chung rồi phương án vẫn được duyệt. Điều chỉnh nào hiệu quả nhất?",
+     "options": {
+      "A": "Áp dụng cho mọi cuộc họp",
+      "B": "Giao vai cho người thâm niên nhất",
+      "C": "Thưởng cho người phản biện khi phương án bị dừng",
+      "D": "Yêu cầu người phản biện đưa kịch bản thất bại cụ thể gắn với số liệu của phương án, và nhóm đề xuất phải trả lời bằng văn bản"
+     },
+     "answer": "D"
+    },
+    {
+     "id": "PB-01.7.1",
+     "level": 4,
+     "behavior": "PB-01.7",
+     "topic": "Giả định trọng yếu",
+     "q": "Công ty đầu tư ứng dụng đặt lịch nghỉ phép để giảm 50% thời gian xử lý của HR. Sau 3 tháng, ứng dụng chạy tốt nhưng nhân viên vẫn gửi đơn giấy. Giả định nào lẽ ra phải kiểm chứng đầu tiên?",
+     "options": {
+      "A": "Nhân viên sẽ chuyển sang dùng ứng dụng thay cho đơn giấy",
+      "B": "Ứng dụng chạy ổn định",
+      "C": "Chi phí bản quyền nằm trong ngân sách",
+      "D": "HR có thời gian đào tạo"
+     },
+     "answer": "A"
+    },
+    {
+     "id": "PB-01.7.2",
+     "level": 4,
+     "behavior": "PB-01.7",
+     "topic": "Phát biểu giả định để có thể bác bỏ",
+     "q": "Cách viết nào biến giả định “nhân viên thích chương trình phúc lợi mới” thành dạng kiểm chứng được?",
+     "options": {
+      "A": "“Nhân viên sẽ thích khi quen dần”",
+      "B": "“Chương trình hợp xu hướng nên sẽ được đón nhận”",
+      "C": "“Ít nhất 40% nhân viên đăng ký trong 30 ngày đầu; nếu thấp hơn, giả định bị bác bỏ”",
+      "D": "“Nhân viên trẻ sẽ thích hơn”"
+     },
+     "answer": "C"
+    },
+    {
+     "id": "PB-01.7.3",
+     "level": 4,
+     "behavior": "PB-01.7",
+     "topic": "Phân tích “giả định đã thất bại” trước khi bắt đầu",
+     "q": "Trước dự án chuyển đổi hệ thống lương, trưởng dự án muốn dùng kỹ thuật hình dung trước thất bại. Cách điều phối đúng là gì?",
+     "options": {
+      "A": "Mời từng người nêu rủi ro và trả lời ngay",
+      "B": "Yêu cầu cả nhóm tưởng tượng 1 năm sau dự án đã thất bại; mỗi người tự viết lý do, rồi tổng hợp để tìm giả định yếu",
+      "C": "Chia hai phe tranh luận",
+      "D": "Chấm điểm mức sẵn sàng của từng bộ phận"
+     },
+     "answer": "B"
+    },
+    {
+     "id": "PB-01.8.1",
+     "level": 4,
+     "behavior": "PB-01.8",
+     "topic": "Giữ nguyên khung tiêu chí đã công bố",
+     "q": "Hội đồng đã chấm xong 3 nhà cung cấp theo tiêu chí công bố từ đầu. Một thành viên quen với nhà cung cấp B đề nghị thêm tiêu chí mới rồi chấm lại. Cách xử lý đúng?",
+     "options": {
+      "A": "Giữ kết quả vòng này, ghi nhận tiêu chí để xem xét cho kỳ sau",
+      "B": "Chấm lại ngay để đầy đủ",
+      "C": "Biểu quyết có chấm lại không",
+      "D": "Hủy toàn bộ kết quả"
+     },
+     "answer": "A"
+    },
+    {
+     "id": "PB-01.8.2",
+     "level": 4,
+     "behavior": "PB-01.8",
+     "topic": "Độ tin cậy và độ chính xác của phép đo",
+     "q": "Bộ tiêu chí phỏng vấn cho điểm rất ổn định giữa các người phỏng vấn, nhưng người được điểm cao lại thường làm việc kém. Vấn đề là gì?",
+     "options": {
+      "A": "Thiếu ổn định (tin cậy)",
+      "B": "Quá nhiều tiêu chí",
+      "C": "Người phỏng vấn thiếu kinh nghiệm",
+      "D": "Ổn định nhưng không đo đúng điều cần đo (thiếu giá trị dự báo)"
+     },
+     "answer": "D"
+    },
+    {
+     "id": "PB-01.8.3",
+     "level": 4,
+     "behavior": "PB-01.8",
+     "topic": "Chấm điểm có trọng số",
+     "q": "Tiêu chí: Chất lượng 50%, Giá 30%, Tiến độ 20%. Phương án M: 5–9–10; N: 8–7–6 (thang 10). Chọn phương án nào?",
+     "options": {
+      "A": "M, vì tổng điểm thô 24 > 21",
+      "B": "M, vì thắng 2/3 tiêu chí",
+      "C": "N, vì điểm có trọng số 7,3 > 7,2",
+      "D": "Chưa thể chọn"
+     },
+     "answer": "C"
+    }
+   ]
+  },
+  {
+   "code": "NS-02",
+   "name": "Quản lý hiệu suất",
+   "definition": "Hiểu cách đặt mục tiêu, theo dõi, phản hồi và đánh giá kết quả làm việc của cá nhân và nhóm một cách liên tục và công bằng.",
+   "minutes": 42,
+   "behaviors": [
+    {
+     "code": "NS-02.1",
+     "level": 1,
+     "text": "Nêu được các cách đặt mục tiêu phổ biến (SMART, OKR, KPI)."
+    },
+    {
+     "code": "NS-02.2",
+     "level": 1,
+     "text": "Kể được các phương pháp và biểu mẫu đánh giá hiệu suất thường dùng."
+    },
+    {
+     "code": "NS-02.3",
+     "level": 2,
+     "text": "Giải thích được chu kỳ đánh giá định kỳ (đầu năm – giữa kỳ – cuối kỳ)."
+    },
+    {
+     "code": "NS-02.4",
+     "level": 2,
+     "text": "Mô tả được cách quản lý hiệu suất liên tục: đặt mục tiêu – trao đổi 1-1 – phản hồi – đánh giá."
+    },
+    {
+     "code": "NS-02.5",
+     "level": 3,
+     "text": "Biết cách triển khai kế hoạch cải thiện hiệu suất (PIP) đúng quy trình."
+    },
+    {
+     "code": "NS-02.6",
+     "level": 3,
+     "text": "Nhận ra các lỗi thiên lệch khi đánh giá và hạn chế của từng phương pháp."
+    },
+    {
+     "code": "NS-02.7",
+     "level": 4,
+     "text": "Giải thích được các thuyết động lực chính và ứng dụng vào công việc."
+    },
+    {
+     "code": "NS-02.8",
+     "level": 4,
+     "text": "Liên kết hiệu suất với lương thưởng, đào tạo, kế nhiệm và gắn kết."
+    }
+   ],
+   "questions": [
+    {
+     "id": "NS-02.1.1",
+     "level": 1,
+     "behavior": "NS-02.1",
+     "topic": "Mục tiêu SMART",
+     "q": "Mục tiêu nào đạt chuẩn SMART?",
+     "options": {
+      "A": "“Cải thiện tuyển dụng”",
+      "B": "“Giảm thời gian tuyển vị trí kỹ thuật từ 45 xuống 35 ngày trước 31/12”",
+      "C": "“Tuyển thật nhiều người giỏi”",
+      "D": "“Làm tốt hơn năm ngoái”"
+     },
+     "answer": "B"
+    },
+    {
+     "id": "NS-02.1.2",
+     "level": 1,
+     "behavior": "NS-02.1",
+     "topic": "Cấu trúc OKR",
+     "q": "Đâu là cách viết OKR đúng?",
+     "options": {
+      "A": "Mục tiêu truyền cảm hứng + 3–5 kết quả then chốt đo được",
+      "B": "Một danh sách công việc cần làm",
+      "C": "Một chỉ số duy nhất",
+      "D": "Mục tiêu chung chung không cần đo"
+     },
+     "answer": "A"
+    },
+    {
+     "id": "NS-02.1.3",
+     "level": 1,
+     "behavior": "NS-02.1",
+     "topic": "Phân biệt KPI và OKR",
+     "q": "Khác biệt chính giữa KPI và OKR là gì?",
+     "options": {
+      "A": "KPI chỉ cho nhân viên, OKR chỉ cho lãnh đạo",
+      "B": "Giống nhau hoàn toàn",
+      "C": "OKR luôn gắn trực tiếp với lương thưởng",
+      "D": "KPI đo hoạt động thường xuyên; OKR hướng tới bước tiến mới, tham vọng và rà soát thường xuyên hơn"
+     },
+     "answer": "D"
+    },
+    {
+     "id": "NS-02.2.1",
+     "level": 1,
+     "behavior": "NS-02.2",
+     "topic": "Các phương pháp đánh giá",
+     "q": "Phương pháp nào chấm điểm dựa trên các mô tả hành vi cụ thể ở từng mức?",
+     "options": {
+      "A": "Phân phối bắt buộc",
+      "B": "Quản trị theo mục tiêu",
+      "C": "Thang đánh giá gắn hành vi (BARS)",
+      "D": "Xếp hạng đơn giản"
+     },
+     "answer": "C"
+    },
+    {
+     "id": "NS-02.2.2",
+     "level": 1,
+     "behavior": "NS-02.2",
+     "topic": "Đánh giá theo nguồn",
+     "q": "Đánh giá 360 độ khác đánh giá của cấp trên ở điểm nào?",
+     "options": {
+      "A": "Chỉ dùng cho cấp cao",
+      "B": "Thu thập nhận xét từ nhiều phía: cấp trên, đồng cấp, cấp dưới, tự đánh giá",
+      "C": "Không cần cấp trên tham gia",
+      "D": "Chỉ có tự đánh giá"
+     },
+     "answer": "B"
+    },
+    {
+     "id": "NS-02.2.3",
+     "level": 1,
+     "behavior": "NS-02.2",
+     "topic": "Hiệu chỉnh kết quả đánh giá",
+     "q": "Mục đích của buổi hiệu chỉnh kết quả đánh giá giữa các quản lý là gì?",
+     "options": {
+      "A": "Đảm bảo chuẩn chấm thống nhất, công bằng giữa các nhóm",
+      "B": "Giảm điểm của mọi người",
+      "C": "Thay cho trao đổi 1-1",
+      "D": "Để quản lý tự chấm cho mình"
+     },
+     "answer": "A"
+    },
+    {
+     "id": "NS-02.3.1",
+     "level": 2,
+     "behavior": "NS-02.3",
+     "topic": "Chu kỳ đánh giá năm",
+     "q": "Chu kỳ đánh giá năm truyền thống gồm những bước nào?",
+     "options": {
+      "A": "Chỉ đánh giá cuối năm",
+      "B": "Tuyển dụng – thử việc – ký hợp đồng",
+      "C": "Đánh giá – đặt mục tiêu – thưởng",
+      "D": "Đặt mục tiêu đầu năm – rà soát giữa kỳ – đánh giá cuối năm"
+     },
+     "answer": "D"
+    },
+    {
+     "id": "NS-02.3.2",
+     "level": 2,
+     "behavior": "NS-02.3",
+     "topic": "Quản lý hiệu suất liên tục",
+     "q": "Vì sao nhiều công ty chuyển sang quản lý hiệu suất liên tục?",
+     "options": {
+      "A": "Để bỏ hẳn đánh giá",
+      "B": "Để giảm việc cho quản lý",
+      "C": "Để phản hồi kịp thời, điều chỉnh mục tiêu nhanh theo thay đổi",
+      "D": "Vì luật yêu cầu"
+     },
+     "answer": "C"
+    },
+    {
+     "id": "NS-02.3.3",
+     "level": 2,
+     "behavior": "NS-02.3",
+     "topic": "Trao đổi 1-1 hiệu quả",
+     "q": "Buổi trao đổi 1-1 nên kết thúc bằng điều gì?",
+     "options": {
+      "A": "Một lời phê bình",
+      "B": "Thống nhất các bước tiếp theo và hỗ trợ cần có",
+      "C": "Chấm điểm",
+      "D": "Không cần kết luận"
+     },
+     "answer": "B"
+    },
+    {
+     "id": "NS-02.4.1",
+     "level": 2,
+     "behavior": "NS-02.4",
+     "topic": "Vòng PDCA trong quản lý hiệu suất",
+     "q": "Trong vòng Lập kế hoạch – Thực hiện – Kiểm tra – Điều chỉnh, bước “Điều chỉnh” nghĩa là gì?",
+     "options": {
+      "A": "Dựa trên kết quả kiểm tra để chuẩn hóa điều tốt hoặc sửa điều chưa tốt",
+      "B": "Đặt mục tiêu mới từ đầu",
+      "C": "Báo cáo lên cấp trên",
+      "D": "Kết thúc chu kỳ"
+     },
+     "answer": "A"
+    },
+    {
+     "id": "NS-02.4.2",
+     "level": 2,
+     "behavior": "NS-02.4",
+     "topic": "Vai trò của đặt mục tiêu",
+     "q": "Khi bắt đầu chu kỳ, yếu tố quan trọng nhất của việc đặt mục tiêu là gì?",
+     "options": {
+      "A": "Càng nhiều mục tiêu càng tốt",
+      "B": "Quản lý tự đặt, nhân viên chỉ nhận",
+      "C": "Sao chép mục tiêu năm trước",
+      "D": "Gắn với mục tiêu công ty, viết rõ ràng và có cam kết của hai bên"
+     },
+     "answer": "D"
+    },
+    {
+     "id": "NS-02.4.3",
+     "level": 2,
+     "behavior": "NS-02.4",
+     "topic": "Các loại phản hồi",
+     "q": "Phản hồi “theo thời gian thực” là gì?",
+     "options": {
+      "A": "Phản hồi trong buổi đánh giá cuối năm",
+      "B": "Phản hồi qua khảo sát ẩn danh",
+      "C": "Phản hồi ngay khi sự việc vừa xảy ra",
+      "D": "Phản hồi bằng văn bản chính thức"
+     },
+     "answer": "C"
+    },
+    {
+     "id": "NS-02.4.4",
+     "level": 2,
+     "behavior": "NS-02.4",
+     "topic": "Quy trình đánh giá cuối kỳ",
+     "q": "Thứ tự hợp lý của đánh giá cuối kỳ là gì?",
+     "options": {
+      "A": "Xếp loại → trao đổi → tự đánh giá",
+      "B": "Tự đánh giá → quản lý đánh giá → hiệu chỉnh → chốt xếp loại → trao đổi 1-1",
+      "C": "Hiệu chỉnh → tự đánh giá",
+      "D": "Quản lý đánh giá → công bố công khai"
+     },
+     "answer": "B"
+    },
+    {
+     "id": "NS-02.5.1",
+     "level": 3,
+     "behavior": "NS-02.5",
+     "topic": "Mục đích của kế hoạch cải thiện hiệu suất",
+     "q": "Mục đích chính của kế hoạch cải thiện hiệu suất (PIP) là gì?",
+     "options": {
+      "A": "Tạo hồ sơ để cho nghỉ việc",
+      "B": "Phạt nhân viên",
+      "C": "Áp dụng cho mọi nhân viên mới",
+      "D": "Giúp người chưa đạt yêu cầu cải thiện trong thời gian xác định với mục tiêu và hỗ trợ rõ ràng"
+     },
+     "answer": "D"
+    },
+    {
+     "id": "NS-02.5.2",
+     "level": 3,
+     "behavior": "NS-02.5",
+     "topic": "Nội dung bắt buộc của PIP",
+     "q": "Một PIP đầy đủ cần có những gì?",
+     "options": {
+      "A": "Mục tiêu cụ thể, hỗ trợ từ tổ chức, mốc kiểm tra, hậu quả nếu không đạt",
+      "B": "Chỉ danh sách lỗi",
+      "C": "Chỉ ngày kết thúc",
+      "D": "Chữ ký của giám đốc là đủ"
+     },
+     "answer": "A"
+    },
+    {
+     "id": "NS-02.5.3",
+     "level": 3,
+     "behavior": "NS-02.5",
+     "topic": "Rủi ro pháp lý khi triển khai PIP",
+     "q": "Rủi ro lớn nhất nếu PIP thiếu bằng chứng, thiếu mốc theo dõi và không được thông báo chính thức là gì?",
+     "options": {
+      "A": "Tốn giấy tờ",
+      "B": "Nhân viên được tăng lương",
+      "C": "Quyết định xử lý sau đó dễ bị coi là trái luật, dẫn đến tranh chấp",
+      "D": "Không có rủi ro"
+     },
+     "answer": "C"
+    },
+    {
+     "id": "NS-02.6.1",
+     "level": 3,
+     "behavior": "NS-02.6",
+     "topic": "Các thiên lệch khi đánh giá",
+     "q": "Quản lý chấm cao mọi tiêu chí cho một nhân viên chỉ vì người này thuyết trình rất giỏi. Đây là lỗi gì?",
+     "options": {
+      "A": "Thiên lệch gần đây",
+      "B": "Hiệu ứng hào quang",
+      "C": "Xu hướng trung bình",
+      "D": "Quá khắt khe"
+     },
+     "answer": "B"
+    },
+    {
+     "id": "NS-02.6.2",
+     "level": 3,
+     "behavior": "NS-02.6",
+     "topic": "Hạn chế của phân phối bắt buộc",
+     "q": "Nhược điểm lớn của việc ép tỷ lệ xếp loại (ví dụ 10% yếu) là gì?",
+     "options": {
+      "A": "Tốn thời gian tính toán",
+      "B": "Quá dễ dãi",
+      "C": "Không so sánh được",
+      "D": "Buộc phải xếp người vào nhóm yếu dù cả nhóm đều giỏi, gây cạnh tranh tiêu cực"
+     },
+     "answer": "D"
+    },
+    {
+     "id": "NS-02.6.3",
+     "level": 3,
+     "behavior": "NS-02.6",
+     "topic": "Hạn chế của đánh giá 360",
+     "q": "Rủi ro thường gặp khi dùng đánh giá 360 để quyết định lương thưởng là gì?",
+     "options": {
+      "A": "Người đánh giá “đổi điểm” cho nhau hoặc không trung thực",
+      "B": "Quá ít thông tin",
+      "C": "Chỉ cấp trên được tham gia",
+      "D": "Không có rủi ro"
+     },
+     "answer": "A"
+    },
+    {
+     "id": "NS-02.6.4",
+     "level": 3,
+     "behavior": "NS-02.6",
+     "topic": "Gắn đánh giá với lương thưởng",
+     "q": "Khi kết quả đánh giá quyết định trực tiếp thưởng, rủi ro dễ xảy ra là gì?",
+     "options": {
+      "A": "Nhân viên quan tâm phát triển hơn",
+      "B": "Đánh giá chính xác hơn",
+      "C": "Quản lý chấm nương tay hoặc đặt mục tiêu thấp để dễ đạt, trao đổi phát triển bị lấn át",
+      "D": "Không ảnh hưởng gì"
+     },
+     "answer": "C"
+    },
+    {
+     "id": "NS-02.7.1",
+     "level": 4,
+     "behavior": "NS-02.7",
+     "topic": "Tháp nhu cầu",
+     "q": "Theo thuyết tháp nhu cầu, nhân viên lo lắng mất việc sẽ khó được thúc đẩy bằng điều gì nhất?",
+     "options": {
+      "A": "Một công việc ổn định",
+      "B": "Cơ hội tự khẳng định bản thân qua dự án thử thách",
+      "C": "Mức lương đủ sống",
+      "D": "An toàn lao động"
+     },
+     "answer": "B"
+    },
+    {
+     "id": "NS-02.7.2",
+     "level": 4,
+     "behavior": "NS-02.7",
+     "topic": "Thuyết hai nhóm yếu tố",
+     "q": "Theo thuyết hai nhóm yếu tố, tăng lương và cải thiện điều kiện làm việc thường có tác dụng gì?",
+     "options": {
+      "A": "Tạo động lực lâu dài",
+      "B": "Không có tác dụng gì",
+      "C": "Chỉ ảnh hưởng nhân viên mới",
+      "D": "Giảm bất mãn nhưng không tự tạo ra động lực bền vững"
+     },
+     "answer": "D"
+    },
+    {
+     "id": "NS-02.7.3",
+     "level": 4,
+     "behavior": "NS-02.7",
+     "topic": "Tự chủ – Thành thạo – Mục đích",
+     "q": "Với nhân viên làm việc tri thức, cách nào tăng động lực bên trong tốt nhất?",
+     "options": {
+      "A": "Cho quyền chủ động cách làm, cơ hội nâng cao tay nghề, hiểu rõ ý nghĩa công việc",
+      "B": "Thưởng theo từng nhiệm vụ nhỏ",
+      "C": "Giám sát chặt hơn",
+      "D": "Tăng số giờ làm"
+     },
+     "answer": "A"
+    },
+    {
+     "id": "NS-02.7.4",
+     "level": 4,
+     "behavior": "NS-02.7",
+     "topic": "Vận dụng các thuyết động lực",
+     "q": "Nhận định nào đúng khi vận dụng các thuyết động lực?",
+     "options": {
+      "A": "Chỉ một thuyết đúng, các thuyết khác sai",
+      "B": "Thuyết động lực chỉ dùng cho nhân viên cấp thấp",
+      "C": "Mỗi thuyết nhìn một góc; cần chọn và kết hợp tùy nhu cầu và loại công việc",
+      "D": "Chỉ tiền mới tạo động lực"
+     },
+     "answer": "C"
+    },
+    {
+     "id": "NS-02.8.1",
+     "level": 4,
+     "behavior": "NS-02.8",
+     "topic": "Trả lương theo hiệu suất",
+     "q": "Điều kiện quan trọng để trả lương theo hiệu suất thực sự công bằng là gì?",
+     "options": {
+      "A": "Mức thưởng thật cao",
+      "B": "Chỉ số đo rõ ràng, quy trình đánh giá đáng tin và minh bạch",
+      "C": "Giữ bí mật cách tính",
+      "D": "Áp dụng chung một mức cho mọi người"
+     },
+     "answer": "B"
+    },
+    {
+     "id": "NS-02.8.2",
+     "level": 4,
+     "behavior": "NS-02.8",
+     "topic": "Liên kết với đào tạo",
+     "q": "Kết quả đánh giá hiệu suất nên được dùng cho đào tạo như thế nào?",
+     "options": {
+      "A": "Không liên quan",
+      "B": "Chỉ đào tạo người bị xếp loại yếu",
+      "C": "Đào tạo theo sở thích",
+      "D": "Làm đầu vào để xây kế hoạch phát triển cá nhân"
+     },
+     "answer": "D"
+    },
+    {
+     "id": "NS-02.8.3",
+     "level": 4,
+     "behavior": "NS-02.8",
+     "topic": "Liên kết với kế nhiệm",
+     "q": "Hiệu suất cao có đồng nghĩa với sẵn sàng kế nhiệm không?",
+     "options": {
+      "A": "Không hẳn; cần xét thêm tiềm năng và năng lực cho vai trò mới",
+      "B": "Có, luôn luôn",
+      "C": "Không bao giờ liên quan",
+      "D": "Chỉ xét thâm niên"
+     },
+     "answer": "A"
+    },
+    {
+     "id": "NS-02.8.4",
+     "level": 4,
+     "behavior": "NS-02.8",
+     "topic": "Liên kết với gắn kết",
+     "q": "Vì sao đánh giá hiệu suất ảnh hưởng mạnh đến sự gắn kết?",
+     "options": {
+      "A": "Vì nhân viên thích bị chấm điểm",
+      "B": "Vì đánh giá luôn đi kèm tăng lương",
+      "C": "Vì cảm nhận được đối xử công bằng là yếu tố then chốt của gắn kết",
+      "D": "Không ảnh hưởng"
+     },
+     "answer": "C"
+    }
+   ]
+  },
+  {
+   "code": "NS-06",
+   "name": "Phân tích nhân sự & Hoạch định nhân lực",
+   "definition": "Hiểu cách thu thập, xử lý và đọc dữ liệu nhân sự, dự báo nhu cầu nhân lực và lập kế hoạch kế nhiệm.",
+   "minutes": 36,
+   "behaviors": [
+    {
+     "code": "NS-06.1",
+     "level": 1,
+     "text": "Nêu được ý nghĩa các chỉ số nhân sự cơ bản (nghỉ việc, vắng mặt, thời gian tuyển...)."
+    },
+    {
+     "code": "NS-06.2",
+     "level": 1,
+     "text": "Kể được các nguồn dữ liệu nhân sự trong doanh nghiệp."
+    },
+    {
+     "code": "NS-06.3",
+     "level": 2,
+     "text": "Giải thích được cách thu thập và làm sạch dữ liệu nhân sự."
+    },
+    {
+     "code": "NS-06.4",
+     "level": 2,
+     "text": "Mô tả được các bước hoạch định nhân lực."
+    },
+    {
+     "code": "NS-06.5",
+     "level": 3,
+     "text": "Biết các mô hình thống kê, dự báo dùng trong phân tích nhân sự."
+    },
+    {
+     "code": "NS-06.6",
+     "level": 3,
+     "text": "Nhận ra giới hạn, rủi ro và vấn đề đạo đức của mô hình dự báo."
+    },
+    {
+     "code": "NS-06.7",
+     "level": 4,
+     "text": "Giải thích được cách phân tích khoảng trống kỹ năng và chiến lược Tự đào tạo / Tuyển mới / Thuê ngoài."
+    },
+    {
+     "code": "NS-06.8",
+     "level": 4,
+     "text": "Giải thích được nguyên tắc quản trị dựa trên bằng chứng."
+    }
+   ],
+   "questions": [
+    {
+     "id": "NS-06.1.1",
+     "level": 1,
+     "behavior": "NS-06.1",
+     "topic": "Các chỉ số nhân sự cốt lõi",
+     "q": "Ban giám đốc muốn bảng theo dõi “sức khỏe nhân sự” hằng tháng. Nhóm chỉ số nào phù hợp nhất?",
+     "options": {
+      "A": "Doanh thu và lợi nhuận công ty",
+      "B": "Tỷ lệ nghỉ việc, tỷ lệ vắng mặt, thời gian tuyển, chi phí tuyển mỗi người",
+      "C": "Chỉ tổng số nhân viên",
+      "D": "Chỉ điểm hài lòng nhân viên"
+     },
+     "answer": "B"
+    },
+    {
+     "id": "NS-06.1.2",
+     "level": 1,
+     "behavior": "NS-06.1",
+     "topic": "Phân loại nghỉ việc",
+     "q": "Vì sao cần tách nghỉ việc tự nguyện/không tự nguyện và đáng tiếc/không đáng tiếc?",
+     "options": {
+      "A": "Để báo cáo dài hơn",
+      "B": "Vì luật bắt buộc",
+      "C": "Để xếp hạng phòng ban",
+      "D": "Vì mỗi loại phản ánh vấn đề khác nhau và cần hành động khác nhau"
+     },
+     "answer": "D"
+    },
+    {
+     "id": "NS-06.1.3",
+     "level": 1,
+     "behavior": "NS-06.1",
+     "topic": "Chỉ số đo hiệu quả đào tạo",
+     "q": "Bộ chỉ số nào phản ánh tốt hiệu quả đào tạo?",
+     "options": {
+      "A": "Số giờ đào tạo/người, chi phí đào tạo/người và lợi tức đầu tư đào tạo",
+      "B": "Số khóa học tổ chức",
+      "C": "Điểm hài lòng ngay sau khóa học",
+      "D": "Tỷ lệ vắng mặt"
+     },
+     "answer": "A"
+    },
+    {
+     "id": "NS-06.2.1",
+     "level": 1,
+     "behavior": "NS-06.2",
+     "topic": "Nguồn dữ liệu nhân sự",
+     "q": "Nhóm nào gồm các nguồn dữ liệu nhân sự phổ biến?",
+     "options": {
+      "A": "Bảng cân đối kế toán, sổ cái",
+      "B": "Biên bản họp, email cá nhân",
+      "C": "Hệ thống thông tin nhân sự, hệ thống lương, chấm công, khảo sát gắn kết, hệ thống quản lý ứng viên",
+      "D": "Mạng xã hội cá nhân của nhân viên"
+     },
+     "answer": "C"
+    },
+    {
+     "id": "NS-06.2.2",
+     "level": 1,
+     "behavior": "NS-06.2",
+     "topic": "Khái niệm phân tích nhân sự",
+     "q": "Phân tích nhân sự (People Analytics) là gì?",
+     "options": {
+      "A": "Lập báo cáo quân số hằng tháng",
+      "B": "Dùng dữ liệu để ra quyết định nhân sự dựa trên bằng chứng thay vì cảm tính",
+      "C": "Đánh giá năng lực từng người",
+      "D": "Theo dõi nhân viên trên mạng xã hội"
+     },
+     "answer": "B"
+    },
+    {
+     "id": "NS-06.2.3",
+     "level": 1,
+     "behavior": "NS-06.2",
+     "topic": "Dữ liệu định tính và định lượng trong HR",
+     "q": "Dữ liệu nào là định tính?",
+     "options": {
+      "A": "Số ngày nghỉ phép",
+      "B": "Mức lương",
+      "C": "Thâm niên",
+      "D": "Ý kiến tự do trong phỏng vấn nghỉ việc"
+     },
+     "answer": "D"
+    },
+    {
+     "id": "NS-06.3.1",
+     "level": 2,
+     "behavior": "NS-06.3",
+     "topic": "Quy trình đưa dữ liệu vào phân tích",
+     "q": "Thứ tự đúng của quy trình chuẩn bị dữ liệu nhân sự là gì?",
+     "options": {
+      "A": "Nguồn dữ liệu → trích xuất, chuẩn hóa, nạp → kho dữ liệu → phân tích",
+      "B": "Phân tích → thu thập → lưu trữ",
+      "C": "Kho dữ liệu → nguồn → phân tích",
+      "D": "Thu thập → phân tích → làm sạch"
+     },
+     "answer": "A"
+    },
+    {
+     "id": "NS-06.3.2",
+     "level": 2,
+     "behavior": "NS-06.3",
+     "topic": "Làm sạch dữ liệu",
+     "q": "Một nhân viên xuất hiện 2 lần trong danh sách với cách viết tên khác nhau. Đây là lỗi gì và xử lý thế nào?",
+     "options": {
+      "A": "Giá trị ngoại lai – xóa cả hai",
+      "B": "Giá trị thiếu – điền trung bình",
+      "C": "Bản ghi trùng lặp – đối chiếu mã nhân viên để gộp",
+      "D": "Không cần xử lý"
+     },
+     "answer": "C"
+    },
+    {
+     "id": "NS-06.3.3",
+     "level": 2,
+     "behavior": "NS-06.3",
+     "topic": "Bảo vệ dữ liệu cá nhân",
+     "q": "Theo nguyên tắc bảo vệ dữ liệu cá nhân, khi phân tích dữ liệu sức khỏe nhân viên, HR cần làm gì?",
+     "options": {
+      "A": "Chia sẻ cho các trưởng phòng để tiện quản lý",
+      "B": "Chỉ thu thập khi có mục đích rõ, có sự đồng ý phù hợp, giới hạn quyền truy cập và ẩn danh khi có thể",
+      "C": "Lưu vĩnh viễn để dùng sau",
+      "D": "Đưa lên công cụ AI công cộng để phân tích nhanh"
+     },
+     "answer": "B"
+    },
+    {
+     "id": "NS-06.4.1",
+     "level": 2,
+     "behavior": "NS-06.4",
+     "topic": "Các bước hoạch định nhân lực",
+     "q": "Thứ tự đúng của hoạch định nhân lực là gì?",
+     "options": {
+      "A": "Tuyển dụng → đào tạo → đánh giá",
+      "B": "Dự báo → tuyển → phân tích hiện trạng",
+      "C": "Lập ngân sách → tuyển → kiểm tra",
+      "D": "Phân tích hiện trạng → dự báo nhu cầu → xác định khoảng thiếu hụt → lập kế hoạch hành động"
+     },
+     "answer": "D"
+    },
+    {
+     "id": "NS-06.4.2",
+     "level": 2,
+     "behavior": "NS-06.4",
+     "topic": "Phương pháp dự báo nhu cầu nhân lực",
+     "q": "Thị trường rất bất định, công ty muốn chuẩn bị cho nhiều khả năng. Nên dùng phương pháp dự báo nào?",
+     "options": {
+      "A": "Lập nhiều kịch bản (tốt, cơ sở, xấu)",
+      "B": "Chỉ hỏi trưởng phòng",
+      "C": "Lấy số năm ngoái cộng 10%",
+      "D": "Không cần dự báo"
+     },
+     "answer": "A"
+    },
+    {
+     "id": "NS-06.4.3",
+     "level": 2,
+     "behavior": "NS-06.4",
+     "topic": "Kế hoạch định biên và ngân sách nhân sự",
+     "q": "Quan hệ giữa kế hoạch định biên (số người) và ngân sách nhân sự là gì?",
+     "options": {
+      "A": "Không liên quan",
+      "B": "Ngân sách quyết định hoàn toàn, không cần định biên",
+      "C": "Định biên là căn cứ tính chi phí lương, phúc lợi; hai bản phải khớp nhau",
+      "D": "Định biên chỉ dùng cho tuyển dụng"
+     },
+     "answer": "C"
+    },
+    {
+     "id": "NS-06.5.1",
+     "level": 3,
+     "behavior": "NS-06.5",
+     "topic": "Hồi quy",
+     "q": "Mô hình hồi quy dùng trong phân tích nhân sự để làm gì?",
+     "options": {
+      "A": "Vẽ sơ đồ tổ chức",
+      "B": "Ước lượng ảnh hưởng của nhiều yếu tố (thâm niên, đào tạo...) lên một kết quả (như hiệu suất)",
+      "C": "Tính lương",
+      "D": "Phân loại hồ sơ theo tên"
+     },
+     "answer": "B"
+    },
+    {
+     "id": "NS-06.5.2",
+     "level": 3,
+     "behavior": "NS-06.5",
+     "topic": "Mô hình dự báo nghỉ việc",
+     "q": "Mô hình dự báo nguy cơ nghỉ việc nên được dùng thế nào là phù hợp?",
+     "options": {
+      "A": "Cắt giảm trước những người có điểm rủi ro cao",
+      "B": "Công bố điểm rủi ro của từng người",
+      "C": "Thay thế hoàn toàn đánh giá của quản lý",
+      "D": "Làm tín hiệu để quản lý chủ động trao đổi, hỗ trợ giữ chân"
+     },
+     "answer": "D"
+    },
+    {
+     "id": "NS-06.5.3",
+     "level": 3,
+     "behavior": "NS-06.5",
+     "topic": "Thử nghiệm A/B trong HR",
+     "q": "Muốn biết mẫu tin tuyển dụng mới có hiệu quả hơn không, cách làm đúng là gì?",
+     "options": {
+      "A": "Chia ngẫu nhiên hai nhóm vị trí/kênh, dùng mẫu cũ và mới cùng thời gian, so sánh kết quả",
+      "B": "Dùng mẫu mới cho tháng sau rồi so với tháng trước",
+      "C": "Hỏi ý kiến đồng nghiệp",
+      "D": "Đăng cả hai mẫu ở vị trí khác nhau, khác ngành"
+     },
+     "answer": "A"
+    },
+    {
+     "id": "NS-06.6.1",
+     "level": 3,
+     "behavior": "NS-06.6",
+     "topic": "Giới hạn của mô hình dự báo",
+     "q": "Mô hình dự báo nghỉ việc rất chính xác trên dữ liệu cũ nhưng kém trên dữ liệu mới. Nguyên nhân thường gặp là gì?",
+     "options": {
+      "A": "Dữ liệu quá ít cột",
+      "B": "Máy tính chậm",
+      "C": "Mô hình “học thuộc” dữ liệu cũ (quá khớp) hoặc bối cảnh đã thay đổi",
+      "D": "Nhân viên mới không có tên"
+     },
+     "answer": "C"
+    },
+    {
+     "id": "NS-06.6.2",
+     "level": 3,
+     "behavior": "NS-06.6",
+     "topic": "Rủi ro đạo đức",
+     "q": "Mô hình sàng lọc hồ sơ học từ dữ liệu tuyển dụng 10 năm, trong đó đa số người được tuyển là nam. Rủi ro lớn nhất là gì?",
+     "options": {
+      "A": "Mô hình chạy chậm",
+      "B": "Mô hình có thể lặp lại thiên lệch giới tính và gây phân biệt đối xử",
+      "C": "Tốn chi phí lưu trữ",
+      "D": "Hồ sơ bị trùng"
+     },
+     "answer": "B"
+    },
+    {
+     "id": "NS-06.6.3",
+     "level": 3,
+     "behavior": "NS-06.6",
+     "topic": "Tương quan và nhân quả",
+     "q": "Dữ liệu cho thấy nhân viên tham gia câu lạc bộ thể thao có hiệu suất cao hơn. Kết luận đúng là gì?",
+     "options": {
+      "A": "Bắt buộc mọi người chơi thể thao",
+      "B": "Thể thao làm tăng hiệu suất",
+      "C": "Dữ liệu sai",
+      "D": "Mới chỉ là tương quan; cần kiểm tra yếu tố khác hoặc thử nghiệm trước khi kết luận nhân quả"
+     },
+     "answer": "D"
+    },
+    {
+     "id": "NS-06.7.1",
+     "level": 4,
+     "behavior": "NS-06.7",
+     "topic": "Phân tích khoảng trống kỹ năng",
+     "q": "Thứ tự đúng khi phân tích khoảng trống kỹ năng là gì?",
+     "options": {
+      "A": "Xác định năng lực cần → đánh giá hiện trạng → xác định khoảng trống → kế hoạch thu hẹp",
+      "B": "Mở khóa học → đánh giá → tuyển",
+      "C": "Tuyển người mới → đánh giá người cũ",
+      "D": "Đánh giá hiện trạng → mở khóa học ngay"
+     },
+     "answer": "A"
+    },
+    {
+     "id": "NS-06.7.2",
+     "level": 4,
+     "behavior": "NS-06.7",
+     "topic": "Chiến lược tự đào tạo – tuyển mới – thuê ngoài",
+     "q": "Công ty cần gấp 2 chuyên gia dữ liệu cho dự án 4 tháng, nội bộ chưa ai có kỹ năng. Lựa chọn hợp lý nhất?",
+     "options": {
+      "A": "Đào tạo nội bộ từ đầu",
+      "B": "Chờ thị trường có người",
+      "C": "Thuê chuyên gia/đối tác bên ngoài theo dự án, kết hợp chuyển giao cho người nội bộ",
+      "D": "Tuyển 2 người biên chế dài hạn ngay"
+     },
+     "answer": "C"
+    },
+    {
+     "id": "NS-06.7.3",
+     "level": 4,
+     "behavior": "NS-06.7",
+     "topic": "Kế nhiệm và ma trận 9 ô",
+     "q": "Ma trận 9 ô dùng để làm gì trong hoạch định kế nhiệm?",
+     "options": {
+      "A": "Xếp lương",
+      "B": "Phân loại nhân viên theo hiệu suất và tiềm năng để chọn người kế cận và kế hoạch phát triển",
+      "C": "Chấm công",
+      "D": "Chia phòng ban"
+     },
+     "answer": "B"
+    },
+    {
+     "id": "NS-06.8.1",
+     "level": 4,
+     "behavior": "NS-06.8",
+     "topic": "Bốn cấp độ phân tích",
+     "q": "Câu hỏi “Chúng ta nên làm gì để giảm nghỉ việc ở nhóm bán hàng?” thuộc cấp độ phân tích nào?",
+     "options": {
+      "A": "Mô tả (chuyện gì đã xảy ra)",
+      "B": "Chẩn đoán (tại sao)",
+      "C": "Dự đoán (sẽ xảy ra gì)",
+      "D": "Đề xuất hành động (nên làm gì)"
+     },
+     "answer": "D"
+    },
+    {
+     "id": "NS-06.8.2",
+     "level": 4,
+     "behavior": "NS-06.8",
+     "topic": "Quản trị dựa trên bằng chứng",
+     "q": "Theo quản trị dựa trên bằng chứng, quyết định tốt nên dựa vào đâu?",
+     "options": {
+      "A": "Kết hợp dữ liệu tổ chức, nghiên cứu khoa học, kinh nghiệm chuyên môn và ý kiến các bên liên quan",
+      "B": "Ý kiến của người có chức vụ cao nhất",
+      "C": "Cách các công ty nổi tiếng đang làm",
+      "D": "Chỉ dữ liệu nội bộ"
+     },
+     "answer": "A"
+    },
+    {
+     "id": "NS-06.8.3",
+     "level": 4,
+     "behavior": "NS-06.8",
+     "topic": "Chỉ số tác nghiệp và chỉ số chiến lược",
+     "q": "Chỉ số nào mang tính chiến lược hơn?",
+     "options": {
+      "A": "Số hồ sơ đã xử lý trong tuần",
+      "B": "Số buổi đào tạo đã tổ chức",
+      "C": "Tỷ lệ vị trí then chốt có người kế cận sẵn sàng",
+      "D": "Số đơn nghỉ phép đã duyệt"
+     },
+     "answer": "C"
+    }
+   ]
+  },
+  {
+   "code": "AI-01",
+   "name": "Ứng dụng AI trong công việc",
+   "definition": "Hiểu cách AI (đặc biệt là AI tạo sinh) hoạt động, biết dùng AI an toàn, hiệu quả để nâng cao chất lượng và năng suất, đồng thời chịu trách nhiệm về kết quả cuối cùng.",
+   "minutes": 36,
+   "behaviors": [
+    {
+     "code": "AI-01.1",
+     "level": 1,
+     "text": "Hiểu khả năng và giới hạn cơ bản của AI tạo sinh (có thể 'bịa' thông tin, kiến thức có hạn, thiếu bối cảnh nội bộ)."
+    },
+    {
+     "code": "AI-01.2",
+     "level": 1,
+     "text": "Dùng AI an toàn: không đưa dữ liệu mật, dữ liệu cá nhân vào công cụ chưa được phê duyệt."
+    },
+    {
+     "code": "AI-01.3",
+     "level": 2,
+     "text": "Viết yêu cầu (prompt) rõ ràng: bối cảnh, mục tiêu, vai trò, định dạng, ví dụ; biết hỏi lại để cải thiện kết quả."
+    },
+    {
+     "code": "AI-01.4",
+     "level": 2,
+     "text": "Kiểm chứng, chỉnh sửa kết quả AI trước khi dùng và ghi rõ khi có sử dụng AI."
+    },
+    {
+     "code": "AI-01.5",
+     "level": 3,
+     "text": "Đưa AI vào các việc lặp lại của mình/nhóm (tóm tắt, soạn thảo, phân tích) và đo được hiệu quả."
+    },
+    {
+     "code": "AI-01.6",
+     "level": 3,
+     "text": "Dùng AI cho nghiệp vụ nhân sự một cách có trách nhiệm: nhận diện thiên lệch, minh bạch, con người ra quyết định cuối."
+    },
+    {
+     "code": "AI-01.7",
+     "level": 4,
+     "text": "Chọn đúng bài toán, thiết kế và dẫn dắt giải pháp AI cho nhóm/tổ chức, đo lợi ích – chi phí."
+    },
+    {
+     "code": "AI-01.8",
+     "level": 4,
+     "text": "Xây dựng nguyên tắc sử dụng AI (đạo đức, bảo mật, tuân thủ pháp luật) và hướng dẫn người khác áp dụng."
+    }
+   ],
+   "questions": [
+    {
+     "id": "AI-01.1.1",
+     "level": 1,
+     "behavior": "AI-01.1",
+     "topic": "AI tạo sinh hoạt động thế nào",
+     "q": "Nhận định nào đúng nhất về các công cụ AI tạo sinh dạng trò chuyện?",
+     "options": {
+      "A": "Chúng tra cứu và luôn trả lời đúng sự thật",
+      "B": "Chúng tạo câu trả lời dựa trên các mẫu đã học, nên có thể nghe rất thuyết phục nhưng vẫn sai",
+      "C": "Chúng hiểu mọi quy định nội bộ của công ty",
+      "D": "Chúng chỉ trả lời được câu hỏi về công nghệ"
+     },
+     "answer": "B"
+    },
+    {
+     "id": "AI-01.1.2",
+     "level": 1,
+     "behavior": "AI-01.1",
+     "topic": "Hiện tượng AI “bịa” thông tin",
+     "q": "AI trích dẫn một điều luật với số hiệu cụ thể để trả lời câu hỏi về nghỉ thai sản. Bạn nên làm gì?",
+     "options": {
+      "A": "Đối chiếu với văn bản pháp luật chính thức trước khi dùng",
+      "B": "Dùng ngay vì có số hiệu rõ ràng",
+      "C": "Hỏi lại AI xem có chắc không, nếu chắc thì dùng",
+      "D": "Bỏ qua mọi thông tin từ AI"
+     },
+     "answer": "A"
+    },
+    {
+     "id": "AI-01.1.3",
+     "level": 1,
+     "behavior": "AI-01.1",
+     "topic": "Giới hạn về bối cảnh và thời điểm",
+     "q": "Vì sao AI có thể trả lời sai về chính sách lương mới ban hành tháng trước?",
+     "options": {
+      "A": "Vì AI cố tình trả lời sai",
+      "B": "Vì câu hỏi quá ngắn",
+      "C": "Vì AI không được phép nói về lương",
+      "D": "Vì kiến thức của mô hình có thời điểm giới hạn và không biết thông tin nội bộ nếu không được cung cấp"
+     },
+     "answer": "D"
+    },
+    {
+     "id": "AI-01.2.1",
+     "level": 1,
+     "behavior": "AI-01.2",
+     "topic": "Bảo mật dữ liệu khi dùng AI",
+     "q": "Bạn muốn AI tóm tắt bảng đánh giá hiệu suất có tên và điểm của 50 nhân viên. Cách làm đúng là gì?",
+     "options": {
+      "A": "Dán nguyên bảng vào một công cụ AI miễn phí",
+      "B": "Gửi cho bạn bè có tài khoản AI trả phí",
+      "C": "Chỉ dùng công cụ AI được công ty phê duyệt, hoặc ẩn danh/xóa thông tin định danh trước khi đưa vào",
+      "D": "Chụp màn hình rồi đưa vào AI để tránh lộ"
+     },
+     "answer": "C"
+    },
+    {
+     "id": "AI-01.2.2",
+     "level": 1,
+     "behavior": "AI-01.2",
+     "topic": "Phân loại thông tin trước khi dùng AI",
+     "q": "Loại thông tin nào có thể đưa vào công cụ AI công cộng một cách an toàn nhất?",
+     "options": {
+      "A": "Danh sách lương nhân viên",
+      "B": "Thông tin đã công khai, ví dụ một mẫu mô tả công việc chung không có dữ liệu nội bộ",
+      "C": "Hồ sơ sức khỏe nhân viên",
+      "D": "Kế hoạch tái cơ cấu chưa công bố"
+     },
+     "answer": "B"
+    },
+    {
+     "id": "AI-01.2.3",
+     "level": 1,
+     "behavior": "AI-01.2",
+     "topic": "Xử lý sự cố lộ dữ liệu",
+     "q": "Đồng nghiệp lỡ dán file chứa số CCCD của ứng viên vào một công cụ AI chưa được phê duyệt. Bước đầu tiên nên làm?",
+     "options": {
+      "A": "Im lặng vì có thể không ai biết",
+      "B": "Xóa lịch sử trò chuyện là đủ",
+      "C": "Tiếp tục dùng vì đã lỡ rồi",
+      "D": "Báo ngay cho bộ phận phụ trách an toàn thông tin/dữ liệu theo quy trình sự cố"
+     },
+     "answer": "D"
+    },
+    {
+     "id": "AI-01.3.1",
+     "level": 2,
+     "behavior": "AI-01.3",
+     "topic": "Thành phần của một yêu cầu (prompt) tốt",
+     "q": "Yêu cầu nào giúp AI cho kết quả tốt nhất khi soạn tin tuyển dụng?",
+     "options": {
+      "A": "“Viết tin tuyển dụng”",
+      "B": "“Viết tin tuyển dụng hay nhất có thể”",
+      "C": "“Bạn là chuyên viên tuyển dụng. Viết tin tuyển Kế toán tổng hợp cho công ty sản xuất 300 người tại Bình Dương, giọng thân thiện, tối đa 250 chữ, gồm: mô tả việc, yêu cầu, quyền lợi”",
+      "D": "“Tin tuyển dụng kế toán, nhanh”"
+     },
+     "answer": "C"
+    },
+    {
+     "id": "AI-01.3.2",
+     "level": 2,
+     "behavior": "AI-01.3",
+     "topic": "Cung cấp ví dụ và định dạng",
+     "q": "Bạn cần AI phân loại 200 góp ý nhân viên theo chủ đề nhưng kết quả không nhất quán. Cách cải thiện hiệu quả nhất?",
+     "options": {
+      "A": "Đưa danh sách chủ đề cố định, vài ví dụ đã phân loại mẫu và yêu cầu xuất bảng có cột rõ ràng",
+      "B": "Yêu cầu AI “cố gắng hơn”",
+      "C": "Chạy lại nhiều lần đến khi vừa ý",
+      "D": "Đổi sang công cụ AI khác"
+     },
+     "answer": "A"
+    },
+    {
+     "id": "AI-01.3.3",
+     "level": 2,
+     "behavior": "AI-01.3",
+     "topic": "Làm việc lặp lại với AI",
+     "q": "Bản nháp đầu AI tạo ra quá dài và quá trang trọng. Bạn nên làm gì?",
+     "options": {
+      "A": "Bỏ AI, tự viết lại từ đầu",
+      "B": "Phản hồi cụ thể: rút còn 150 chữ, giọng gần gũi, giữ 3 ý chính",
+      "C": "Dùng luôn vì đã có nội dung",
+      "D": "Gõ “sai rồi” và chờ"
+     },
+     "answer": "B"
+    },
+    {
+     "id": "AI-01.4.1",
+     "level": 2,
+     "behavior": "AI-01.4",
+     "topic": "Kiểm chứng kết quả AI",
+     "q": "AI tính giúp bạn tỷ lệ nghỉ việc năm là 4,2%. Việc nên làm trước khi đưa vào báo cáo?",
+     "options": {
+      "A": "Tin vì máy tính không tính sai",
+      "B": "Làm tròn thành 4%",
+      "C": "Hỏi AI lần nữa",
+      "D": "Kiểm tra lại công thức và số liệu đầu vào, tính lại bằng bảng tính"
+     },
+     "answer": "D"
+    },
+    {
+     "id": "AI-01.4.2",
+     "level": 2,
+     "behavior": "AI-01.4",
+     "topic": "Minh bạch khi dùng AI",
+     "q": "Bạn dùng AI hỗ trợ soạn báo cáo khảo sát gắn kết gửi ban giám đốc. Cách làm phù hợp nhất?",
+     "options": {
+      "A": "Tự rà soát, chịu trách nhiệm nội dung và ghi chú phần nào có AI hỗ trợ theo quy định của công ty",
+      "B": "Không cần nói vì AI chỉ là công cụ",
+      "C": "Ghi tên AI là tác giả",
+      "D": "Gửi nguyên văn AI tạo ra"
+     },
+     "answer": "A"
+    },
+    {
+     "id": "AI-01.4.3",
+     "level": 2,
+     "behavior": "AI-01.4",
+     "topic": "Phát hiện lỗi trong đầu ra của AI",
+     "q": "Bản tóm tắt cuộc họp do AI tạo có một quyết định mà bạn không nhớ là đã được thống nhất. Bạn xử lý thế nào?",
+     "options": {
+      "A": "Giữ nguyên vì AI nghe chính xác hơn người",
+      "B": "Xóa toàn bộ bản tóm tắt",
+      "C": "Đối chiếu ghi âm/ghi chép hoặc hỏi lại người chủ trì trước khi gửi biên bản",
+      "D": "Gửi đi rồi sửa sau nếu có người phản ánh"
+     },
+     "answer": "C"
+    },
+    {
+     "id": "AI-01.5.1",
+     "level": 3,
+     "behavior": "AI-01.5",
+     "topic": "Chọn việc phù hợp để dùng AI",
+     "q": "Việc nào phù hợp nhất để giao cho AI hỗ trợ trong bộ phận HR?",
+     "options": {
+      "A": "Quyết định cuối cùng sa thải một nhân viên",
+      "B": "Soạn bản nháp câu hỏi phỏng vấn theo năng lực để chuyên viên rà soát",
+      "C": "Tự gửi thư từ chối ứng viên không qua kiểm tra",
+      "D": "Tự duyệt đơn nghỉ phép không cần quản lý"
+     },
+     "answer": "B"
+    },
+    {
+     "id": "AI-01.5.2",
+     "level": 3,
+     "behavior": "AI-01.5",
+     "topic": "Đo hiệu quả khi áp dụng AI",
+     "q": "Nhóm bạn dùng AI để soạn mô tả công việc. Cách đo hiệu quả hợp lý nhất?",
+     "options": {
+      "A": "Đếm số lần dùng AI",
+      "B": "Hỏi xem mọi người có thích không",
+      "C": "Không cần đo",
+      "D": "So sánh thời gian soạn và số lần phải sửa trước/sau khi dùng AI, kèm đánh giá chất lượng"
+     },
+     "answer": "D"
+    },
+    {
+     "id": "AI-01.5.3",
+     "level": 3,
+     "behavior": "AI-01.5",
+     "topic": "Chuẩn hóa cách dùng AI cho nhóm",
+     "q": "Để cả nhóm dùng AI nhất quán cho việc tóm tắt hồ sơ ứng viên, nên làm gì?",
+     "options": {
+      "A": "Xây bộ mẫu yêu cầu chuẩn, tiêu chí kiểm tra đầu ra và chia sẻ cho cả nhóm",
+      "B": "Để mỗi người tự dùng theo cách riêng",
+      "C": "Cấm dùng AI",
+      "D": "Chỉ một người được dùng"
+     },
+     "answer": "A"
+    },
+    {
+     "id": "AI-01.6.1",
+     "level": 3,
+     "behavior": "AI-01.6",
+     "topic": "Thiên lệch của AI trong tuyển dụng",
+     "q": "Công cụ AI chấm hồ sơ cho điểm thấp đều đặn với ứng viên lớn tuổi. Bạn nên làm gì?",
+     "options": {
+      "A": "Tiếp tục dùng vì AI khách quan",
+      "B": "Chỉ tuyển người trẻ cho nhanh",
+      "C": "Tạm dừng dùng kết quả, kiểm tra nguyên nhân thiên lệch và báo cho bên phụ trách công cụ",
+      "D": "Tăng điểm thủ công cho người lớn tuổi mà không báo ai"
+     },
+     "answer": "C"
+    },
+    {
+     "id": "AI-01.6.2",
+     "level": 3,
+     "behavior": "AI-01.6",
+     "topic": "Con người ra quyết định cuối",
+     "q": "Nguyên tắc nào đúng khi dùng AI hỗ trợ đánh giá nhân viên?",
+     "options": {
+      "A": "AI chấm điểm và tự động xếp loại",
+      "B": "AI chỉ là đầu vào tham khảo; quản lý xem xét bằng chứng và chịu trách nhiệm quyết định",
+      "C": "Nhân viên tự dùng AI chấm cho mình",
+      "D": "Dùng AI để thay buổi trao đổi 1-1"
+     },
+     "answer": "B"
+    },
+    {
+     "id": "AI-01.6.3",
+     "level": 3,
+     "behavior": "AI-01.6",
+     "topic": "Minh bạch với người lao động",
+     "q": "Công ty định dùng AI phân tích ý kiến tự do trong khảo sát gắn kết. Điều nên làm?",
+     "options": {
+      "A": "Không thông báo để nhân viên trả lời tự nhiên",
+      "B": "Dùng AI để đoán người viết từng ý kiến",
+      "C": "Chỉ phân tích ý kiến tiêu cực",
+      "D": "Thông báo mục đích, cách xử lý, cam kết ẩn danh và chỉ báo cáo ở mức tổng hợp"
+     },
+     "answer": "D"
+    },
+    {
+     "id": "AI-01.7.1",
+     "level": 4,
+     "behavior": "AI-01.7",
+     "topic": "Chọn bài toán AI cho tổ chức",
+     "q": "Khi chọn bài toán đầu tiên để áp dụng AI cho phòng nhân sự, tiêu chí nào hợp lý nhất?",
+     "options": {
+      "A": "Việc lặp lại nhiều, có dữ liệu sẵn, rủi ro thấp và đo được lợi ích",
+      "B": "Việc phức tạp và nhạy cảm nhất để tạo ấn tượng",
+      "C": "Việc mà đối thủ đang làm",
+      "D": "Việc chưa có ai làm"
+     },
+     "answer": "A"
+    },
+    {
+     "id": "AI-01.7.2",
+     "level": 4,
+     "behavior": "AI-01.7",
+     "topic": "Triển khai thử nghiệm",
+     "q": "Trước khi áp dụng chatbot trả lời câu hỏi chính sách cho toàn công ty, nên làm gì?",
+     "options": {
+      "A": "Áp dụng ngay cho tất cả",
+      "B": "Chờ công nghệ hoàn hảo",
+      "C": "Thử nghiệm với một nhóm nhỏ, đo độ chính xác, thu phản hồi rồi mới mở rộng",
+      "D": "Để IT tự quyết"
+     },
+     "answer": "C"
+    },
+    {
+     "id": "AI-01.7.3",
+     "level": 4,
+     "behavior": "AI-01.7",
+     "topic": "Dẫn dắt thay đổi khi áp dụng AI",
+     "q": "Nhân viên lo AI sẽ thay thế họ nên ít dùng công cụ mới. Cách dẫn dắt hiệu quả nhất?",
+     "options": {
+      "A": "Bắt buộc dùng và phạt nếu không dùng",
+      "B": "Giải thích rõ mục đích, đào tạo thực hành, cho thấy AI giảm việc lặp lại để họ tập trung việc giá trị cao hơn",
+      "C": "Không nói gì",
+      "D": "Chỉ cho người trẻ dùng"
+     },
+     "answer": "B"
+    },
+    {
+     "id": "AI-01.8.1",
+     "level": 4,
+     "behavior": "AI-01.8",
+     "topic": "Nội dung của nguyên tắc sử dụng AI",
+     "q": "Một bộ nguyên tắc sử dụng AI trong công ty nên có những nội dung nào?",
+     "options": {
+      "A": "Chỉ danh sách công cụ bị cấm",
+      "B": "Chỉ hướng dẫn viết prompt",
+      "C": "Chỉ quy định về chi phí",
+      "D": "Công cụ được phép, loại dữ liệu được/không được dùng, yêu cầu kiểm chứng, trách nhiệm, quy trình báo cáo sự cố"
+     },
+     "answer": "D"
+    },
+    {
+     "id": "AI-01.8.2",
+     "level": 4,
+     "behavior": "AI-01.8",
+     "topic": "Tuân thủ pháp luật về dữ liệu",
+     "q": "Khi đưa dữ liệu cá nhân của nhân viên vào hệ thống AI, yêu cầu pháp lý cốt lõi cần đảm bảo là gì?",
+     "options": {
+      "A": "Có cơ sở xử lý hợp pháp (như sự đồng ý), đúng mục đích, giới hạn truy cập và bảo vệ an toàn dữ liệu",
+      "B": "Chỉ cần ký hợp đồng mua phần mềm",
+      "C": "Không cần gì nếu dữ liệu ở trong công ty",
+      "D": "Chỉ cần mã hóa tên nhân viên"
+     },
+     "answer": "A"
+    },
+    {
+     "id": "AI-01.8.3",
+     "level": 4,
+     "behavior": "AI-01.8",
+     "topic": "Lan tỏa năng lực AI",
+     "q": "Cách hiệu quả nhất để nâng năng lực AI cho toàn bộ phận là gì?",
+     "options": {
+      "A": "Gửi đường link công cụ cho mọi người",
+      "B": "Thuê ngoài toàn bộ",
+      "C": "Tổ chức học theo tình huống công việc thật, chia sẻ mẫu tốt, có người hỗ trợ và đánh giá định kỳ",
+      "D": "Để mỗi người tự học"
+     },
+     "answer": "C"
+    }
+   ]
+  }
+ ],
+ "surveys": [
+  {
+   "code": "DL-01",
+   "name": "Tư duy dữ liệu",
+   "definition": "Đọc, hiểu, diễn giải dữ liệu để rút ra kết luận hợp lý và nhận biết giới hạn của dữ liệu.",
+   "minutes": 8,
+   "behaviors": [
+    {
+     "code": "DL-01.1",
+     "level": 1,
+     "text": "Đọc hiểu biểu đồ, bảng số liệu cơ bản."
+    },
+    {
+     "code": "DL-01.2",
+     "level": 1,
+     "text": "Nhận biết loại dữ liệu (định tính/định lượng, liên tục/rời rạc) và nguồn gốc."
+    },
+    {
+     "code": "DL-01.3",
+     "level": 2,
+     "text": "Sắp xếp, lọc, phân nhóm để tổ chức dữ liệu."
+    },
+    {
+     "code": "DL-01.4",
+     "level": 2,
+     "text": "Phát hiện xu hướng, điểm bất thường, giá trị ngoại lai."
+    },
+    {
+     "code": "DL-01.5",
+     "level": 3,
+     "text": "Diễn giải ý nghĩa của dữ liệu ('Vậy thì sao?') để rút kết luận."
+    },
+    {
+     "code": "DL-01.6",
+     "level": 3,
+     "text": "Kết hợp, đối chiếu dữ liệu nhiều nguồn."
+    },
+    {
+     "code": "DL-01.7",
+     "level": 4,
+     "text": "Chọn biểu đồ phù hợp nhất để thể hiện phát hiện."
+    },
+    {
+     "code": "DL-01.8",
+     "level": 4,
+     "text": "Đánh giá chất lượng, độ tin cậy và thiên lệch của dữ liệu."
+    }
+   ],
+   "questions": [
+    {
+     "id": "DL-01.1.1",
+     "level": 1,
+     "behavior": "DL-01.1",
+     "q": "Khi gặp biểu đồ trong báo cáo hay cuộc họp, nói đúng được biểu đồ đó đang thể hiện điều gì."
+    },
+    {
+     "id": "DL-01.1.2",
+     "level": 1,
+     "behavior": "DL-01.1",
+     "q": "Khi làm việc với bảng số liệu, giải thích được ý nghĩa các chỉ tiêu chính cho người khác hiểu."
+    },
+    {
+     "id": "DL-01.1.3",
+     "level": 1,
+     "behavior": "DL-01.1",
+     "q": "Khi đọc một con số, để ý đến đơn vị, kỳ báo cáo và cách tính trước khi nhận xét."
+    },
+    {
+     "id": "DL-01.2.1",
+     "level": 1,
+     "behavior": "DL-01.2",
+     "q": "Khi trao đổi về dữ liệu, gọi đúng loại dữ liệu đang dùng (định tính/định lượng, liên tục/rời rạc)."
+    },
+    {
+     "id": "DL-01.2.2",
+     "level": 1,
+     "behavior": "DL-01.2",
+     "q": "Khi dùng một số liệu, nói rõ được số liệu đó lấy từ đâu (hệ thống, phòng ban, tài liệu)."
+    },
+    {
+     "id": "DL-01.2.3",
+     "level": 1,
+     "behavior": "DL-01.2",
+     "q": "Khi nhận dữ liệu từ nơi khác, hỏi rõ thời điểm và cách dữ liệu được thu thập."
+    },
+    {
+     "id": "DL-01.3.1",
+     "level": 2,
+     "behavior": "DL-01.3",
+     "q": "Khi xử lý dữ liệu, dùng sắp xếp, lọc, phân nhóm để tổ chức thông tin gọn gàng, dễ dùng."
+    },
+    {
+     "id": "DL-01.3.2",
+     "level": 2,
+     "behavior": "DL-01.3",
+     "q": "Khi chuẩn bị dữ liệu, kiểm tra và xử lý ô trống, dòng trùng, định dạng không thống nhất."
+    },
+    {
+     "id": "DL-01.3.3",
+     "level": 2,
+     "behavior": "DL-01.3",
+     "q": "Khi chia sẻ file dữ liệu, đặt tên cột, ghi chú rõ ràng để người khác dùng được ngay."
+    },
+    {
+     "id": "DL-01.4.1",
+     "level": 2,
+     "behavior": "DL-01.4",
+     "q": "Khi xem dữ liệu theo thời gian, chỉ ra được xu hướng tăng, giảm hay theo mùa."
+    },
+    {
+     "id": "DL-01.4.2",
+     "level": 2,
+     "behavior": "DL-01.4",
+     "q": "Khi rà soát dữ liệu, phát hiện các điểm bất thường cần làm rõ trước khi kết luận."
+    },
+    {
+     "id": "DL-01.4.3",
+     "level": 2,
+     "behavior": "DL-01.4",
+     "q": "Khi có giá trị ngoại lai, đặt câu hỏi về nguyên nhân thay vì bỏ qua hoặc xóa đi."
+    },
+    {
+     "id": "DL-01.5.1",
+     "level": 3,
+     "behavior": "DL-01.5",
+     "q": "Khi xem dữ liệu, tự rút ra ít nhất một nhận định có giá trị mà không cần ai gợi ý."
+    },
+    {
+     "id": "DL-01.5.2",
+     "level": 3,
+     "behavior": "DL-01.5",
+     "q": "Khi trình bày số liệu, nêu được ý nghĩa của nó đối với quyết định hoặc hành động tiếp theo."
+    },
+    {
+     "id": "DL-01.5.3",
+     "level": 3,
+     "behavior": "DL-01.5",
+     "q": "Khi đưa ra nhận định, dẫn chứng bằng số liệu cụ thể thay vì chỉ nói cảm nhận."
+    },
+    {
+     "id": "DL-01.6.1",
+     "level": 3,
+     "behavior": "DL-01.6",
+     "q": "Khi phân tích, sử dụng dữ liệu từ ít nhất hai nguồn khác nhau."
+    },
+    {
+     "id": "DL-01.6.2",
+     "level": 3,
+     "behavior": "DL-01.6",
+     "q": "Khi chỉ có một nguồn dữ liệu, nói rõ giới hạn và đề xuất cách kiểm chứng thêm."
+    },
+    {
+     "id": "DL-01.6.3",
+     "level": 3,
+     "behavior": "DL-01.6",
+     "q": "Khi các nguồn dữ liệu chênh lệch nhau, chủ động đối chiếu để tìm nguyên nhân."
+    },
+    {
+     "id": "DL-01.7.1",
+     "level": 4,
+     "behavior": "DL-01.7",
+     "q": "Khi trình bày, chọn loại biểu đồ phù hợp mục đích (cột để so sánh, đường cho xu hướng...)."
+    },
+    {
+     "id": "DL-01.7.2",
+     "level": 4,
+     "behavior": "DL-01.7",
+     "q": "Khi làm biểu đồ, đặt tiêu đề nói lên phát hiện chính thay vì chỉ ghi tên dữ liệu."
+    },
+    {
+     "id": "DL-01.7.3",
+     "level": 4,
+     "behavior": "DL-01.7",
+     "q": "Khi thiết kế biểu đồ, bỏ các hiệu ứng thừa (3D, đổ bóng) để dễ đọc."
+    },
+    {
+     "id": "DL-01.8.1",
+     "level": 4,
+     "behavior": "DL-01.8",
+     "q": "Khi dùng một nguồn dữ liệu, nhận xét được chất lượng của nó (đầy đủ, chính xác, kịp thời)."
+    },
+    {
+     "id": "DL-01.8.2",
+     "level": 4,
+     "behavior": "DL-01.8",
+     "q": "Khi dùng dữ liệu để ra quyết định, nói rõ mức độ tin cậy của dữ liệu đó."
+    },
+    {
+     "id": "DL-01.8.3",
+     "level": 4,
+     "behavior": "DL-01.8",
+     "q": "Khi xem cách thu thập dữ liệu, chỉ ra được điểm có thể gây sai lệch (cách chọn mẫu, cách đặt câu hỏi)."
+    }
+   ]
+  },
+  {
+   "code": "TA-02",
+   "name": "Linh hoạt & Thích ứng",
+   "definition": "Điều chỉnh cách làm, hành vi, ưu tiên hiệu quả để phù hợp với hoàn cảnh, thông tin mới hoặc thay đổi.",
+   "minutes": 8,
+   "behaviors": [
+    {
+     "code": "TA-02.1",
+     "level": 1,
+     "text": "Đón nhận thay đổi nhỏ mà không than phiền."
+    },
+    {
+     "code": "TA-02.2",
+     "level": 1,
+     "text": "Nhận biết dấu hiệu căng thẳng của bản thân và chủ động xử lý."
+    },
+    {
+     "code": "TA-02.3",
+     "level": 2,
+     "text": "Sẵn sàng đổi cách làm quen khi có yêu cầu/thông tin mới."
+    },
+    {
+     "code": "TA-02.4",
+     "level": 2,
+     "text": "Đổi phong cách giao tiếp, làm việc theo người và tình huống."
+    },
+    {
+     "code": "TA-02.5",
+     "level": 3,
+     "text": "Nhanh chóng đổi ưu tiên cá nhân theo ưu tiên của tổ chức."
+    },
+    {
+     "code": "TA-02.6",
+     "level": 3,
+     "text": "Chủ động học kỹ năng mới để sẵn sàng cho thay đổi."
+    },
+    {
+     "code": "TA-02.7",
+     "level": 4,
+     "text": "Giữ hiệu suất ổn định trong tình huống mơ hồ, biến động."
+    },
+    {
+     "code": "TA-02.8",
+     "level": 4,
+     "text": "Dẫn dắt, hỗ trợ người khác thích ứng với thay đổi lớn."
+    }
+   ],
+   "questions": [
+    {
+     "id": "TA-02.1.1",
+     "level": 1,
+     "behavior": "TA-02.1",
+     "q": "Khi quy trình hoặc nhiệm vụ có thay đổi nhỏ, tiếp nhận và điều chỉnh mà không than phiền."
+    },
+    {
+     "id": "TA-02.1.2",
+     "level": 1,
+     "behavior": "TA-02.1",
+     "q": "Khi kế hoạch bị đổi vào phút chót, giữ thái độ bình tĩnh và hỏi rõ yêu cầu mới."
+    },
+    {
+     "id": "TA-02.1.3",
+     "level": 1,
+     "behavior": "TA-02.1",
+     "q": "Khi được giao cách làm mới, thử làm trước rồi mới góp ý, thay vì từ chối ngay."
+    },
+    {
+     "id": "TA-02.2.1",
+     "level": 1,
+     "behavior": "TA-02.2",
+     "q": "Khi bị quá tải, chủ động báo sớm cho người liên quan thay vì im lặng chịu đựng."
+    },
+    {
+     "id": "TA-02.2.2",
+     "level": 1,
+     "behavior": "TA-02.2",
+     "q": "Khi bị quá tải, đề xuất cách xử lý cụ thể (đổi ưu tiên, dời hạn, xin hỗ trợ)."
+    },
+    {
+     "id": "TA-02.2.3",
+     "level": 1,
+     "behavior": "TA-02.2",
+     "q": "Khi căng thẳng, không trút cảm xúc tiêu cực lên đồng nghiệp."
+    },
+    {
+     "id": "TA-02.3.1",
+     "level": 2,
+     "behavior": "TA-02.3",
+     "q": "Khi có yêu cầu mới, tạm dừng cách làm quen thuộc để tìm hiểu và thử cách phù hợp hơn."
+    },
+    {
+     "id": "TA-02.3.2",
+     "level": 2,
+     "behavior": "TA-02.3",
+     "q": "Khi có thông tin mới cho thấy cách làm cũ không còn đúng, sẵn sàng thay đổi."
+    },
+    {
+     "id": "TA-02.3.3",
+     "level": 2,
+     "behavior": "TA-02.3",
+     "q": "Khi cách làm hiện tại không hiệu quả, chủ động đề xuất cách khác."
+    },
+    {
+     "id": "TA-02.4.1",
+     "level": 2,
+     "behavior": "TA-02.4",
+     "q": "Khi làm việc với nhiều người khác nhau, điều chỉnh cách giao tiếp cho phù hợp từng người."
+    },
+    {
+     "id": "TA-02.4.2",
+     "level": 2,
+     "behavior": "TA-02.4",
+     "q": "Khi xử lý việc gấp, đưa ra phương án nhanh, dứt khoát; với việc cần độ chính xác, làm kỹ và kiểm tra lại."
+    },
+    {
+     "id": "TA-02.4.3",
+     "level": 2,
+     "behavior": "TA-02.4",
+     "q": "Khi phối hợp với phòng ban khác, điều chỉnh cách làm để khớp với quy trình của họ."
+    },
+    {
+     "id": "TA-02.5.1",
+     "level": 3,
+     "behavior": "TA-02.5",
+     "q": "Khi tổ chức đổi ưu tiên, điều chỉnh ngay công việc của mình theo định hướng mới."
+    },
+    {
+     "id": "TA-02.5.2",
+     "level": 3,
+     "behavior": "TA-02.5",
+     "q": "Khi có việc khẩn cấp phát sinh, sắp xếp lại lịch và thông báo cho các bên bị ảnh hưởng."
+    },
+    {
+     "id": "TA-02.5.3",
+     "level": 3,
+     "behavior": "TA-02.5",
+     "q": "Khi ưu tiên thay đổi, vẫn giữ được chất lượng của các việc quan trọng đang làm."
+    },
+    {
+     "id": "TA-02.6.1",
+     "level": 3,
+     "behavior": "TA-02.6",
+     "q": "Khi biết sắp có thay đổi ảnh hưởng đến công việc, chủ động học trước kiến thức, kỹ năng cần thiết."
+    },
+    {
+     "id": "TA-02.6.2",
+     "level": 3,
+     "behavior": "TA-02.6",
+     "q": "Chủ động tham gia đào tạo, dự án thử nghiệm để chuẩn bị cho yêu cầu tương lai."
+    },
+    {
+     "id": "TA-02.6.3",
+     "level": 3,
+     "behavior": "TA-02.6",
+     "q": "Khi có công cụ hoặc hệ thống mới, là một trong những người dùng thử sớm."
+    },
+    {
+     "id": "TA-02.7.1",
+     "level": 4,
+     "behavior": "TA-02.7",
+     "q": "Khi việc chưa rõ hướng, vẫn chủ động làm và tạo ra kết quả, không “đứng hình” chờ hướng dẫn."
+    },
+    {
+     "id": "TA-02.7.2",
+     "level": 4,
+     "behavior": "TA-02.7",
+     "q": "Trong giai đoạn nhiều biến động, vẫn giữ được hiệu suất công việc như bình thường."
+    },
+    {
+     "id": "TA-02.7.3",
+     "level": 4,
+     "behavior": "TA-02.7",
+     "q": "Trong tình huống bất ổn, giữ thái độ điềm tĩnh, không lan truyền lo lắng cho người khác."
+    },
+    {
+     "id": "TA-02.8.1",
+     "level": 4,
+     "behavior": "TA-02.8",
+     "q": "Khi tổ chức có thay đổi lớn (tái cơ cấu, chuyển đổi số), đứng ra dẫn dắt nhóm đi qua thay đổi."
+    },
+    {
+     "id": "TA-02.8.2",
+     "level": 4,
+     "behavior": "TA-02.8",
+     "q": "Khi đồng nghiệp gặp khó khăn với thay đổi, chủ động giải thích, đồng hành và hỗ trợ."
+    },
+    {
+     "id": "TA-02.8.3",
+     "level": 4,
+     "behavior": "TA-02.8",
+     "q": "Khi truyền đạt thay đổi, giải thích rõ lý do và lợi ích để mọi người dễ đón nhận."
+    }
+   ]
+  },
+  {
+   "code": "LN-02",
+   "name": "Thấu cảm",
+   "definition": "Nhận biết, thấu hiểu và ghi nhận cảm xúc, góc nhìn và động cơ (chưa nói ra) của người khác.",
+   "minutes": 8,
+   "behaviors": [
+    {
+     "code": "LN-02.1",
+     "level": 1,
+     "text": "Nhận ra tín hiệu cảm xúc rõ (giọng nói, cử chỉ) của người đối diện."
+    },
+    {
+     "code": "LN-02.2",
+     "level": 1,
+     "text": "Hỏi thăm cảm xúc, hoàn cảnh của người khác trong giao tiếp hằng ngày."
+    },
+    {
+     "code": "LN-02.3",
+     "level": 2,
+     "text": "Điều chỉnh giọng điệu, từ ngữ theo cảm xúc người đối diện."
+    },
+    {
+     "code": "LN-02.4",
+     "level": 2,
+     "text": "Ghi nhận cảm xúc người khác một cách chân thành."
+    },
+    {
+     "code": "LN-02.5",
+     "level": 3,
+     "text": "Gác quan điểm riêng để nhìn vấn đề từ góc của người khác."
+    },
+    {
+     "code": "LN-02.6",
+     "level": 3,
+     "text": "Giúp làm dịu không khí khi nhóm căng thẳng."
+    },
+    {
+     "code": "LN-02.7",
+     "level": 4,
+     "text": "Tạo môi trường an toàn để người khác nói thật lòng."
+    },
+    {
+     "code": "LN-02.8",
+     "level": 4,
+     "text": "Xây dựng quan hệ tin cậy lâu dài dựa trên thấu hiểu."
+    }
+   ],
+   "questions": [
+    {
+     "id": "LN-02.1.1",
+     "level": 1,
+     "behavior": "LN-02.1",
+     "q": "Khi người đối diện đột nhiên lớn tiếng, nghẹn giọng hoặc im lặng, dừng lại để hỏi han thay vì nói tiếp như không có gì."
+    },
+    {
+     "id": "LN-02.1.2",
+     "level": 1,
+     "behavior": "LN-02.1",
+     "q": "Khi thấy ai đó khoanh tay, quay đi hoặc ngừng tham gia, chủ động mời họ chia sẻ."
+    },
+    {
+     "id": "LN-02.1.3",
+     "level": 1,
+     "behavior": "LN-02.1",
+     "q": "Khi người đối diện có vẻ khó chịu, nhắc đến cảm xúc của họ trước khi bàn tiếp nội dung công việc."
+    },
+    {
+     "id": "LN-02.2.1",
+     "level": 1,
+     "behavior": "LN-02.2",
+     "q": "Trong giao tiếp hằng ngày, hỏi thăm tình trạng của người khác trước khi vào việc."
+    },
+    {
+     "id": "LN-02.2.2",
+     "level": 1,
+     "behavior": "LN-02.2",
+     "q": "Khi trao đổi riêng, thể hiện sự quan tâm đến khó khăn và nhu cầu hỗ trợ của đồng nghiệp."
+    },
+    {
+     "id": "LN-02.2.3",
+     "level": 1,
+     "behavior": "LN-02.2",
+     "q": "Khi biết đồng nghiệp gặp chuyện khó khăn, chủ động hỏi xem mình có thể hỗ trợ gì."
+    },
+    {
+     "id": "LN-02.3.1",
+     "level": 2,
+     "behavior": "LN-02.3",
+     "q": "Khi người nghe tỏ ra bối rối, nói chậm lại hoặc giải thích theo cách khác."
+    },
+    {
+     "id": "LN-02.3.2",
+     "level": 2,
+     "behavior": "LN-02.3",
+     "q": "Khi người nghe chưa theo kịp, dùng từ ngữ đơn giản, bớt thuật ngữ chuyên môn."
+    },
+    {
+     "id": "LN-02.3.3",
+     "level": 2,
+     "behavior": "LN-02.3",
+     "q": "Khi người đối diện đang căng thẳng, giữ giọng nói nhẹ nhàng, bình tĩnh."
+    },
+    {
+     "id": "LN-02.4.1",
+     "level": 2,
+     "behavior": "LN-02.4",
+     "q": "Khi người khác vừa nói ra khó khăn hoặc bức xúc, ghi nhận cảm xúc của họ (ví dụ: “Mình hiểu là bạn đang thấy...”)."
+    },
+    {
+     "id": "LN-02.4.2",
+     "level": 2,
+     "behavior": "LN-02.4",
+     "q": "Khi người khác bày tỏ cảm xúc tiêu cực, không gạt đi ngay (“không sao đâu”, “đừng buồn”) mà để họ nói hết."
+    },
+    {
+     "id": "LN-02.4.3",
+     "level": 2,
+     "behavior": "LN-02.4",
+     "q": "Khi ghi nhận cảm xúc của người khác, thể hiện sự chân thành, không mang tính hình thức."
+    },
+    {
+     "id": "LN-02.5.1",
+     "level": 3,
+     "behavior": "LN-02.5",
+     "q": "Trước khi phản biện, nhắc lại được quan điểm của người khác đúng như họ diễn đạt."
+    },
+    {
+     "id": "LN-02.5.2",
+     "level": 3,
+     "behavior": "LN-02.5",
+     "q": "Trước khi đưa ý kiến khác, ghi nhận những điểm hợp lý trong quan điểm của người khác."
+    },
+    {
+     "id": "LN-02.5.3",
+     "level": 3,
+     "behavior": "LN-02.5",
+     "q": "Khi có bất đồng, tìm hiểu lý do và hoàn cảnh đằng sau quan điểm của người khác."
+    },
+    {
+     "id": "LN-02.6.1",
+     "level": 3,
+     "behavior": "LN-02.6",
+     "q": "Trong cuộc họp, khi thấy có người im lặng hoặc rút lui, chủ động hỏi ý kiến của họ."
+    },
+    {
+     "id": "LN-02.6.2",
+     "level": 3,
+     "behavior": "LN-02.6",
+     "q": "Khi tranh luận trở nên gay gắt (cắt lời, lớn tiếng), đề xuất tạm nghỉ hoặc chuyển hướng thảo luận."
+    },
+    {
+     "id": "LN-02.6.3",
+     "level": 3,
+     "behavior": "LN-02.6",
+     "q": "Khi nhóm căng thẳng, giúp mọi người quay lại mục tiêu chung."
+    },
+    {
+     "id": "LN-02.7.1",
+     "level": 4,
+     "behavior": "LN-02.7",
+     "q": "Khi điều phối cuộc họp, mở đầu bằng lời khuyến khích mọi người chia sẻ thật lòng."
+    },
+    {
+     "id": "LN-02.7.2",
+     "level": 4,
+     "behavior": "LN-02.7",
+     "q": "Không ngắt lời hoặc phán xét khi có người nêu ý kiến khác biệt."
+    },
+    {
+     "id": "LN-02.7.3",
+     "level": 4,
+     "behavior": "LN-02.7",
+     "q": "Khi có người chia sẻ, đợi họ nói xong, xác nhận lại ý chính và hỏi thêm câu hỏi mở."
+    },
+    {
+     "id": "LN-02.8.1",
+     "level": 4,
+     "behavior": "LN-02.8",
+     "q": "Khi đồng nghiệp (kể cả phòng ban khác) tìm đến trao đổi, sẵn sàng dành thời gian lắng nghe."
+    },
+    {
+     "id": "LN-02.8.2",
+     "level": 4,
+     "behavior": "LN-02.8",
+     "q": "Giữ kín những điều người khác chia sẻ riêng."
+    },
+    {
+     "id": "LN-02.8.3",
+     "level": 4,
+     "behavior": "LN-02.8",
+     "q": "Sau khi dự án kết thúc hoặc đồng nghiệp chuyển nhóm, vẫn giữ liên lạc và quan hệ tốt."
+    }
+   ]
+  },
+  {
+   "code": "AI-01",
+   "name": "Ứng dụng AI trong công việc",
+   "definition": "Hiểu cách AI (đặc biệt là AI tạo sinh) hoạt động, biết dùng AI an toàn, hiệu quả để nâng cao chất lượng và năng suất, đồng thời chịu trách nhiệm về kết quả cuối cùng.",
+   "minutes": 8,
+   "behaviors": [
+    {
+     "code": "AI-01.1",
+     "level": 1,
+     "text": "Hiểu khả năng và giới hạn cơ bản của AI tạo sinh (có thể 'bịa' thông tin, kiến thức có hạn, thiếu bối cảnh nội bộ)."
+    },
+    {
+     "code": "AI-01.2",
+     "level": 1,
+     "text": "Dùng AI an toàn: không đưa dữ liệu mật, dữ liệu cá nhân vào công cụ chưa được phê duyệt."
+    },
+    {
+     "code": "AI-01.3",
+     "level": 2,
+     "text": "Viết yêu cầu (prompt) rõ ràng: bối cảnh, mục tiêu, vai trò, định dạng, ví dụ; biết hỏi lại để cải thiện kết quả."
+    },
+    {
+     "code": "AI-01.4",
+     "level": 2,
+     "text": "Kiểm chứng, chỉnh sửa kết quả AI trước khi dùng và ghi rõ khi có sử dụng AI."
+    },
+    {
+     "code": "AI-01.5",
+     "level": 3,
+     "text": "Đưa AI vào các việc lặp lại của mình/nhóm (tóm tắt, soạn thảo, phân tích) và đo được hiệu quả."
+    },
+    {
+     "code": "AI-01.6",
+     "level": 3,
+     "text": "Dùng AI cho nghiệp vụ nhân sự một cách có trách nhiệm: nhận diện thiên lệch, minh bạch, con người ra quyết định cuối."
+    },
+    {
+     "code": "AI-01.7",
+     "level": 4,
+     "text": "Chọn đúng bài toán, thiết kế và dẫn dắt giải pháp AI cho nhóm/tổ chức, đo lợi ích – chi phí."
+    },
+    {
+     "code": "AI-01.8",
+     "level": 4,
+     "text": "Xây dựng nguyên tắc sử dụng AI (đạo đức, bảo mật, tuân thủ pháp luật) và hướng dẫn người khác áp dụng."
+    }
+   ],
+   "questions": [
+    {
+     "id": "AI-01.1.1",
+     "level": 1,
+     "behavior": "AI-01.1",
+     "q": "Khi dùng AI, nói rõ được AI làm tốt việc gì và có thể sai ở đâu."
+    },
+    {
+     "id": "AI-01.1.2",
+     "level": 1,
+     "behavior": "AI-01.1",
+     "q": "Khi đồng nghiệp tin tuyệt đối vào câu trả lời của AI, nhắc nhở về khả năng AI “bịa” thông tin."
+    },
+    {
+     "id": "AI-01.1.3",
+     "level": 1,
+     "behavior": "AI-01.1",
+     "q": "Khi cần thông tin mới hoặc nội bộ, không phụ thuộc vào AI mà tìm đến nguồn chính thức."
+    },
+    {
+     "id": "AI-01.2.1",
+     "level": 1,
+     "behavior": "AI-01.2",
+     "q": "Khi dùng AI, chỉ sử dụng các công cụ được công ty cho phép."
+    },
+    {
+     "id": "AI-01.2.2",
+     "level": 1,
+     "behavior": "AI-01.2",
+     "q": "Không đưa dữ liệu mật hoặc dữ liệu cá nhân (lương, sức khỏe, CCCD...) vào công cụ AI chưa được phê duyệt."
+    },
+    {
+     "id": "AI-01.2.3",
+     "level": 1,
+     "behavior": "AI-01.2",
+     "q": "Khi cần dùng dữ liệu thật, ẩn danh hoặc xóa thông tin định danh trước khi đưa vào AI."
+    },
+    {
+     "id": "AI-01.3.1",
+     "level": 2,
+     "behavior": "AI-01.3",
+     "q": "Khi giao việc cho AI, viết yêu cầu rõ bối cảnh, mục tiêu, định dạng mong muốn."
+    },
+    {
+     "id": "AI-01.3.2",
+     "level": 2,
+     "behavior": "AI-01.3",
+     "q": "Khi kết quả AI chưa đạt, phản hồi cụ thể để AI điều chỉnh thay vì bỏ cuộc."
+    },
+    {
+     "id": "AI-01.3.3",
+     "level": 2,
+     "behavior": "AI-01.3",
+     "q": "Lưu lại và tái sử dụng các mẫu yêu cầu hiệu quả cho những việc lặp lại."
+    },
+    {
+     "id": "AI-01.4.1",
+     "level": 2,
+     "behavior": "AI-01.4",
+     "q": "Trước khi dùng kết quả của AI, kiểm tra lại số liệu, trích dẫn và thông tin quan trọng."
+    },
+    {
+     "id": "AI-01.4.2",
+     "level": 2,
+     "behavior": "AI-01.4",
+     "q": "Chỉnh sửa kết quả AI cho đúng giọng văn, bối cảnh và quy định của công ty trước khi gửi đi."
+    },
+    {
+     "id": "AI-01.4.3",
+     "level": 2,
+     "behavior": "AI-01.4",
+     "q": "Chịu trách nhiệm về nội dung có AI hỗ trợ và minh bạch khi có sử dụng AI."
+    },
+    {
+     "id": "AI-01.5.1",
+     "level": 3,
+     "behavior": "AI-01.5",
+     "q": "Dùng AI thường xuyên cho các việc phù hợp (tóm tắt, soạn nháp, phân tích sơ bộ) để tiết kiệm thời gian."
+    },
+    {
+     "id": "AI-01.5.2",
+     "level": 3,
+     "behavior": "AI-01.5",
+     "q": "Đo được thời gian hoặc chất lượng công việc được cải thiện khi dùng AI."
+    },
+    {
+     "id": "AI-01.5.3",
+     "level": 3,
+     "behavior": "AI-01.5",
+     "q": "Chia sẻ với đồng nghiệp cách dùng AI hiệu quả trong công việc chung."
+    },
+    {
+     "id": "AI-01.6.1",
+     "level": 3,
+     "behavior": "AI-01.6",
+     "q": "Khi dùng AI cho tuyển dụng, đánh giá, đào tạo, luôn để con người xem xét và ra quyết định cuối."
+    },
+    {
+     "id": "AI-01.6.2",
+     "level": 3,
+     "behavior": "AI-01.6",
+     "q": "Khi kết quả AI có dấu hiệu thiên lệch (giới tính, tuổi, vùng miền...), dừng lại kiểm tra và báo cáo."
+    },
+    {
+     "id": "AI-01.6.3",
+     "level": 3,
+     "behavior": "AI-01.6",
+     "q": "Thông báo minh bạch cho người liên quan khi AI được dùng trong quy trình ảnh hưởng đến họ."
+    },
+    {
+     "id": "AI-01.7.1",
+     "level": 4,
+     "behavior": "AI-01.7",
+     "q": "Đề xuất được bài toán cụ thể mà AI có thể giúp nhóm hoặc tổ chức làm tốt hơn."
+    },
+    {
+     "id": "AI-01.7.2",
+     "level": 4,
+     "behavior": "AI-01.7",
+     "q": "Dẫn dắt thử nghiệm giải pháp AI: đặt mục tiêu, đo kết quả, rồi quyết định mở rộng hay dừng."
+    },
+    {
+     "id": "AI-01.7.3",
+     "level": 4,
+     "behavior": "AI-01.7",
+     "q": "Giúp đồng nghiệp vượt qua lo ngại khi áp dụng AI bằng đào tạo và hỗ trợ thực tế."
+    },
+    {
+     "id": "AI-01.8.1",
+     "level": 4,
+     "behavior": "AI-01.8",
+     "q": "Góp phần xây dựng hoặc cập nhật quy định, hướng dẫn sử dụng AI của đơn vị."
+    },
+    {
+     "id": "AI-01.8.2",
+     "level": 4,
+     "behavior": "AI-01.8",
+     "q": "Nhắc nhở và hướng dẫn người khác dùng AI đúng quy định về bảo mật, đạo đức và pháp luật."
+    },
+    {
+     "id": "AI-01.8.3",
+     "level": 4,
+     "behavior": "AI-01.8",
+     "q": "Theo dõi thay đổi về công nghệ và quy định liên quan đến AI để điều chỉnh cách làm của đơn vị."
+    }
+   ]
+  }
+ ]
+}

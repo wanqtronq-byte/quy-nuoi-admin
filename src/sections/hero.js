@@ -32,6 +32,8 @@ export default {
 .hero-scene .deco { position: absolute; height: auto; }
 .hero-frame { position: absolute; inset: 12%; background: var(--paper); border: 4px solid var(--ink); border-radius: 36px; box-shadow: 10px 10px 0 var(--mint2); display: flex; align-items: center; justify-content: center; padding: 18px; }
 .hero-frame img { width: 100%; height: 100%; object-fit: contain; display: block; animation: dogbounce 2.8s ease-in-out infinite; }
+.hero-frame img.swap { opacity: 0; transform: scale(.9); }
+.hero-frame img { transition: opacity .35s ease, transform .35s ease; }
 .hero-grass { position: absolute; left: 0; bottom: -2px; width: 100%; height: 72px; display: block; }
 `,
 
@@ -56,11 +58,32 @@ export default {
         <svg class="deco" aria-hidden="true" viewBox="0 0 40 40" style="left:0;top:56%;width:8%;animation:beat 1.6s ease-in-out infinite"><path d="M20 34 C6 24 2 16 8 10 C13 5 19 8 20 13 C21 8 27 5 32 10 C38 16 34 24 20 34 Z" fill="#FFB5C2" stroke="#17342B" stroke-width="3.5" stroke-linejoin="round"/></svg>
         <svg class="deco" aria-hidden="true" viewBox="0 0 24 24" style="left:6%;bottom:4%;width:6%;animation:twinkle 2s ease-in-out infinite"><path d="${STAR}" fill="#5FD3A8" stroke="#17342B" stroke-width="2" stroke-linejoin="round"/></svg>
         <svg class="deco" aria-hidden="true" viewBox="0 0 24 24" style="right:8%;bottom:2%;width:5%;animation:twinkle 2.6s ease-in-out .6s infinite"><path d="${STAR}" fill="#FFD86B" stroke="#17342B" stroke-width="2" stroke-linejoin="round"/></svg>
-        <div class="hero-frame"><img src="${esc(site.mascot)}" alt="${esc(site.mascotAlt)}"></div>
+        <div class="hero-frame"><img class="hero-meme" src="${esc(site.mascot)}" alt="${esc(site.mascotAlt)}"></div>
       </div>
     </div>
   </div>
   <svg class="hero-grass" aria-hidden="true" viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0 50 C120 20 240 20 360 44 C480 68 600 70 720 46 C840 22 960 18 1080 42 C1200 66 1320 64 1440 40 V90 H0 Z" fill="#9EE6C9" stroke="#17342B" stroke-width="4"/></svg>
 </section>`;
+  },
+
+  // Đổi ảnh cún ngẫu nhiên khi vào trang, rồi đổi tiếp mỗi 8 giây.
+  mount(el, site) {
+    const img = el.querySelector('.hero-meme');
+    const list = site.heroMemes || [];
+    if (!img || !list.length) return;
+    let k = Math.floor(Math.random() * list.length);
+    const show = (m) => { img.src = m.src; img.alt = m.alt; };
+    list.forEach((m) => { const p = new Image(); p.src = m.src; });
+    show(list[k]);
+    if (list.length < 2 || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    setInterval(() => {
+      if (document.hidden) return;
+      img.classList.add('swap');
+      setTimeout(() => {
+        k = (k + 1) % list.length;
+        show(list[k]);
+        img.classList.remove('swap');
+      }, 350);
+    }, 8000);
   },
 };

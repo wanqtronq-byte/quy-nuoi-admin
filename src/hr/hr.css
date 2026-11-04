@@ -117,3 +117,7 @@
 .hr-tips ul { gap: 6px; }
 .hr-tips details summary { cursor: pointer; font-weight: 700; color: var(--deep); min-height: 32px; }
 .hr-tips details[open] { display: flex; flex-direction: column; gap: 10px; }
+
+.meme-img { width: 170px; height: auto; display: block; }
+.hr-meme .meme-img { width: 200px; }
+.hr-result-top .meme .meme-img { width: 150px; }

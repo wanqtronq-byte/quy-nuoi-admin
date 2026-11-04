@@ -8,6 +8,15 @@ export default {
   mascot: '/assets/img/mascot.png',
   mascotAlt: 'Chú cún mặc áo rách vá chằng vá đụp, mặt hiền khô',
 
+  // Ảnh cún ở đầu trang, tự đổi mỗi lần vào và mỗi 8 giây.
+  heroMemes: [
+    { src: '/assets/img/meme/home-1.webp', alt: 'Cún mặc áo rách vá chằng vá đụp' },
+    { src: '/assets/img/meme/home-2.webp', alt: 'Cún nằm dài bên cái chén không' },
+    { src: '/assets/img/meme/home-3.webp', alt: 'Cún ngồi quay lưng nhìn cái bát trống' },
+    { src: '/assets/img/meme/home-4.webp', alt: 'Cún thắt nơ cầm phong bì' },
+    { src: '/assets/img/meme/home-5.webp', alt: 'Cún ôm trái tim đỏ' },
+  ],
+
   footer: {
     left: '© Quỹ Nuôi Admin · thương nhau thì nuôi nhau.',
     right: 'Trang làm cho vui thôi, đừng căng nha.',

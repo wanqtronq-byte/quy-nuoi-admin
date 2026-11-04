@@ -4,7 +4,7 @@
 import { SETS, AUDIENCE, HOW_IT_WORKS } from './sets.js';
 import { scoreQuiz, scoreSurvey, LEVEL_NAMES } from './scoring.js';
 import { radar } from './radar.js';
-import { MEMES, START_MEME } from './memes.js';
+import { MEMES, START_MEME, BREAK_MEME } from './memes.js';
 import { esc } from '../lib/dom.js';
 
 const params = new URLSearchParams(location.search);
@@ -248,7 +248,7 @@ function renderBreak(batch) {
   app.innerHTML = `
 <div class="wrap"><div class="hr-run">
   <section class="card hr-result-top">
-    <div class="meme">${MEMES[last.result.final].art}</div>
+    <div class="meme">${BREAK_MEME.art}</div>
     <div class="copy">
       <span class="hr-kicker">Xong bài ${batch.done.length}/${batch.total}</span>
       <div class="hr-level" style="font-size:32px">${esc(last.test.name)}: ${esc(LEVEL_NAMES[last.result.final])}</div>

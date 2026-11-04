@@ -3,16 +3,16 @@
 import { esc } from '../lib/dom.js';
 
 const content = {
-  title: 'Hôm nay bạn muốn tiếp tế bao nhiêu?',
-  lead: 'Ít hay nhiều đều là tình iu hết á.',
+  title: 'Hôm nay bạn cho admin miếng bánh nào?',
+  lead: 'Bánh nhỏ bánh to đều là tình iu hết á.',
   qrCaption: 'Quét một phát là xong',
   defaultPick: 2,
   options: [
-    { label: '10k', hint: 'một gói mì', msg: '10k = một gói mì cứu đói. Cảm ơn bạn iu nha!' },
-    { label: '20k', hint: 'ly trà đá + bánh', msg: '20k = trà đá kèm bánh, chill hết nấc. Thương ghê!' },
-    { label: '50k', hint: 'trà sữa full topping', msg: '50k = một ly trà sữa full topping. Bạn là nhất!' },
-    { label: '100k', hint: 'bữa ăn ra hồn', msg: '100k = một bữa ăn đàng hoàng. Tui cảm động muốn khóc.' },
-    { label: 'Tùy vibe', hint: 'bao nhiêu cũng được', msg: 'Tùy vibe của bạn, bao nhiêu tui cũng quý hết.' },
+    { label: '10k', hint: 'ổ bánh mì không', msg: 'Ổ bánh mì không mà tui nhai ngon lành luôn. Cảm ơn bạn iu nha!' },
+    { label: '20k', hint: 'bánh mì thịt', msg: 'Bánh mì thịt đủ pate, tui no tới chiều. Thương ghê!' },
+    { label: '50k', hint: 'bông lan trứng muối', msg: 'Bông lan trứng muối, sang chảnh quá trời. Bạn là nhất!' },
+    { label: '100k', hint: 'nguyên hộp bánh quy', msg: 'Nguyên hộp bánh quy, tui chia cả xóm luôn. Cảm động muốn khóc.' },
+    { label: 'Tùy tâm', hint: 'bánh gì cũng được', msg: 'Bánh gì cũng quý, miễn là bánh của bạn cho.' },
   ],
 };
 

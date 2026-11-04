@@ -28,6 +28,8 @@ const css = `
 .chat-row.bot .chat-bubble, .chat-row.err .chat-bubble { border-bottom-left-radius: 6px; }
 .chat-row.me .chat-bubble { background: var(--deep); color: #fff; border-bottom-right-radius: 6px; }
 .chat-row.err .chat-bubble { background: #FFF1F3; color: #8A2238; }
+.chat-meme { padding: 6px; }
+.chat-meme img { display: block; width: 120px; max-width: 100%; height: auto; border-radius: 12px; }
 .chat-typing { display: inline-flex; gap: 5px; align-items: center; height: 22px; }
 .chat-typing i { width: 8px; height: 8px; border-radius: 999px; background: var(--ink); animation: chat-dot 1s ease-in-out infinite; }
 .chat-typing i:nth-child(2) { animation-delay: .15s; }
@@ -107,6 +109,17 @@ export default {
       return r;
     }
 
+    function memeRow(src, alt) {
+      const r = row('bot', '');
+      const b = r.querySelector('.chat-bubble');
+      b.textContent = '';
+      b.classList.add('chat-meme');
+      const im = document.createElement('img');
+      im.src = src; im.alt = alt;
+      im.addEventListener('load', () => { log.scrollTop = log.scrollHeight; });
+      b.appendChild(im);
+    }
+
     row('bot', cfg.greeting);
 
     function setBusy(v) {
@@ -134,8 +147,11 @@ export default {
         const data = await res.json().catch(() => ({}));
         wait.remove();
         if (res.ok && data.reply) {
-          history.push({ role: 'model', text: data.reply });
-          row('bot', data.reply);
+          const meme = /\[MEME:chi-tay\]/i.test(data.reply);
+          const clean = data.reply.replace(/\[MEME:[^\]]*\]/gi, '').trim();
+          history.push({ role: 'model', text: clean });
+          if (clean) row('bot', clean);
+          if (meme) memeRow('/assets/img/meme/husky-point.webp', 'Husky chỉ tay: nhìn lại coi ai chó');
         } else {
           history.pop();
           row('err', data.error || 'Admin đang lag xíu, bạn thử lại sau nha.');

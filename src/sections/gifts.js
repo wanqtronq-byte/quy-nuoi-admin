@@ -11,7 +11,13 @@ const ICONS = {
 const content = {
   title: 'Quà cảm ơn của bạn ở đây nè',
   items: [
-    { icon: 'hr', title: 'Mẹo HR bỏ túi', desc: 'CV · phỏng vấn · deal lương' },
+    {
+      icon: 'hr', title: 'Mẹo HR bỏ túi', desc: 'CV · phỏng vấn · deal lương. Kèm bài thử sức năng lực HR có biểu đồ nhện:',
+      links: [
+        { label: 'Bản rút gọn · 16 câu/đề', href: '/danh-gia.html?bo=rut-gon' },
+        { label: 'Bản đầy đủ · 24–28 câu/đề', href: '/danh-gia.html?bo=day-du' },
+      ],
+    },
     { icon: 'code', title: 'Prompt vibe code', desc: 'Mấy prompt tui hay xài' },
   ],
   noteBefore: 'Có cho hay không cũng lấy được, ',
@@ -32,6 +38,8 @@ export default {
 .gift:nth-child(even) .gift-tile { animation-direction: reverse; }
 .gift h3 { font-size: 28px; line-height: 1.2; }
 .gift p { font-size: 17px; line-height: 1.5; color: var(--muted); margin-top: 6px; }
+.gift-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.gift-links a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 2.5px solid var(--ink); border-radius: 999px; background: var(--mint); font-weight: 700; font-size: 14.5px; text-decoration: none; box-shadow: 2px 2px 0 var(--ink); }
 .gifts-note { align-self: flex-start; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 17px; background: var(--paper); border: 2.5px dashed var(--ink); border-radius: 16px; padding: 12px 18px; }
 .gifts-note a { color: var(--deep); font-weight: 700; }
 @media (max-width: 600px) { .gift { flex-direction: column; align-items: flex-start; } }
@@ -42,7 +50,7 @@ export default {
     const items = content.items.map((it) => `
       <div class="card gift">
         <div class="gift-tile">${ICONS[it.icon] || ''}</div>
-        <div><h3 class="display">${esc(it.title)}</h3><p>${esc(it.desc)}</p></div>
+        <div><h3 class="display">${esc(it.title)}</h3><p>${esc(it.desc)}</p>${it.links ? `<div class="gift-links">${it.links.map((l) => `<a class="pop" href="${esc(l.href)}">${esc(l.label)} →</a>`).join('')}</div>` : ''}</div>
       </div>`).join('');
     const note = chatOn
       ? `<p class="gifts-note">${ICONS.heart}<span>${esc(content.noteBefore)}<a href="#chat" data-open-chat>${esc(content.noteLink)}</a>${esc(content.noteAfter)}</span></p>`

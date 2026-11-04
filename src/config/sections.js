@@ -11,13 +11,13 @@
 import hero from '../sections/hero.js';
 import gifts from '../sections/gifts.js';
 import story from '../sections/story.js';
-import hrSkills from '../sections/hr-skills.js';
+// Phần riêng cho bài thử sức HR (đang gộp vào thẻ Mẹo HR, bật lại bằng cách thêm vào mảng):
+// import hrSkills from '../sections/hr-skills.js';
 import donate from '../sections/donate.js';
 
 export default [
   hero,
   gifts,
-  hrSkills,
   story,
   donate,
 ];

@@ -5,7 +5,7 @@ import { localize, L } from '../lib/i18n.js';
 import { thankYou } from '../widgets/thanks.js';
 
 const content = localize({
-  title: { vi: 'Hôm nay bạn cho admin miếng bánh nào?', en: 'Which snack for the admin today?' },
+  title: { vi: 'Nếu bạn thấy hay thì cho admin xin miếng bánh', en: 'If you enjoyed it, spare the admin a snack' },
   lead: { vi: 'Bánh nhỏ bánh to đều là tình iu hết á.', en: 'Small snack or big snack, it is all love.' },
   qrCaption: { vi: 'Quét một phát là xong', en: 'One scan and done' },
   copyLabel: { vi: 'Copy số tài khoản', en: 'Copy account number' },

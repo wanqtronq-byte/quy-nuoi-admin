@@ -7,7 +7,7 @@ import { leash } from './leash.js';
 import { lang } from '../lib/i18n.js';
 
 const css = `
-.chat-fab { position: fixed; right: calc(20px + env(safe-area-inset-right, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 50; display: flex; align-items: center; gap: 10px; min-height: 72px; padding: 5px 22px 5px 5px; background: var(--deep); color: #fff; font: 700 17px var(--font-body); border: 3px solid var(--ink); border-radius: 999px; box-shadow: 5px 5px 0 var(--ink); cursor: pointer; animation: chat-bob 3s ease-in-out infinite; }
+.chat-fab { position: fixed; right: calc(20px + env(safe-area-inset-right, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 50; display: flex; align-items: center; gap: 10px; min-height: 72px; padding: 5px; background: var(--deep); color: #fff; font: 700 17px var(--font-body); border: 3px solid var(--ink); border-radius: 999px; box-shadow: 5px 5px 0 var(--ink); cursor: pointer; animation: chat-bob 3s ease-in-out infinite; }
 .chat-fab[aria-expanded="true"] { display: none; }
 .chat-av { width: 40px; height: 40px; border-radius: 999px; background: #fff; border: 2.5px solid var(--ink); object-fit: contain; flex: 0 0 auto; }
 .chat-fab .chat-av { width: 62px; height: 62px; }
@@ -57,7 +57,7 @@ export default {
     injectCss('chat', css);
 
     const ui = fragment(`
-<button id="chat-fab" class="chat-fab" type="button" aria-expanded="false" aria-controls="chat-panel"><img class="chat-av" src="${esc(site.mascot)}" alt=""><span>${esc(cfg.text.open)}</span></button>
+<button id="chat-fab" class="chat-fab" type="button" aria-expanded="false" aria-controls="chat-panel" aria-label="${esc(cfg.text.open)}" title="${esc(cfg.text.open)}"><img class="chat-av" src="${esc(site.mascot)}" alt=""><span class="sr">${esc(cfg.text.open)}</span></button>
 <section id="chat-panel" class="chat-panel" role="dialog" aria-label="${esc(cfg.text.open)}" hidden>
   <div class="chat-head">
     <img class="chat-av" src="${esc(site.mascot)}" alt="">

@@ -132,18 +132,3 @@ a:hover { color: var(--deep); }
 /* Giữ nét vẽ minh hoạ đọc được ở cả hai chế độ */
 .bar { gap: 12px 16px; }
 .bar-right { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
-
-/* Thu gọn toàn trang: chỉnh một con số này để to/nhỏ hơn (1 = kích thước gốc) */
-:root { --ui-scale: .88; }
-.site-header, #app, .site-footer, .hr-top, #hr-app, #tips-app { zoom: var(--ui-scale); }
-@media (max-width: 600px) { :root { --ui-scale: .92; } }
-@media (max-width: 600px) {
-  .bar { padding: 8px 10px; gap: 8px; }
-  .logo-img { width: 42px; height: 42px; }
-  .logo-img img { width: 36px; height: 36px; }
-  .logo-name { font-size: 21px; }
-  .bar-right { gap: 4px; }
-  .nav { gap: 2px; font-size: 14px; }
-  .nav a { min-height: 36px; padding: 0 10px; }
-  .pref-btn { min-width: 36px; min-height: 36px; padding: 0 8px; }
-}

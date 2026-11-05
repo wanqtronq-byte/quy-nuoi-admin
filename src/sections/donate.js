@@ -1,7 +1,8 @@
 // Phần "Ủng hộ": các mức tiền + ô QR. Thông tin ngân hàng sửa ở config/site.js.
 
 import { esc } from '../lib/dom.js';
-import { localize } from '../lib/i18n.js';
+import { localize, L } from '../lib/i18n.js';
+import { thankYou } from '../widgets/thanks.js';
 
 const content = localize({
   title: { vi: 'Hôm nay bạn cho admin miếng bánh nào?', en: 'Which snack for the admin today?' },
@@ -12,12 +13,16 @@ const content = localize({
   selected: { vi: 'Đã bôi đen, bấm Ctrl+C nha', en: 'Selected, press Ctrl+C' },
   qrAlt: { vi: 'Mã QR chuyển khoản', en: 'Bank transfer QR code' },
   qrPlaceholder: { vi: '[MÃ QR CỦA BẠN]', en: '[YOUR QR CODE]' },
+  memoLabel: { vi: 'Nội dung chuyển khoản (giữ nguyên nha)', en: 'Transfer note (keep it as is)' },
+  memoCopy: { vi: 'Copy nội dung', en: 'Copy note' },
+  waiting: { vi: 'Đang chờ bánh tới… chuyển xong là trang tự cảm ơn liền.', en: 'Waiting for your snack… the page will thank you as soon as it lands.' },
+  received: { vi: 'Đã nhận bánh, cảm ơn bạn!', en: 'Snack received, thank you!' },
   defaultPick: 2,
   options: [
-    { label: '10k', hint: { vi: 'ổ bánh mì không', en: 'plain baguette' }, msg: { vi: 'Ổ bánh mì mà no cả ngày. Cảm ơn bạn iu nha!', en: 'One baguette, full all day. Thank you!' } },
-    { label: '20k', hint: { vi: 'bánh mì thịt', en: 'bánh mì with meat' }, msg: { vi: 'Bánh mì thịt đủ pate, tui no tới chiều. Thương ghê!', en: 'Bánh mì with all the pâté, good till afternoon. Love it!' } },
-    { label: '50k', hint: { vi: 'bông lan trứng muối', en: 'salted egg sponge cake' }, msg: { vi: 'Bông lan trứng muối, sang chảnh quá trời. Bạn là nhất!', en: 'Salted egg sponge cake, so fancy. You are the best!' } },
-    { label: '100k', hint: { vi: 'nguyên hộp bánh quy', en: 'a whole box of cookies' }, msg: { vi: 'Nguyên hộp bánh quy, tui chia cả xóm luôn. Cảm động muốn khóc.', en: 'A whole box of cookies, sharing with the neighbors. I might cry.' } },
+    { label: '10k', amount: 10000, hint: { vi: 'ổ bánh mì không', en: 'plain baguette' }, msg: { vi: 'Ổ bánh mì mà no cả ngày. Cảm ơn bạn iu nha!', en: 'One baguette, full all day. Thank you!' } },
+    { label: '20k', amount: 20000, hint: { vi: 'bánh mì thịt', en: 'bánh mì with meat' }, msg: { vi: 'Bánh mì thịt đủ pate, tui no tới chiều. Thương ghê!', en: 'Bánh mì with all the pâté, good till afternoon. Love it!' } },
+    { label: '50k', amount: 50000, hint: { vi: 'bông lan trứng muối', en: 'salted egg sponge cake' }, msg: { vi: 'Bông lan trứng muối, sang chảnh quá trời. Bạn là nhất!', en: 'Salted egg sponge cake, so fancy. You are the best!' } },
+    { label: '100k', amount: 100000, hint: { vi: 'nguyên hộp bánh quy', en: 'a whole box of cookies' }, msg: { vi: 'Nguyên hộp bánh quy, tui chia cả xóm luôn. Cảm động muốn khóc.', en: 'A whole box of cookies, sharing with the neighbors. I might cry.' } },
     { label: { vi: 'Tùy tâm', en: 'Your call' }, hint: { vi: 'bánh gì cũng được', en: 'any snack works' }, msg: { vi: 'Bánh gì cũng quý, miễn là bánh của bạn cho.', en: 'Any snack is precious when it is from you.' } },
   ],
 });
@@ -43,6 +48,12 @@ export default {
 .qr-caption { font-size: 22px; }
 .qr-bank { font-size: 15px; line-height: 1.6; color: var(--muted); }
 .qr-name { color: var(--ink); letter-spacing: .02em; }
+.qr-memo { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.qr-memo small { font-size: 13px; color: var(--muted); font-weight: 600; }
+.qr-memo-code { font: 800 18px var(--font-body); letter-spacing: .06em; color: var(--ink); background: var(--sun); border: 2.5px dashed var(--ink); border-radius: 12px; padding: 6px 12px; cursor: pointer; }
+.qr-status { font-size: 14px; line-height: 1.5; color: var(--muted); display: flex; gap: 8px; align-items: center; justify-content: center; }
+.qr-status::before { content: ""; width: 10px; height: 10px; flex: 0 0 auto; border-radius: 999px; background: var(--mint2); animation: beat 1.4s ease-in-out infinite; }
+.qr-status.ok::before { animation: none; background: var(--deep); }
 .qr-copy { min-height: 44px; padding: 0 16px; border-radius: 999px; border: 2px solid var(--ink); background: var(--paper); font: 600 14px var(--font-body); color: var(--ink); cursor: pointer; }
 `,
 
@@ -65,6 +76,11 @@ export default {
     <span class="display qr-caption">${esc(content.qrCaption)}</span>
     <span class="qr-bank">${esc(d.bank)} · <span class="qr-acc">${esc(d.accountNumber)}</span>${name}</span>
     <button type="button" class="qr-copy pop">${esc(content.copyLabel)}</button>
+    <div class="qr-memo" hidden>
+      <small>${esc(content.memoLabel)}</small>
+      <button type="button" class="qr-memo-code" title="${esc(content.memoCopy)}"></button>
+    </div>
+    <p class="qr-status" aria-live="polite" hidden></p>
   </div>
 </section>`;
   },
@@ -88,9 +104,69 @@ export default {
       return b;
     });
 
+    // ----- SePay: QR riêng cho từng người, tự dò tiền vào -----
+    const d = site.donate || {};
+    const sp = d.sepay && d.sepay.enabled ? d.sepay : null;
+    const qrImg = el.querySelector('.qr-box img');
+    let code = null;
+    if (sp) {
+      try { code = sessionStorage.getItem('donate-code'); } catch { /* bỏ qua */ }
+      if (!code) {
+        const abc = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+        code = 'NUOIADMIN' + Array.from({ length: 6 }, () => abc[Math.floor(Math.random() * abc.length)]).join('');
+        try { sessionStorage.setItem('donate-code', code); } catch { /* bỏ qua */ }
+      }
+      const memo = el.querySelector('.qr-memo');
+      const memoBtn = el.querySelector('.qr-memo-code');
+      memo.hidden = false;
+      memoBtn.textContent = code;
+      memoBtn.addEventListener('click', async () => {
+        try { await navigator.clipboard.writeText(code); memoBtn.textContent = content.copied; } catch { /* bỏ qua */ }
+        setTimeout(() => { memoBtn.textContent = code; }, 1500);
+      });
+      watchPayment();
+    }
+
+    function setQr(amount) {
+      if (!sp || !qrImg) return;
+      const qs = new URLSearchParams({ acc: d.accountNumber, bank: sp.bankCode, des: code, template: 'compact' });
+      if (amount) qs.set('amount', amount);
+      qrImg.src = `https://qr.sepay.vn/img?${qs}`;
+    }
+
+    function watchPayment() {
+      const status = el.querySelector('.qr-status');
+      status.hidden = false;
+      status.textContent = content.waiting;
+      const started = Date.now();
+      let stopped = false;
+      async function tick() {
+        if (stopped) return;
+        if (Date.now() - started > 45 * 60 * 1000) return; // thôi dò sau 45 phút
+        if (!document.hidden) {
+          try {
+            const r = await fetch(`/api/paid?code=${encodeURIComponent(code)}`, { cache: 'no-store' });
+            const j = await r.json();
+            if (j.error === 'not-configured') { status.hidden = true; stopped = true; return; }
+            if (j.paid) {
+              stopped = true;
+              status.textContent = content.received;
+              status.classList.add('ok');
+              try { sessionStorage.removeItem('donate-code'); } catch { /* bỏ qua */ }
+              thankYou(j.amount);
+              return;
+            }
+          } catch { /* mạng chập chờn: thử lại lần sau */ }
+        }
+        setTimeout(tick, 5000);
+      }
+      setTimeout(tick, 4000);
+    }
+
     function pick(i) {
       buttons.forEach((b, j) => b.setAttribute('aria-pressed', j === i ? 'true' : 'false'));
       msg.textContent = content.options[i].msg;
+      setQr(content.options[i].amount);
     }
     pick(content.defaultPick);
 

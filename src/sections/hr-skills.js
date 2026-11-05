@@ -8,8 +8,8 @@ const content = {
   title: 'Thử sức năng lực HR',
   lead: 'Quà nè: hai bộ đánh giá năng lực cho dân nhân sự, tui soạn lại cho dễ đọc. Làm xong có biểu đồ nhện, biết ngay mình đang ở cấp nào.',
   cards: [
-    { set: 'rut-gon', time: '~24 phút/đề', count: '16 câu/đề', who: 'Muốn check nhanh trong giờ nghỉ trưa' },
-    { set: 'day-du', time: '36–42 phút/đề', count: '24–28 câu/đề', who: 'Muốn soi kỹ để lên kế hoạch phát triển' },
+    { set: 'rut-gon', time: 'Cả bộ ~30 phút', count: '16 câu/đề', who: 'Muốn check nhanh trong giờ nghỉ trưa' },
+    { set: 'day-du', time: 'Cả bộ ~1 tiếng', count: '24–28 câu/đề', who: 'Muốn soi kỹ để lên kế hoạch phát triển' },
   ],
 };
 

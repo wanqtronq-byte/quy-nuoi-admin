@@ -17,13 +17,13 @@ export default localize({
       {
         title: { vi: 'Đánh giá năng lực (bản đầy đủ)', en: 'Skills assessment (full set)' },
         desc: { vi: '4 đề trắc nghiệm + 4 bộ tự đánh giá, mỗi đề 24–28 câu. Có biểu đồ nhện.', en: '4 quizzes + 4 self-checks, 24–28 questions each. With a spider chart.' },
-        tags: [{ vi: '36–42 phút/đề', en: '36–42 min/test' }],
+        tags: [{ vi: 'Cả bộ ~1 tiếng', en: 'Whole set ~1 hour' }, { vi: '~11–13 phút/đề', en: '~11–13 min/test' }],
         href: '/danh-gia.html?bo=day-du',
       },
       {
         title: { vi: 'Đánh giá năng lực (bản rút gọn)', en: 'Skills assessment (short set)' },
         desc: { vi: '4 đề trắc nghiệm + 4 bộ tự đánh giá, mỗi đề 16 câu. Có biểu đồ nhện.', en: '4 quizzes + 4 self-checks, 16 questions each. With a spider chart.' },
-        tags: [{ vi: '~24 phút/đề', en: '~24 min/test' }],
+        tags: [{ vi: 'Cả bộ ~30 phút', en: 'Whole set ~30 min' }, { vi: '~5 phút/đề', en: '~5 min/test' }],
         href: '/danh-gia.html?bo=rut-gon',
       },
     ],

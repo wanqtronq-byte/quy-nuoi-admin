@@ -5,7 +5,7 @@
    "code": "PB-01",
    "name": "Tư duy phản biện",
    "definition": "Đánh giá chất lượng thông tin, lập luận và giả định ẩn để đưa ra nhận định khách quan thay vì chấp nhận thụ động.",
-   "minutes": 36,
+   "minutes": 11,
    "behaviors": [
     {
      "code": "PB-01.1",
@@ -391,7 +391,7 @@
    "code": "NS-02",
    "name": "Quản lý hiệu suất",
    "definition": "Hiểu cách đặt mục tiêu, theo dõi, phản hồi và đánh giá kết quả làm việc của cá nhân và nhóm một cách liên tục và công bằng.",
-   "minutes": 42,
+   "minutes": 13,
    "behaviors": [
     {
      "code": "NS-02.1",
@@ -833,7 +833,7 @@
    "code": "NS-06",
    "name": "Phân tích nhân sự & Hoạch định nhân lực",
    "definition": "Hiểu cách thu thập, xử lý và đọc dữ liệu nhân sự, dự báo nhu cầu nhân lực và lập kế hoạch kế nhiệm.",
-   "minutes": 36,
+   "minutes": 11,
    "behaviors": [
     {
      "code": "NS-06.1",
@@ -1219,7 +1219,7 @@
    "code": "AI-01",
    "name": "Ứng dụng AI trong công việc",
    "definition": "Hiểu cách AI (đặc biệt là AI tạo sinh) hoạt động, biết dùng AI an toàn, hiệu quả để nâng cao chất lượng và năng suất, đồng thời chịu trách nhiệm về kết quả cuối cùng.",
-   "minutes": 36,
+   "minutes": 11,
    "behaviors": [
     {
      "code": "AI-01.1",
@@ -1607,7 +1607,7 @@
    "code": "DL-01",
    "name": "Tư duy dữ liệu",
    "definition": "Đọc, hiểu, diễn giải dữ liệu để rút ra kết luận hợp lý và nhận biết giới hạn của dữ liệu.",
-   "minutes": 8,
+   "minutes": 4,
    "behaviors": [
     {
      "code": "DL-01.1",
@@ -1801,7 +1801,7 @@
    "code": "TA-02",
    "name": "Linh hoạt & Thích ứng",
    "definition": "Điều chỉnh cách làm, hành vi, ưu tiên hiệu quả để phù hợp với hoàn cảnh, thông tin mới hoặc thay đổi.",
-   "minutes": 8,
+   "minutes": 4,
    "behaviors": [
     {
      "code": "TA-02.1",
@@ -1995,7 +1995,7 @@
    "code": "LN-02",
    "name": "Thấu cảm",
    "definition": "Nhận biết, thấu hiểu và ghi nhận cảm xúc, góc nhìn và động cơ (chưa nói ra) của người khác.",
-   "minutes": 8,
+   "minutes": 4,
    "behaviors": [
     {
      "code": "LN-02.1",
@@ -2189,7 +2189,7 @@
    "code": "AI-01",
    "name": "Ứng dụng AI trong công việc",
    "definition": "Hiểu cách AI (đặc biệt là AI tạo sinh) hoạt động, biết dùng AI an toàn, hiệu quả để nâng cao chất lượng và năng suất, đồng thời chịu trách nhiệm về kết quả cuối cùng.",
-   "minutes": 8,
+   "minutes": 4,
    "behaviors": [
     {
      "code": "AI-01.1",

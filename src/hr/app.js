@@ -98,7 +98,10 @@ function renderHome(view = 'gate') {
   const totalQuiz = data.quizzes.reduce((s, t) => s + t.questions.length, 0);
   const quizMin = data.quizzes.map((t) => t.minutes);
   const surveyMin = data.surveys.map((t) => t.minutes);
-  const hours = Math.round((quizMin.reduce((a, b) => a + b, 0) + surveyMin.reduce((a, b) => a + b, 0)) / 6) / 10;
+  const totalMin = quizMin.reduce((a, b) => a + b, 0) + surveyMin.reduce((a, b) => a + b, 0);
+  const roundMin = Math.round(totalMin / 5) * 5;
+  const totalVi = roundMin >= 55 ? `${Math.round(roundMin / 60 * 2) / 2} tiếng` : `${roundMin} phút`;
+  const totalEn = roundMin >= 55 ? `${Math.round(roundMin / 60 * 2) / 2} hour${roundMin >= 75 ? 's' : ''}` : `${roundMin} minutes`;
 
   app.innerHTML = `
 <div class="wrap hr-stack">
@@ -120,7 +123,7 @@ function renderHome(view = 'gate') {
     </button>
     <button class="card hr-mode pop" type="button" data-all>
       <b class="display">${L('Làm hết một lượt', 'Everything in one go')}</b>
-      <span>${L(`Cả ${data.quizzes.length + data.surveys.length} bài liền nhau, khoảng ${hours} tiếng. Giữa các bài được nghỉ, dừng lúc nào cũng được.`, `All ${data.quizzes.length + data.surveys.length} tests back to back, about ${hours} hours. Breaks in between, stop any time.`)}</span>
+      <span>${L(`Cả ${data.quizzes.length + data.surveys.length} bài liền nhau, khoảng ${totalVi}. Giữa các bài được nghỉ, dừng lúc nào cũng được.`, `All ${data.quizzes.length + data.surveys.length} tests back to back, about ${totalEn}. Breaks in between, stop any time.`)}</span>
       <em>${L('Bắt đầu luôn →', 'Start now →')}</em>
     </button>
   </section>

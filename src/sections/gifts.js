@@ -6,6 +6,7 @@ import { localize } from '../lib/i18n.js';
 const ICONS = {
   hr: `<svg aria-hidden="true" width="68" height="68" viewBox="0 0 72 72" fill="none" stroke="#17342B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="14" width="60" height="48" rx="9" fill="#fff"/><path d="M26 14 V8 H46 V14"/><circle cx="26" cy="35" r="7" fill="#FFD86B"/><path d="M15 54 C17 46 35 46 37 54"/><path d="M44 31 H58"/><path d="M44 41 H54"/></svg>`,
   code: `<svg aria-hidden="true" width="76" height="64" viewBox="0 0 80 64" fill="none" stroke="#17342B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 14 L6 32 L24 50"/><path d="M56 14 L74 32 L56 50"/><path d="M46 6 L34 58" stroke="#0E7A5A"/></svg>`,
+  game: `<svg aria-hidden="true" width="76" height="56" viewBox="0 0 80 58" fill="none" stroke="#17342B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8 H62 C72 8 78 18 78 30 C78 44 72 54 64 54 C56 54 54 44 40 44 C26 44 24 54 16 54 C8 54 2 44 2 30 C2 18 8 8 18 8 Z" fill="#fff"/><path d="M20 22 V36 M13 29 H27"/><circle cx="56" cy="24" r="3.5" fill="#0E7A5A"/><circle cx="64" cy="33" r="3.5" fill="#FFB5C2"/></svg>`,
   heart: `<svg aria-hidden="true" width="24" height="24" viewBox="0 0 40 40"><path d="M20 34 C6 24 2 16 8 10 C13 5 19 8 20 13 C21 8 27 5 32 10 C38 16 34 24 20 34 Z" fill="#FFB5C2" stroke="#17342B" stroke-width="3.5" stroke-linejoin="round"/></svg>`,
 };
 
@@ -14,6 +15,7 @@ const content = localize({
   items: [
     { icon: 'hr', title: { vi: 'Góc HR', en: 'HR corner' }, href: '/meo.html?chu-de=hr' },
     { icon: 'code', title: { vi: 'Góc AI', en: 'AI corner' }, href: '/meo.html?chu-de=vibe-code' },
+    { icon: 'game', title: { vi: 'Góc giải trí', en: 'Fun corner' }, href: '/meo.html?chu-de=giai-tri' },
   ],
   open: { vi: 'Mở xem →', en: 'Open →' },
   noteBefore: { vi: 'Có cho hay không cũng lấy được, ', en: 'Free either way, just ' },

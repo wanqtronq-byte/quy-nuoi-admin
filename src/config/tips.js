@@ -11,6 +11,33 @@ import { localize } from '../lib/i18n.js';
 import { LESSONS, INTRO } from '../ai/lessons.js';
 
 const TIPS = localize({
+  'giai-tri': {
+    title: { vi: 'Góc giải trí', en: 'Fun corner' },
+    lead: { vi: 'Mấy trò bấm vào là chơi, chơi ngắn mà còn học thêm từ vựng. Không cần đăng ký.', en: 'Click-and-play games, short rounds, and you pick up some vocabulary too. No sign-up.' },
+    modules: [
+      {
+        title: { vi: 'Freerice', en: 'Freerice' },
+        desc: { vi: 'Chọn nghĩa đúng của từ tiếng Anh. Mỗi câu đúng là quyên góp gạo thật, đúng nhiều thì khó dần.', en: 'Pick the right meaning of an English word. Every correct answer donates real rice, and it gets harder as you go.' },
+        tags: [{ vi: 'Tiếng Anh', en: 'English' }, { vi: 'Chơi bao lâu tùy bạn', en: 'Play as long as you like' }],
+        href: 'https://freerice.com',
+        external: true,
+      },
+      {
+        title: { vi: 'Wordle', en: 'Wordle' },
+        desc: { vi: 'Đoán một từ tiếng Anh 5 chữ trong 6 lượt. Mỗi ngày một từ mới.', en: 'Guess a 5-letter English word in 6 tries. A new word every day.' },
+        tags: [{ vi: 'Tiếng Anh', en: 'English' }, { vi: '~5 phút', en: '~5 min' }],
+        href: 'https://www.nytimes.com/games/wordle/index.html',
+        external: true,
+      },
+      {
+        title: { vi: 'GIGA Wortquiz', en: 'GIGA Wortquiz' },
+        desc: { vi: 'Wordle phiên bản tiếng Đức, mỗi ngày một từ mới. Khung chơi nằm trong bài viết, kéo xuống là thấy.', en: 'Wordle in German, a new word every day. The game sits inside the article, scroll down to find it.' },
+        tags: [{ vi: 'Tiếng Đức', en: 'German' }, { vi: '~5 phút', en: '~5 min' }],
+        href: 'https://www.giga.de/games/giga-wortquiz-kostenlose-wordle-alternative-jetzt-spielen--01K3QTZ09PHNJBJ4MGPBKR5S65',
+        external: true,
+      },
+    ],
+  },
   hr: {
     title: { vi: 'Góc HR', en: 'HR corner' },
     lead: { vi: 'Mấy thứ hay ho cho dân nhân sự. Chọn một cái để bắt đầu nha.', en: 'Handy stuff for HR people. Pick one to start.' },

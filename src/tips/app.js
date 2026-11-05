@@ -41,12 +41,12 @@ document.querySelectorAll('[data-i18n-vi]').forEach((el) => { el.textContent = L
 const mods = topic.modules || [];
 const body = mods.length
   ? `<div class="tips-grid${topic.numbered ? ' two' : ''}">${mods.map((m) => `
-      <a class="card tip-mod pop" href="${esc(m.href)}">
+      <a class="card tip-mod pop" href="${esc(m.href)}"${m.external ? ' target="_blank" rel="noopener"' : ''}>
         ${m.num ? `<span class="tip-num">${L('Bài', 'Lesson')} ${esc(m.num)}</span>` : ''}
         <h2>${esc(m.title)}</h2>
         ${m.desc ? `<p>${esc(m.desc)}</p>` : ''}
         ${m.tags && m.tags.length ? `<div class="tip-tags">${m.tags.map((t) => `<span>${esc(t)}</span>`).join('')}</div>` : ''}
-        <span class="tip-go">${topic.numbered ? L('Vào học →', 'Start →') : L('Vào làm →', 'Open →')}</span>
+        <span class="tip-go">${m.external ? L('Chơi ngay ↗', 'Play now ↗') : topic.numbered ? L('Vào học →', 'Start →') : L('Vào làm →', 'Open →')}</span>
       </a>`).join('')}</div>`
   : `<div class="card tips-empty">
       <img src="/assets/img/meme/lv2.webp" alt="${L('Cún cầm sổ ghi chép', 'Dog taking notes')}">

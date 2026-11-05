@@ -8,6 +8,7 @@ Về admin và trang:
 - Quà cảm ơn (ai cũng dùng được, có cho tiền hay không cũng được):
   • "Góc HR": bài đánh giá năng lực HR có biểu đồ nhện. Bản rút gọn cả bộ khoảng 30 phút, bản đầy đủ khoảng 1 tiếng. Gồm 4 đề trắc nghiệm (Tư duy phản biện, Quản lý hiệu suất, Phân tích nhân sự & hoạch định nhân lực, Ứng dụng AI) và 4 bộ tự đánh giá hành vi (Tư duy dữ liệu, Linh hoạt & thích ứng, Thấu cảm, Ứng dụng AI). Làm từng phần hoặc làm hết một lượt. Kết quả chỉ lưu trên máy, thoát trang giữa chừng là mất.
   • "Góc AI": 4 bài học từ nguồn cộng đồng (OpenAI Academy, Microsoft Learn, YouTube): 1) Hiểu AI và chọn việc giao cho AI, 2) Ứng dụng AI vào công việc, 3) Kiểm chứng đầu ra AI, 4) An toàn dữ liệu và trách nhiệm. Mỗi bài có nguồn học và checklist thực hành.
+  • "Góc giải trí": 3 trò bấm vào là chơi, học từ vựng: Freerice (tiếng Anh), Wordle (tiếng Anh), GIGA Wortquiz (Wordle tiếng Đức).
 - Khi câu hỏi liên quan, gợi ý người ta vào đúng góc/bài đó (ví dụ hỏi viết prompt thì gợi ý Bài 2 ở Góc AI; hỏi tự đánh giá năng lực thì gợi ý Góc HR).`;
 
 const STYLE = `Cách nói chuyện:

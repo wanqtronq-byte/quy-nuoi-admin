@@ -32,7 +32,12 @@ async function recent(token) {
   const res = await fetch(`https://my.sepay.vn/userapi/transactions/list?${qs}`, {
     headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
   });
-  if (!res.ok) throw new Error(`SePay ${res.status}`);
+  if (!res.ok) {
+    const t = await res.text().catch(() => '');
+    const e = new Error(`SePay ${res.status}`);
+    e.detail = `${res.status} ${t.slice(0, 160)}`;
+    throw e;
+  }
   const data = await res.json();
   cache = { at: Date.now(), list: Array.isArray(data.transactions) ? data.transactions : [] };
   return cache.list;
@@ -55,7 +60,7 @@ export default {
       return json(200, { paid: true, amount: Math.round(Number(hit.amount_in)) });
     } catch (err) {
       console.error('paid check failed', err);
-      return json(502, { paid: false, error: 'upstream' });
+      return json(502, { paid: false, error: 'upstream', detail: err.detail || String(err.message || err) });
     }
   },
 };

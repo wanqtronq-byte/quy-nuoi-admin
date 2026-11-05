@@ -13,7 +13,7 @@ const content = localize({
   selected: { vi: 'Đã bôi đen, bấm Ctrl+C nha', en: 'Selected, press Ctrl+C' },
   qrAlt: { vi: 'Mã QR chuyển khoản', en: 'Bank transfer QR code' },
   qrPlaceholder: { vi: '[MÃ QR CỦA BẠN]', en: '[YOUR QR CODE]' },
-  memoLabel: { vi: 'Nội dung chuyển khoản (giữ nguyên nha)', en: 'Transfer note (keep it as is)' },
+  memoLabel: { vi: 'Nội dung chuyển khoản (giữ nguyên mình mới cảm ơn bạn được nha)', en: 'Transfer note (keep it as is so I can thank you)' },
   memoCopy: { vi: 'Copy nội dung', en: 'Copy note' },
   waiting: { vi: 'Đang chờ bánh tới…', en: 'Waiting for your snack…' },
   feedTitle: { vi: 'Vừa nuôi admin', en: 'Recently fed the admin' },

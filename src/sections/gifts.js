@@ -12,8 +12,8 @@ const ICONS = {
 const content = localize({
   title: { vi: 'Quà cảm ơn của bạn ở đây nè', en: 'Your thank-you gifts' },
   items: [
-    { icon: 'hr', title: { vi: 'Mẹo HR', en: 'HR tips' }, href: '/meo.html?chu-de=hr' },
-    { icon: 'code', title: { vi: 'Mẹo Vibe code', en: 'Vibe coding tips' }, href: '/meo.html?chu-de=vibe-code' },
+    { icon: 'hr', title: { vi: 'Góc HR', en: 'HR corner' }, href: '/meo.html?chu-de=hr' },
+    { icon: 'code', title: { vi: 'Góc AI', en: 'AI corner' }, href: '/meo.html?chu-de=vibe-code' },
   ],
   open: { vi: 'Mở xem →', en: 'Open →' },
   noteBefore: { vi: 'Có cho hay không cũng lấy được, ', en: 'Free either way, just ' },

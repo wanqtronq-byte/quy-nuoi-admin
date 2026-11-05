@@ -11,7 +11,7 @@ import { localize } from '../lib/i18n.js';
 
 export default localize({
   hr: {
-    title: { vi: 'Mẹo HR', en: 'HR tips' },
+    title: { vi: 'Góc HR', en: 'HR corner' },
     lead: { vi: 'Mấy thứ hay ho cho dân nhân sự. Chọn một cái để bắt đầu nha.', en: 'Handy stuff for HR people. Pick one to start.' },
     modules: [
       {
@@ -29,8 +29,8 @@ export default localize({
     ],
   },
   'vibe-code': {
-    title: { vi: 'Mẹo Vibe code', en: 'Vibe coding tips' },
-    lead: { vi: 'Nơi tui gom mấy mẹo nhờ AI dựng tool cho nhanh.', en: 'Where I collect tips for getting AI to build tools fast.' },
+    title: { vi: 'Góc AI', en: 'AI corner' },
+    lead: { vi: 'Nơi tui gom mấy mẹo dùng AI và vibe code cho nhanh.', en: 'Where I collect tips on using AI and vibe coding.' },
     modules: [],
   },
 });

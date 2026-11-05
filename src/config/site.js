@@ -37,10 +37,10 @@ export default localize({
   // qrImage: bỏ ảnh QR vào assets/img/ rồi ghi đường dẫn, ví dụ '/assets/img/qr.png'.
   // Để trống ('') thì trang hiện ô chờ.
   donate: {
-    qrImage: '',
-    bank: { vi: '[NGÂN HÀNG]', en: '[BANK]' },
-    accountNumber: { vi: '[SỐ TÀI KHOẢN]', en: '[ACCOUNT NUMBER]' },
-    accountName: '',
+    qrImage: '/assets/img/qr.png',
+    bank: 'CAKE by VPBank',
+    accountNumber: '0395797730',
+    accountName: 'NGUYỄN QUANG TRỌNG',
   },
 
   // Khung chat AI. Đặt enabled: false để ẩn hẳn.

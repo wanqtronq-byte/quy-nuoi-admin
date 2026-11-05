@@ -41,7 +41,8 @@ export default {
 .qr-box { width: 200px; height: 200px; max-width: 100%; border: 3px dashed var(--mint2); border-radius: 18px; background: var(--bg); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px; color: var(--muted); overflow: hidden; }
 .qr-box img { width: 100%; height: 100%; object-fit: contain; background: #fff; }
 .qr-caption { font-size: 22px; }
-.qr-bank { font-size: 15px; color: var(--muted); }
+.qr-bank { font-size: 15px; line-height: 1.6; color: var(--muted); }
+.qr-name { color: var(--ink); letter-spacing: .02em; }
 .qr-copy { min-height: 44px; padding: 0 16px; border-radius: 999px; border: 2px solid var(--ink); background: var(--paper); font: 600 14px var(--font-body); color: var(--ink); cursor: pointer; }
 `,
 
@@ -50,7 +51,7 @@ export default {
     const qr = d.qrImage
       ? `<img src="${esc(d.qrImage)}" alt="${esc(content.qrAlt)}">`
       : esc(content.qrPlaceholder);
-    const name = d.accountName ? ` · ${esc(d.accountName)}` : '';
+    const name = d.accountName ? `<br><b class="qr-name">${esc(d.accountName)}</b>` : '';
     return `
 <section id="ung-ho" class="wrap donate">
   <div class="donate-left">

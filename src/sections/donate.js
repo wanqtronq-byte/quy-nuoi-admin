@@ -5,7 +5,7 @@ import { localize, L } from '../lib/i18n.js';
 import { thankYou } from '../widgets/thanks.js';
 
 const content = localize({
-  title: { vi: 'Nếu bạn thấy hay thì cho admin xin miếng bánh', en: 'If you enjoyed it, spare the admin a snack' },
+  title: { vi: 'Nếu bạn thấy hay thì cho Nhũn xin miếng bánh', en: 'If you enjoyed it, spare Nhũn a snack' },
   lead: { vi: 'Bánh nhỏ bánh to đều là tình iu hết á.', en: 'Small snack or big snack, it is all love.' },
   qrCaption: { vi: 'Quét một phát là xong', en: 'One scan and done' },
   copyLabel: { vi: 'Copy số tài khoản', en: 'Copy account number' },
@@ -16,7 +16,7 @@ const content = localize({
   memoLabel: { vi: 'Nội dung chuyển khoản (giữ nguyên mình mới cảm ơn bạn được nha)', en: 'Transfer note (keep it as is so I can thank you)' },
   memoCopy: { vi: 'Copy nội dung', en: 'Copy note' },
   waiting: { vi: 'Đang chờ bánh tới…', en: 'Waiting for your snack…' },
-  feedTitle: { vi: 'Vừa nuôi admin', en: 'Recently fed the admin' },
+  feedTitle: { vi: 'Vừa nuôi Nhũn', en: 'Recently fed Nhũn' },
   feedEmpty: { vi: 'Chưa ai nuôi hôm nay, bạn làm người đầu tiên nha!', en: 'Nobody yet today, be the first!' },
   received: { vi: 'Đã nhận bánh, cảm ơn bạn!', en: 'Snack received, thank you!' },
   defaultPick: 2,
@@ -129,7 +129,7 @@ export default {
       try { code = sessionStorage.getItem('donate-code'); } catch { /* bỏ qua */ }
       if (!code) {
         const abc = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-        code = 'NUOIADMIN' + Array.from({ length: 6 }, () => abc[Math.floor(Math.random() * abc.length)]).join('');
+        code = 'NUOINHUN' + Array.from({ length: 6 }, () => abc[Math.floor(Math.random() * abc.length)]).join('');
         try { sessionStorage.setItem('donate-code', code); } catch { /* bỏ qua */ }
       }
       const memo = el.querySelector('.qr-memo');
@@ -143,7 +143,7 @@ export default {
       watchPayment();
     }
 
-    // ----- Ô "vừa nuôi admin": nhảy qua từng người, ẩn danh, không có số tiền -----
+    // ----- Ô "vừa nuôi Nhũn": nhảy qua từng người, ẩn danh, không có số tiền -----
     if (sp) startFeed();
     function startFeed() {
       const feed = el.querySelector('.feed');
@@ -165,7 +165,7 @@ export default {
           line.textContent = content.feedEmpty;
         } else {
           const it = items[k % items.length];
-          line.innerHTML = `<span>${L('Cảm ơn', 'Thanks')} <b>${esc(it.who)}</b> ${L('đã nuôi admin', 'for feeding the admin')}</span><small>${esc(ago(it.at))}</small>`;
+          line.innerHTML = `<span>${L('Cảm ơn', 'Thanks')} <b>${esc(it.who)}</b> ${L('đã nuôi Nhũn', 'for feeding Nhũn')}</span><small>${esc(ago(it.at))}</small>`;
           k += 1;
         }
         line.classList.add('in');

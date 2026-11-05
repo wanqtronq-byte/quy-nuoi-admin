@@ -4,15 +4,15 @@ import { esc } from '../lib/dom.js';
 import { localize } from '../lib/i18n.js';
 
 const content = localize({
-  badge: { vi: 'Admin nghèo nhưng vui', en: 'Broke admin, happy admin' },
-  titleBefore: { vi: 'Cho admin xin ', en: 'Spare the admin ' },
+  badge: { vi: 'Nhũn nghèo nhưng vui', en: 'Broke Nhũn, happy Nhũn' },
+  titleBefore: { vi: 'Cho Nhũn xin ', en: 'Spare Nhũn ' },
   titleHighlight: { vi: 'miếng bánh', en: 'a snack' },
   titleAfter: { vi: '<br>nha bạn ơi', en: '<br>maybe?' },
   lead: {
     vi: 'Ăn xin thời AI: không ngồi lề đường, không áo rách, không bát sứt. Có qua có lại nè: tui chia sẻ kiến thức, bạn cho tui chén cơm, người người cùng vui. Không cho cũng không sao, cảm ơn bạn đã ghé, vào ô chat nhận một lời chúc từ tui nha.',
     en: 'Begging, AI edition: no street corner, no torn clothes, no chipped bowl. It goes both ways: I share what I know, you buy me a meal, everyone wins. No snack? No problem. Thanks for dropping by, and grab a good-luck wish from me in the chat.',
   },
-  primary: { label: { vi: 'Nuôi tui liền', en: 'Feed the admin' }, href: '#ung-ho' },
+  primary: { label: { vi: 'Nuôi tui liền', en: 'Feed Nhũn' }, href: '#ung-ho' },
   secondary: { label: { vi: 'Xem quà cảm ơn', en: 'See the thank-you gifts' }, href: '#qua' },
 });
 

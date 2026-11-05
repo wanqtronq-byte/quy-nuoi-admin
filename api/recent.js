@@ -1,6 +1,6 @@
 // Vercel Function: GET /api/recent
-// Danh sách người vừa nuôi admin, ẩn danh, KHÔNG kèm số tiền.
-// Chỉ lấy giao dịch có nội dung NUOIADMIN… (chuyển từ trang này) để không lộ các khoản tiền khác.
+// Danh sách người vừa nuôi Nhũn, ẩn danh, KHÔNG kèm số tiền.
+// Chỉ lấy giao dịch có nội dung NUOINHUN… (chuyển từ trang này) để không lộ các khoản tiền khác.
 
 import { sepayToken, recentTransactions, clean, json } from './_lib/sepay.js';
 
@@ -16,7 +16,7 @@ export default {
       const list = await recentTransactions(token, DAYS * 24);
       const items = list
         .filter((t) => Number(t.amount_in) > 0)
-        .map((t) => ({ t, m: clean(t.transaction_content).match(/NUOIADMIN([0-9A-Z]{6})/) }))
+        .map((t) => ({ t, m: clean(t.transaction_content).match(/NUOI(?:ADMIN|NHUN)([0-9A-Z]{6})/) }))
         .filter((x) => x.m)
         .map(({ t, m }) => ({
           // n*****Q: chữ cái đầu + sao + ký tự cuối của mã, không lộ tên hay tài khoản

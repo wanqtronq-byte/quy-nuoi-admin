@@ -1,5 +1,5 @@
 // Vercel Function: POST /api/chat
-// Nhận lịch sử chat từ trình duyệt, gọi Gemini, trả lời thay admin.
+// Nhận lịch sử chat từ trình duyệt, gọi Gemini, trả lời thay Nhũn.
 // API key nằm trong biến môi trường GEMINI_API_KEY trên Vercel, không lộ ra trình duyệt.
 
 import { SYSTEM_PROMPT } from './_lib/persona.js';
@@ -22,8 +22,8 @@ function rateLimited(ip) {
   return list.length > RATE_LIMIT;
 }
 
-// Mở khoá: ai đã chuyển tiền (bất kỳ số tiền nào) với mã NUOIADMIN… thì được chat tiếp không giới hạn.
-const UNLOCK_RE = /^NUOIADMIN[0-9A-Z]{6}$/;
+// Mở khoá: ai đã chuyển tiền (bất kỳ số tiền nào) với mã NUOINHUN… thì được chat tiếp không giới hạn.
+const UNLOCK_RE = /^NUOI(?:ADMIN|NHUN)[0-9A-Z]{6}$/;
 const unlocked = new Set();
 async function isUnlocked(code) {
   code = String(code || '').toUpperCase();
@@ -57,7 +57,7 @@ export default {
 
 async function handleChat(request) {
   const key = process.env.GEMINI_API_KEY;
-  if (!key) return json(500, { error: 'Admin chưa cài API key, quay lại sau nha.' });
+  if (!key) return json(500, { error: 'Nhũn chưa cài API key, quay lại sau nha.' });
 
   const ip = (request.headers.get('x-forwarded-for') || '').split(',')[0].trim() || 'unknown';
 
@@ -69,7 +69,7 @@ async function handleChat(request) {
   }
 
   if (rateLimited(ip) && !(await isUnlocked(body && body.unlock))) {
-    return json(429, { error: 'Bạn đã chat quá nhiều rồi, cho admin xin ít bánh đi rồi chat tiếp nha.', needSnack: true });
+    return json(429, { error: 'Bạn đã chat quá nhiều rồi, cho Nhũn xin ít bánh đi rồi chat tiếp nha.', needSnack: true });
   }
 
   const raw = Array.isArray(body && body.messages) ? body.messages : [];
@@ -111,8 +111,8 @@ async function handleChat(request) {
     }
 
     if (!res.ok) {
-      if (res.status === 429) return json(503, { error: 'Admin hết lượt nói hôm nay rồi, mai ghé lại nha.' });
-      return json(502, { error: 'Admin đang lag xíu, bạn thử lại sau nha.', code: res.status });
+      if (res.status === 429) return json(503, { error: 'Nhũn hết lượt nói hôm nay rồi, mai ghé lại nha.' });
+      return json(502, { error: 'Nhũn đang lag xíu, bạn thử lại sau nha.', code: res.status });
     }
 
     const parts = data?.candidates?.[0]?.content?.parts || [];
@@ -122,10 +122,10 @@ async function handleChat(request) {
       .join('')
       .trim();
 
-    if (!reply) return json(502, { error: 'Admin đứng hình mất tiêu, bạn hỏi lại thử nha.' });
+    if (!reply) return json(502, { error: 'Nhũn đứng hình mất tiêu, bạn hỏi lại thử nha.' });
     return json(200, { reply });
   } catch (err) {
     console.error('Fetch failed', err);
-    return json(502, { error: 'Không kết nối được với admin, thử lại sau nha.' });
+    return json(502, { error: 'Không kết nối được với Nhũn, thử lại sau nha.' });
   }
 }

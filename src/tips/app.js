@@ -50,7 +50,7 @@ const body = mods.length
       </a>`).join('')}</div>`
   : `<div class="card tips-empty">
       <img src="/assets/img/meme/lv2.webp" alt="${L('Cún cầm sổ ghi chép', 'Dog taking notes')}">
-      <p>${L('Admin đang soạn, chưa có gì ở đây hết. Ghé lại sau nha!', 'The admin is still writing this one. Check back soon!')}</p>
+      <p>${L('Nhũn đang soạn, chưa có gì ở đây hết. Ghé lại sau nha!', 'Nhũn is still writing this one. Check back soon!')}</p>
     </div>`;
 
 app.innerHTML = `

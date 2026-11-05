@@ -1,4 +1,4 @@
-// Khung "Chat với admin": nút nổi góc phải + hộp chat gọi /api/chat (Gemini).
+// Khung "Chat với Nhũn": nút nổi góc phải + hộp chat gọi /api/chat (Gemini).
 // Cấu hình chữ, câu gợi ý trong src/config/site.js → chat.
 
 import { injectCss, fragment, esc } from '../lib/dom.js';
@@ -127,8 +127,8 @@ export default {
     // Hết lượt chat miễn phí: mời cho bánh, có nút nhảy tới mã QR
     function snackRow() {
       const r = row('err', lang === 'en'
-        ? 'You have chatted a lot! Spare the admin a snack and you can keep chatting.'
-        : 'Bạn đã chat quá nhiều rồi, cho admin xin ít bánh đi rồi chat tiếp nha.');
+        ? 'You have chatted a lot! Spare Nhũn a snack and you can keep chatting.'
+        : 'Bạn đã chat quá nhiều rồi, cho Nhũn xin ít bánh đi rồi chat tiếp nha.');
       const btn = document.createElement('a');
       btn.href = '/#ung-ho';
       btn.className = 'chat-snack';

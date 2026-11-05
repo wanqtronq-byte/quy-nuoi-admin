@@ -11,7 +11,7 @@ const content = localize({
     en: 'Nhũn (noun, adjective): the state of selling your soul to capitalism until there is no strength left.',
   },
   facts: [
-    { k: { vi: 'Nghề nghiệp', en: 'Job' }, v: { vi: 'Linh vật kiêm người xin bánh của trang', en: 'Mascot and official snack beggar' } },
+    { k: { vi: 'Nghề nghiệp', en: 'Job' }, v: { vi: 'Ngày làm HR, tối vibe code, rảnh thì xin bánh', en: 'HR by day, vibe coder by night, snack beggar in between' } },
     { k: { vi: 'Trang phục', en: 'Outfit' }, v: { vi: 'Áo rách vá chằng vá đụp, mặc từ đầu tháng tới cuối tháng', en: 'A patched-up torn shirt, worn all month long' } },
     { k: { vi: 'Sở thích', en: 'Likes' }, v: { vi: 'Bánh mì, bông lan trứng muối, ngày lĩnh lương', en: 'Bánh mì, salted egg sponge cake, payday' } },
     { k: { vi: 'Sợ nhất', en: 'Fears' }, v: { vi: 'Deadline thứ Sáu và email "em xem gấp giúp anh"', en: 'Friday deadlines and "can you take a quick look"' } },

@@ -1,10 +1,10 @@
-// Vercel Function: GET /api/paid?code=NUOIADMIN1A2B3C
+// Vercel Function: GET /api/paid?code=NUOINHUN1A2B3C
 // Hỏi SePay xem đã có giao dịch tiền vào chứa đúng nội dung chuyển khoản này chưa.
 // Cần biến môi trường SEPAY_API_TOKEN (my.sepay.vn → Cấu hình Công ty → API Access).
 
 import { sepayToken, recentTransactions, clean, json } from './_lib/sepay.js';
 
-const CODE_RE = /^NUOIADMIN[0-9A-Z]{6}$/;
+const CODE_RE = /^NUOI(?:ADMIN|NHUN)[0-9A-Z]{6}$/;
 
 export default {
   async fetch(request) {

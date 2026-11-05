@@ -33,7 +33,7 @@ let data = null;
 let run = null;      // bài đang làm
 
 // Nhắc giữ trang: chưa có database, thoát là mất bài đang làm
-const KEEP_NOTE = `<div class="hr-keep" role="note"><b>${L('Giữ trang tới khi làm xong nha!', 'Please keep this page open until you finish!')}</b> ${L('Admin chưa có tiền mua database nên bài đang làm chỉ nằm trên trang này. Lỡ thoát hay tải lại trang là mất sạch, phải làm lại từ đầu đó.', 'The admin cannot afford a database yet, so your answers only live on this page. Leave or reload and they are gone.')}</div>`;
+const KEEP_NOTE = `<div class="hr-keep" role="note"><b>${L('Giữ trang tới khi làm xong nha!', 'Please keep this page open until you finish!')}</b> ${L('Nhũn chưa có tiền mua database nên bài đang làm chỉ nằm trên trang này. Lỡ thoát hay tải lại trang là mất sạch, phải làm lại từ đầu đó.', 'Nhũn cannot afford a database yet, so your answers only live on this page. Leave or reload and they are gone.')}</div>`;
 
 window.addEventListener('beforeunload', (e) => {
   if (run && (Object.keys(run.answers).length || (run.batch && run.batch.done.length))) {
@@ -361,7 +361,7 @@ function renderBatch(batch) {
   </section>
   <div class="hr-nav" style="justify-content:flex-start">
     <button class="hr-btn" type="button" data-home>${L('Về danh sách bài', 'Back to the list')}</button>
-    <a class="hr-btn" href="/#chat">${L('Kể cho admin nghe', 'Tell the admin')}</a>
+    <a class="hr-btn" href="/#chat">${L('Kể cho Nhũn nghe', 'Tell Nhũn')}</a>
   </div>
 </div>`;
   app.querySelectorAll('[data-detail]').forEach((b) => b.addEventListener('click', () => {
@@ -395,7 +395,7 @@ function renderResult(test, type, r, answers, minutes, batch = null) {
 
   const focusText = r.focus.length
     ? `<p>${L('Chuỗi cấp dừng ở', 'Your chain stops at')} <b>${L('Cấp', 'Level')} ${r.final + 1}</b>. ${L('Muốn lên cấp, tập trung vào', 'To level up, focus on')}: ${r.focus.map((b) => `<b>${esc(b.code)}</b> (${esc(b.text)})`).join('; ')}.</p>`
-    : `<p>${L('Bạn đã qua đủ 4 cấp. Giờ là lúc chia sẻ lại cho người khác, kiểu như… cho admin xin miếng bánh chẳng hạn.', 'You passed all 4 levels. Time to pass it on… or maybe buy the admin a snack.')}</p>`;
+    : `<p>${L('Bạn đã qua đủ 4 cấp. Giờ là lúc chia sẻ lại cho người khác, kiểu như… cho Nhũn xin miếng bánh chẳng hạn.', 'You passed all 4 levels. Time to pass it on… or maybe buy Nhũn a snack.')}</p>`;
 
   const review = isQuiz ? `
   <section class="card hr-box hr-review">
@@ -452,7 +452,7 @@ function renderResult(test, type, r, answers, minutes, batch = null) {
     ${batch ? `<button class="hr-btn primary" type="button" data-back-batch>← ${L('Về kết quả tổng', 'Back to overall results')}</button>` : ''}
     <button class="hr-btn${batch ? '' : ' primary'}" type="button" data-again>${L('Làm lại bài này', 'Retake this test')}</button>
     <button class="hr-btn" type="button" data-home>${L('Về danh sách bài', 'Back to the list')}</button>
-    <a class="hr-btn" href="/#chat">${L('Kể cho admin nghe', 'Tell the admin')}</a>
+    <a class="hr-btn" href="/#chat">${L('Kể cho Nhũn nghe', 'Tell Nhũn')}</a>
   </div>
 </div>`;
 

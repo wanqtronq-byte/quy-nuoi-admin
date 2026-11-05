@@ -55,11 +55,11 @@ export function thankYou(amount) {
   <h2>${L('Bánh tới rồi nè!', 'The snack has landed!')}</h2>
   ${amount ? `<span class="ty-amount">${esc(fmt(amount))}</span>` : ''}
   <div class="ty-letter">${L(
-    'Gửi bạn iu,<br>Tui vừa nhận được miếng bánh của bạn, cảm động thiệt sự. Nhờ bạn mà hôm nay admin có thêm động lực ngồi soạn thêm mẹo HR với bài học AI. Cảm ơn bạn đã ghé, đã đọc và đã thương. Có gì cần thì cứ nhắn tui nha.',
-    'Dear friend,<br>Your snack just arrived and I am genuinely touched. Thanks to you, the admin has fresh motivation to write more HR tips and AI lessons. Thank you for stopping by, reading and caring. Message me any time.',
+    'Gửi bạn iu,<br>Tui vừa nhận được miếng bánh của bạn, cảm động thiệt sự. Nhờ bạn mà hôm nay Nhũn có thêm động lực ngồi soạn thêm mẹo HR với bài học AI. Cảm ơn bạn đã ghé, đã đọc và đã thương. Có gì cần thì cứ nhắn tui nha.',
+    'Dear friend,<br>Your snack just arrived and I am genuinely touched. Thanks to you, Nhũn has fresh motivation to write more HR tips and AI lessons. Thank you for stopping by, reading and caring. Message me any time.',
   )}</div>
   <div class="ty-wish">${esc(randomWish())}</div>
-  <span class="ty-sign">${L('Thương bạn, Admin', 'With love, the Admin')}</span>
+  <span class="ty-sign">${L('Thương bạn, Nhũn', 'With love, Nhũn')}</span>
   <button type="button" class="ty-close">${L('Nhận lời chúc', 'Got it, thanks!')}</button>
 </div>`;
   document.body.appendChild(back);

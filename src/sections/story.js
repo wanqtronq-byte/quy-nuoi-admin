@@ -16,10 +16,10 @@ export default {
   nav: { vi: 'Chuyện là…', en: 'Story' },
 
   css: `
-.story { padding-block: 40px 16px; }
-.story-card { display: flex; flex-wrap: wrap; gap: 12px 32px; align-items: flex-start; border-radius: 22px; padding: 22px 24px; box-shadow: 5px 5px 0 var(--mint); }
-.story-card h2 { flex: 1 1 200px; font-size: clamp(24px, 3.2vw, 32px); }
-.story-body { flex: 999 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 8px; font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 62ch; }
+.story { padding-block: 64px 24px; }
+.story-card { display: flex; flex-wrap: wrap; gap: 20px 40px; align-items: flex-start; border-radius: 28px; padding: 32px; box-shadow: 6px 6px 0 var(--mint); }
+.story-card h2 { flex: 1 1 240px; }
+.story-body { flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 12px; font-size: 19px; line-height: 1.7; color: var(--muted); max-width: 65ch; }
 `,
 
   render() {

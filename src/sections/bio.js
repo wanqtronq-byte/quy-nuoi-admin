@@ -24,14 +24,15 @@ export default {
   nav: { vi: 'Nhũn là ai?', en: 'Who is Nhũn?' },
 
   css: `
-.bio { padding-block: 56px 8px; }
-.bio-card { display: flex; flex-wrap: wrap; gap: 24px 40px; align-items: center; padding: 28px; border-radius: 28px; box-shadow: 6px 6px 0 var(--mint); }
-.bio-pic { flex: 0 0 auto; width: 220px; max-width: 100%; aspect-ratio: 1; border-radius: 24px; background: #fff; border: 3px solid var(--ink); display: flex; align-items: center; justify-content: center; padding: 12px; transform: rotate(-3deg); }
+.bio { padding-block: 40px 8px; }
+.bio-card { display: flex; flex-wrap: wrap; gap: 16px 28px; align-items: center; padding: 20px 22px; border-radius: 22px; box-shadow: 5px 5px 0 var(--mint); }
+.bio-pic { flex: 0 0 auto; width: 150px; max-width: 100%; aspect-ratio: 1; border-radius: 18px; background: #fff; border: 3px solid var(--ink); display: flex; align-items: center; justify-content: center; padding: 8px; transform: rotate(-3deg); }
 .bio-pic img { width: 100%; height: 100%; object-fit: contain; animation: dogbounce 2.8s ease-in-out infinite; }
-.bio-body { flex: 999 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
-.bio-kicker { align-self: flex-start; color: #17342B; background: var(--sun); border: 2.5px solid var(--ink); border-radius: 999px; padding: 4px 14px; font-weight: 700; font-size: 14px; }
-.bio-def { font-size: 19px; line-height: 1.6; font-style: italic; border-left: 0; background: var(--bg); border: 2px dashed var(--ink); border-radius: 14px; padding: 12px 16px; }
-.bio-facts { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0; font-size: 16px; line-height: 1.5; }
+.bio-body { flex: 999 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.bio-body .h2 { font-size: clamp(26px, 3.4vw, 34px); }
+.bio-kicker { align-self: flex-start; color: #17342B; background: var(--sun); border: 2.5px solid var(--ink); border-radius: 999px; padding: 3px 12px; font-weight: 700; font-size: 13px; }
+.bio-def { font-size: 16px; line-height: 1.55; font-style: italic; border-left: 0; background: var(--bg); border: 2px dashed var(--ink); border-radius: 12px; padding: 10px 14px; }
+.bio-facts { display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; margin: 0; font-size: 15px; line-height: 1.45; }
 .bio-facts dt { font-weight: 700; }
 .bio-facts dd { margin: 0; color: var(--muted); }
 @media (max-width: 600px) { .bio-facts { grid-template-columns: 1fr; } .bio-facts dd { margin-bottom: 6px; } }

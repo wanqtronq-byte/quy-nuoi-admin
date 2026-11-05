@@ -82,7 +82,7 @@ async function handleChat(request) {
     if (!res.ok) {
       console.error('Gemini error', res.status, JSON.stringify(data).slice(0, 500));
       if (res.status === 429) return json(503, { error: 'Admin hết lượt nói hôm nay rồi, mai ghé lại nha.' });
-      return json(502, { error: 'Admin đang lag xíu, bạn thử lại sau nha.' });
+      return json(502, { error: 'Admin đang lag xíu, bạn thử lại sau nha.', code: res.status, why: (data && data.error && (data.error.status || data.error.message) || '').toString().slice(0, 120) });
     }
 
     const parts = data?.candidates?.[0]?.content?.parts || [];

@@ -64,25 +64,32 @@ async function handleChat(request) {
     return json(400, { error: 'Bạn chưa nhắn gì hết á.' });
   }
 
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(MODEL)}:generateContent`;
+  // Gemini thỉnh thoảng quá tải (500/503): thử lại, lần cuối đổi sang model dự phòng.
+  const FALLBACK = process.env.GEMINI_FALLBACK_MODEL || 'gemini-3.1-flash-lite';
+  const plan = [MODEL, MODEL, FALLBACK];
+  const payload = JSON.stringify({
+    systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+    contents,
+    generationConfig: { temperature: 0.9, maxOutputTokens: 1024 },
+  });
 
   try {
-    const res = await fetch(url, {
-      method: 'POST',
-      headers: { 'content-type': 'application/json', 'x-goog-api-key': key },
-      body: JSON.stringify({
-        systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
-        contents,
-        generationConfig: { temperature: 0.9, maxOutputTokens: 1024 },
-      }),
-    });
-
-    const data = await res.json().catch(() => ({}));
+    let res;
+    let data = {};
+    for (let i = 0; i < plan.length; i += 1) {
+      if (i > 0) await new Promise((r) => setTimeout(r, 600 * i));
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(plan[i])}:generateContent`;
+      res = await fetch(url, { method: 'POST', headers: { 'content-type': 'application/json', 'x-goog-api-key': key }, body: payload });
+      data = await res.json().catch(() => ({}));
+      const empty = res.ok && !(data?.candidates?.[0]?.content?.parts || []).some((p) => typeof p.text === 'string' && !p.thought && p.text.trim());
+      if (res.ok && !empty) break;
+      console.error('Gemini try', i + 1, plan[i], res.status, JSON.stringify(data).slice(0, 300));
+      if (res.status === 429 || res.status === 400 || res.status === 403) break; // không đáng thử lại
+    }
 
     if (!res.ok) {
-      console.error('Gemini error', res.status, JSON.stringify(data).slice(0, 500));
       if (res.status === 429) return json(503, { error: 'Admin hết lượt nói hôm nay rồi, mai ghé lại nha.' });
-      return json(502, { error: 'Admin đang lag xíu, bạn thử lại sau nha.', code: res.status, why: (data && data.error && (data.error.status || data.error.message) || '').toString().slice(0, 120) });
+      return json(502, { error: 'Admin đang lag xíu, bạn thử lại sau nha.', code: res.status });
     }
 
     const parts = data?.candidates?.[0]?.content?.parts || [];

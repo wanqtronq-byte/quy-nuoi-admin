@@ -8,8 +8,9 @@
 // ============================================================
 
 import { localize } from '../lib/i18n.js';
+import { LESSONS, INTRO } from '../ai/lessons.js';
 
-export default localize({
+const TIPS = localize({
   hr: {
     title: { vi: 'Góc HR', en: 'HR corner' },
     lead: { vi: 'Mấy thứ hay ho cho dân nhân sự. Chọn một cái để bắt đầu nha.', en: 'Handy stuff for HR people. Pick one to start.' },
@@ -30,7 +31,20 @@ export default localize({
   },
   'vibe-code': {
     title: { vi: 'Góc AI', en: 'AI corner' },
-    lead: { vi: 'Nơi tui gom mấy mẹo dùng AI và vibe code cho nhanh.', en: 'Where I collect tips on using AI and vibe coding.' },
+    lead: { vi: 'Bộ bài học AI gom từ nguồn cộng đồng, chia 4 bài theo lộ trình. Mỗi bài có nguồn học và một bài thực hành nhỏ.', en: 'An AI learning path built from community sources, in 4 lessons. Each has sources and a small practice task.' },
     modules: [],
   },
 });
+
+// Góc AI: mỗi bài học là một module (nội dung trong src/ai/lessons.js)
+TIPS['vibe-code'].intro = [INTRO.order, INTRO.how];
+TIPS['vibe-code'].numbered = true;
+TIPS['vibe-code'].modules = LESSONS.map((l) => ({
+  title: l.title,
+  desc: l.goal,
+  tags: [l.outcome],
+  href: `/bai-hoc.html?bai=${l.id}`,
+  num: l.id,
+}));
+
+export default TIPS;

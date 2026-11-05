@@ -46,7 +46,7 @@ async function recent(token) {
 export default {
   async fetch(request) {
     if (request.method !== 'GET') return json(405, { error: 'GET only' });
-    const token = process.env.SEPAY_API_TOKEN;
+    const token = (process.env.SEPAY_API_TOKEN || '').trim().replace(/^Bearer\s+/i, '');
     if (!token) return json(503, { paid: false, error: 'not-configured' });
 
     const code = (new URL(request.url).searchParams.get('code') || '').toUpperCase();

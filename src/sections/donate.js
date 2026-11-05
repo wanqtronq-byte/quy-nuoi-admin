@@ -16,6 +16,8 @@ const content = localize({
   memoLabel: { vi: 'Nội dung chuyển khoản (giữ nguyên nha)', en: 'Transfer note (keep it as is)' },
   memoCopy: { vi: 'Copy nội dung', en: 'Copy note' },
   waiting: { vi: 'Đang chờ bánh tới…', en: 'Waiting for your snack…' },
+  feedTitle: { vi: 'Vừa nuôi admin', en: 'Recently fed the admin' },
+  feedEmpty: { vi: 'Chưa ai nuôi hôm nay, bạn làm người đầu tiên nha!', en: 'Nobody yet today, be the first!' },
   received: { vi: 'Đã nhận bánh, cảm ơn bạn!', en: 'Snack received, thank you!' },
   defaultPick: 2,
   options: [
@@ -48,6 +50,14 @@ export default {
 .qr-caption { font-size: 22px; }
 .qr-bank { font-size: 15px; line-height: 1.6; color: var(--muted); }
 .qr-name { color: var(--ink); letter-spacing: .02em; }
+.feed { margin-top: 8px; padding: 14px 16px; background: var(--paper); border: 2.5px dashed var(--ink); border-radius: 18px; display: flex; flex-direction: column; gap: 6px; max-width: 520px; overflow: hidden; }
+.feed-title { font-size: 13px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+.feed-title::before { content: ""; width: 9px; height: 9px; border-radius: 999px; background: #E2556F; animation: beat 1.4s ease-in-out infinite; }
+.feed-line { min-height: 28px; font-size: 17px; font-weight: 600; display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: baseline; }
+.feed-line b { color: var(--accent); }
+.feed-line small { font-size: 13px; color: var(--muted); font-weight: 500; }
+.feed-line.in { animation: feed-in .5s cubic-bezier(.2,1.4,.4,1) both; }
+@keyframes feed-in { from { opacity: 0; transform: translateY(14px) scale(.96); } }
 .qr-memo { display: flex; flex-direction: column; align-items: center; gap: 4px; }
 .qr-memo small { font-size: 13px; color: var(--muted); font-weight: 600; }
 .qr-memo-code { font: 800 18px var(--font-body); letter-spacing: .06em; color: var(--ink); background: var(--sun); border: 2.5px dashed var(--ink); border-radius: 12px; padding: 6px 12px; cursor: pointer; }
@@ -70,6 +80,10 @@ export default {
     <p class="donate-lead">${esc(content.lead)}</p>
     <div class="amounts"></div>
     <p class="donate-msg" aria-live="polite"></p>
+    <div class="feed" hidden>
+      <span class="feed-title">${esc(content.feedTitle)}</span>
+      <div class="feed-line" aria-live="polite"></div>
+    </div>
   </div>
   <div class="card qr">
     <div class="qr-box">${qr}</div>
@@ -125,6 +139,46 @@ export default {
         setTimeout(() => { memoBtn.textContent = code; }, 1500);
       });
       watchPayment();
+    }
+
+    // ----- Ô "vừa nuôi admin": nhảy qua từng người, ẩn danh, không có số tiền -----
+    if (sp) startFeed();
+    function startFeed() {
+      const feed = el.querySelector('.feed');
+      const line = el.querySelector('.feed-line');
+      let items = [];
+      let k = 0;
+      const ago = (at) => {
+        if (!at) return '';
+        const m = Math.max(1, Math.round((Date.now() - at) / 60000));
+        if (m < 60) return L(`${m} phút trước`, `${m} min ago`);
+        const h = Math.round(m / 60);
+        if (h < 24) return L(`${h} giờ trước`, `${h} h ago`);
+        return L(`${Math.round(h / 24)} ngày trước`, `${Math.round(h / 24)} d ago`);
+      };
+      function show() {
+        line.classList.remove('in');
+        void line.offsetWidth;
+        if (!items.length) {
+          line.textContent = content.feedEmpty;
+        } else {
+          const it = items[k % items.length];
+          line.innerHTML = `<span>${L('Cảm ơn', 'Thanks')} <b>${esc(it.who)}</b> ${L('đã nuôi admin', 'for feeding the admin')}</span><small>${esc(ago(it.at))}</small>`;
+          k += 1;
+        }
+        line.classList.add('in');
+      }
+      async function load() {
+        try {
+          const j = await fetch('/api/recent', { cache: 'no-store' }).then((r) => r.json());
+          items = Array.isArray(j.items) ? j.items : [];
+        } catch { /* giữ danh sách cũ */ }
+        feed.hidden = false;
+        if (k === 0) show();
+      }
+      load();
+      setInterval(() => { if (!document.hidden) show(); }, 3500);
+      setInterval(() => { if (!document.hidden) load(); }, 60000);
     }
 
     function setQr(amount) {

@@ -3,6 +3,7 @@
 // API key nằm trong biến môi trường GEMINI_API_KEY trên Vercel, không lộ ra trình duyệt.
 
 import { SYSTEM_PROMPT } from './_lib/persona.js';
+import { sepayToken, recentTransactions, clean } from './_lib/sepay.js';
 
 const MODEL = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite';
 const MAX_TURNS = 12;               // chỉ gửi 12 tin gần nhất
@@ -19,6 +20,25 @@ function rateLimited(ip) {
   hits.set(ip, list);
   if (hits.size > 5000) hits.clear();
   return list.length > RATE_LIMIT;
+}
+
+// Mở khoá: ai đã chuyển tiền (bất kỳ số tiền nào) với mã NUOIADMIN… thì được chat tiếp không giới hạn.
+const UNLOCK_RE = /^NUOIADMIN[0-9A-Z]{6}$/;
+const unlocked = new Set();
+async function isUnlocked(code) {
+  code = String(code || '').toUpperCase();
+  if (!UNLOCK_RE.test(code)) return false;
+  if (unlocked.has(code)) return true;
+  const token = sepayToken();
+  if (!token) return false;
+  try {
+    const list = await recentTransactions(token, 7 * 24);
+    const ok = list.some((t) => Number(t.amount_in) > 0 && clean(t.transaction_content).includes(code));
+    if (ok) unlocked.add(code);
+    return ok;
+  } catch {
+    return false;
+  }
 }
 
 function json(status, body) {
@@ -40,13 +60,16 @@ async function handleChat(request) {
   if (!key) return json(500, { error: 'Admin chưa cài API key, quay lại sau nha.' });
 
   const ip = (request.headers.get('x-forwarded-for') || '').split(',')[0].trim() || 'unknown';
-  if (rateLimited(ip)) return json(429, { error: 'Bạn nhắn nhanh quá, nghỉ xíu rồi nhắn tiếp nha.' });
 
   let body;
   try {
     body = await request.json();
   } catch {
     return json(400, { error: 'Tin nhắn không hợp lệ.' });
+  }
+
+  if (rateLimited(ip) && !(await isUnlocked(body && body.unlock))) {
+    return json(429, { error: 'Bạn đã chat quá nhiều rồi, cho admin xin ít bánh đi rồi chat tiếp nha.', needSnack: true });
   }
 
   const raw = Array.isArray(body && body.messages) ? body.messages : [];

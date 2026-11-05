@@ -33,6 +33,7 @@ const css = `
 .chat-row.err .chat-bubble { background: #FFF1F3; color: #8A2238; }
 .chat-meme { padding: 6px; }
 .chat-meme img { display: block; width: 120px; max-width: 100%; height: auto; border-radius: 12px; }
+.chat-snack { display: inline-flex; align-items: center; margin-top: 8px; min-height: 36px; padding: 0 14px; border-radius: 999px; border: 2px solid var(--ink); background: #FFD86B; color: #17342B; font-weight: 700; text-decoration: none; }
 .chat-typing { display: inline-flex; gap: 5px; align-items: center; height: 22px; }
 .chat-typing i { width: 8px; height: 8px; border-radius: 999px; background: var(--ink); animation: chat-dot 1s ease-in-out infinite; }
 .chat-typing i:nth-child(2) { animation-delay: .15s; }
@@ -123,6 +124,28 @@ export default {
       b.appendChild(im);
     }
 
+    // Hết lượt chat miễn phí: mời cho bánh, có nút nhảy tới mã QR
+    function snackRow() {
+      const r = row('err', lang === 'en'
+        ? 'You have chatted a lot! Spare the admin a snack and you can keep chatting.'
+        : 'Bạn đã chat quá nhiều rồi, cho admin xin ít bánh đi rồi chat tiếp nha.');
+      const btn = document.createElement('a');
+      btn.href = '/#ung-ho';
+      btn.className = 'chat-snack';
+      btn.textContent = lang === 'en' ? 'Give a snack →' : 'Cho bánh →';
+      btn.addEventListener('click', (e) => {
+        const target = document.getElementById('ung-ho');
+        if (target) { e.preventDefault(); close(); target.scrollIntoView({ behavior: 'smooth' }); }
+      });
+      r.querySelector('.chat-bubble').appendChild(document.createElement('br'));
+      r.querySelector('.chat-bubble').appendChild(btn);
+    }
+
+    // Vừa chuyển tiền xong (từ phần ủng hộ): báo mở khoá
+    window.addEventListener('snack-paid', () => {
+      row('bot', lang === 'en' ? 'Snack received! Chat unlocked, ask away 🐶' : 'Nhận bánh rồi! Mở khoá chat rồi đó, hỏi tiếp thoải mái nha 🐶');
+    });
+
     row('bot', cfg.greeting);
 
     function setBusy(v) {
@@ -145,7 +168,7 @@ export default {
         const res = await fetch(cfg.endpoint, {
           method: 'POST',
           headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({ messages: history.slice(-12) }),
+          body: JSON.stringify({ messages: history.slice(-12), unlock: (() => { try { return localStorage.getItem('chat-unlock') || undefined; } catch { return undefined; } })() }),
         });
         const data = await res.json().catch(() => ({}));
         wait.remove();
@@ -157,7 +180,11 @@ export default {
           if (meme) memeRow('/assets/img/meme/husky-point.webp', cfg.text.memeAlt);
         } else {
           history.pop();
-          row('err', (lang === 'en' ? cfg.text.lag : data.error || cfg.text.lag));
+          if (data.needSnack) {
+            snackRow();
+          } else {
+            row('err', (lang === 'en' ? cfg.text.lag : data.error || cfg.text.lag));
+          }
         }
       } catch {
         wait.remove();

@@ -208,8 +208,9 @@ export default {
               stopped = true;
               status.textContent = content.received;
               status.classList.add('ok');
-              try { sessionStorage.removeItem('donate-code'); } catch { /* bỏ qua */ }
+              try { sessionStorage.removeItem('donate-code'); localStorage.setItem('chat-unlock', code); } catch { /* bỏ qua */ }
               thankYou(j.amount);
+              window.dispatchEvent(new Event('snack-paid'));
               return;
             }
           } catch { /* mạng chập chờn: thử lại lần sau */ }

@@ -8,7 +8,7 @@ import { localize } from '../lib/i18n.js';
 export default localize({
   name: { vi: 'Quỹ Nuôi Admin', en: 'Feed The Admin' },
   mascot: '/assets/img/mascot.png',
-  mascotAlt: { vi: 'Chú cún mặc áo rách vá chằng vá đụp, mặt hiền khô', en: 'A gentle dog in a patched-up, torn shirt' },
+  mascotAlt: { vi: 'Nhũn, chú cún mặc áo rách vá chằng vá đụp', en: 'Nhũn, the dog in a patched-up torn shirt' },
 
   // Ảnh cún ở đầu trang, tự đổi mỗi lần vào và mỗi 8 giây.
   heroMemes: [

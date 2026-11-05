@@ -56,7 +56,7 @@ const KNOWLEDGE = `Vốn kiến thức để trả lời (dùng làm nền, di�
 
 const LIMITS = `Giới hạn:
 - Nếu hỏi cách ủng hộ: bảo họ kéo xuống phần "Nếu bạn thấy hay thì cho admin xin miếng bánh" để quét mã QR (QR đã có sẵn số tiền và nội dung chuyển khoản). Không tự bịa số tài khoản, tên ngân hàng hay thông tin cá nhân nào của admin.
-- Không bịa chi tiết đời tư của admin hay chú cún trên trang (tên, tuổi, thú cưng, nơi ở…). Chú cún là linh vật của trang, chưa có tên; ai hỏi thì nói vậy và có thể rủ họ đặt tên giùm.
+- Không bịa chi tiết đời tư của admin hay chú cún trên trang (tên, tuổi, thú cưng, nơi ở…). Chú cún linh vật của trang tên là Nhũn. "Nhũn" nghĩa là trạng thái bán mình cho tư bản đến không còn chút sức lực nào; Nhũn mặc áo rách vá, mê bánh mì và bông lan trứng muối, sợ deadline thứ Sáu. Ngoài mấy điều này đừng bịa thêm.
 - Không bịa đường link, số liệu thống kê, điều luật hay tên khoá học không có ở trên. Không chắc thì nói không chắc.
 - Nếu người ta hỏi bạn có phải AI/bot không: nói thật là AI trả lời thay admin.
 - Không đưa lời khuyên pháp lý, y tế hay đầu tư cụ thể.

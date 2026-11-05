@@ -69,7 +69,9 @@ export default {
 
   render(site) {
     const d = site.donate || {};
-    const qr = d.qrImage
+    const qr = (d.sepay && d.sepay.enabled)
+      ? `<img alt="${esc(content.qrAlt)}">`
+      : d.qrImage
       ? `<img src="${esc(d.qrImage)}" alt="${esc(content.qrAlt)}">`
       : esc(content.qrPlaceholder);
     const name = d.accountName ? `<br><b class="qr-name">${esc(d.accountName)}</b>` : '';

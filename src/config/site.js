@@ -37,12 +37,12 @@ export default localize({
   // qrImage: bỏ ảnh QR vào assets/img/ rồi ghi đường dẫn, ví dụ '/assets/img/qr.png'.
   // Để trống ('') thì trang hiện ô chờ.
   donate: {
-    qrImage: '/assets/img/qr.png',   // dùng khi tắt SePay
+    qrImage: '',   // ảnh QR tĩnh, chỉ dùng khi tắt SePay
     bank: 'MB Bank',
     // SePay: QR riêng cho từng người + tự hiện thư cảm ơn khi tiền vào.
     // Cần SEPAY_API_TOKEN trên Vercel. Đặt enabled: false để quay về QR tĩnh.
     sepay: { enabled: true, bankCode: 'MBBank' },
-    accountNumber: '0395797730',
+    accountNumber: 'VQRQANIVY8176',   // tài khoản ảo (VA) của SePay, tiền về tài khoản MB chính
     accountName: 'NGUYỄN QUANG TRỌNG',
   },
 

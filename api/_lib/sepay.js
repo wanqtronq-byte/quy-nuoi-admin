@@ -1,6 +1,7 @@
 // Dùng chung cho /api/paid và /api/recent: lấy giao dịch gần đây từ SePay (có bộ nhớ tạm vài giây).
 
-export const ACCOUNT = process.env.SEPAY_ACCOUNT || '0395797730';
+// Để trống thì lấy giao dịch của mọi tài khoản đã nối với SePay (hiện chỉ có 1).
+export const ACCOUNT = process.env.SEPAY_ACCOUNT || '';
 const CACHE_MS = 6000; // gom các lần hỏi gần nhau để không vượt giới hạn 3 lần/giây của SePay
 
 let cache = { at: 0, hours: 0, list: [] };
@@ -18,7 +19,7 @@ function vnDate(ms) {
 export async function recentTransactions(token, hours = 2) {
   if (Date.now() - cache.at < CACHE_MS && cache.hours >= hours) return cache.list;
   const qs = new URLSearchParams({
-    account_number: ACCOUNT,
+    ...(ACCOUNT ? { account_number: ACCOUNT } : {}),
     transaction_date_min: vnDate(Date.now() - hours * 3600 * 1000),
     limit: '200',
   });

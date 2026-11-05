@@ -7,15 +7,15 @@ import { leash } from './leash.js';
 import { lang } from '../lib/i18n.js';
 
 const css = `
-.chat-fab { position: fixed; right: calc(20px + env(safe-area-inset-right, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 50; display: flex; align-items: center; gap: 10px; min-height: 72px; padding: 5px; background: var(--deep); color: #fff; font: 700 17px var(--font-body); border: 3px solid var(--ink); border-radius: 999px; box-shadow: 5px 5px 0 var(--ink); cursor: pointer; animation: chat-bob 3s ease-in-out infinite; }
+.chat-fab { position: fixed; right: calc(20px + env(safe-area-inset-right, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 50; display: flex; align-items: center; gap: 10px; min-height: 60px; padding: 4px; background: var(--deep); color: #fff; font: 700 17px var(--font-body); border: 3px solid var(--ink); border-radius: 999px; box-shadow: 5px 5px 0 var(--ink); cursor: pointer; animation: chat-bob 3s ease-in-out infinite; }
 .chat-fab[aria-expanded="true"] { display: none; }
 .chat-av { width: 40px; height: 40px; border-radius: 999px; background: #fff; border: 2.5px solid var(--ink); object-fit: contain; flex: 0 0 auto; }
-.chat-fab .chat-av { width: 62px; height: 62px; }
-.chat-head .chat-av { width: 52px; height: 52px; }
+.chat-fab .chat-av { width: 52px; height: 52px; }
+.chat-head .chat-av { width: 44px; height: 44px; }
 .chat-av { padding: 0; }
-.chat-fab .googly { width: 62px; height: 62px; }
-.chat-head .googly { width: 52px; height: 52px; }
-.chat-panel { position: fixed; right: calc(20px + env(safe-area-inset-right, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 60; width: min(390px, calc(100vw - 24px)); height: min(580px, calc(100dvh - 40px)); display: flex; flex-direction: column; background: var(--paper); border: 3px solid var(--ink); border-radius: 26px; box-shadow: 8px 8px 0 var(--ink); overflow: hidden; animation: rise .25s ease-out both; }
+.chat-fab .googly { width: 52px; height: 52px; }
+.chat-head .googly { width: 44px; height: 44px; }
+.chat-panel { position: fixed; right: calc(20px + env(safe-area-inset-right, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 60; width: min(350px, calc(100vw - 24px)); height: min(520px, calc(100dvh - 40px)); display: flex; flex-direction: column; background: var(--paper); border: 3px solid var(--ink); border-radius: 26px; box-shadow: 8px 8px 0 var(--ink); overflow: hidden; animation: rise .25s ease-out both; }
 .chat-panel[hidden] { display: none; }
 .chat-head { display: flex; align-items: center; gap: 12px; padding: 12px 12px 12px 16px; background: var(--mint); border-bottom: 3px solid var(--ink); }
 .chat-head b { display: block; font-family: var(--font-display); font-size: 21px; line-height: 1.1; }
@@ -26,7 +26,7 @@ const css = `
 .chat-row { display: flex; gap: 8px; align-items: flex-end; }
 .chat-row.me { justify-content: flex-end; }
 .chat-row .chat-av { width: 32px; height: 32px; border-width: 2px; }
-.chat-bubble { max-width: 78%; padding: 10px 14px; border: 2.5px solid var(--ink); border-radius: 18px; font-size: 15.5px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; background: var(--paper); }
+.chat-bubble { max-width: 80%; padding: 8px 12px; border: 2.5px solid var(--ink); border-radius: 18px; font-size: 14.5px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; background: var(--paper); }
 .chat-row.bot .chat-bubble, .chat-row.err .chat-bubble { border-bottom-left-radius: 6px; }
 .chat-row.me .chat-bubble { background: var(--deep); color: #fff; border-bottom-right-radius: 6px; }
 .chat-row.err .chat-bubble { background: #FFF1F3; color: #8A2238; }

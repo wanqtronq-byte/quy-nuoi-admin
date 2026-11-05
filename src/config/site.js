@@ -58,8 +58,9 @@ export default localize({
     },
     suggestions: [
       { vi: 'Chúc tui một câu đi', en: 'Give me a good-luck wish' },
+      { vi: 'Viết prompt sao cho AI hiểu?', en: 'How do I write a good prompt?' },
+      { vi: 'Vibe code bắt đầu từ đâu?', en: 'Where do I start with vibe coding?' },
       { vi: 'Mẹo viết CV đi', en: 'Any CV tips?' },
-      { vi: 'Cho xin prompt vibe code', en: 'Share a vibe coding prompt' },
     ],
     text: {
       open: { vi: 'Chat với admin', en: 'Chat with admin' },

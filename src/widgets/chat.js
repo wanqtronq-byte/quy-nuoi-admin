@@ -167,10 +167,12 @@ export default {
       setBusy(false);
     }
 
+    let wished = false; // chỉ chúc ở lần mở đầu tiên mỗi lần vào trang
     function open() {
       panel.hidden = false;
       // Mỗi lần mở: gửi một lời chúc tiếng Anh ngẫu nhiên (không gọi AI, không tốn lượt)
-      if (!busy) {
+      if (!busy && !wished) {
+        wished = true;
         const w = row('bot', '');
         const bub = w.querySelector('.chat-bubble');
         bub.innerHTML = '<span class="chat-typing"><i></i><i></i><i></i></span>';

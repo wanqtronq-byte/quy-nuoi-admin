@@ -4,6 +4,7 @@
 import { injectCss, fragment, esc } from '../lib/dom.js';
 import { googly } from './googly.js';
 import { leash } from './leash.js';
+import { randomWish } from './wishes.js';
 import { lang } from '../lib/i18n.js';
 
 const css = `
@@ -168,6 +169,13 @@ export default {
 
     function open() {
       panel.hidden = false;
+      // Mỗi lần mở: gửi một lời chúc tiếng Anh ngẫu nhiên (không gọi AI, không tốn lượt)
+      if (!busy) {
+        const w = row('bot', '');
+        const bub = w.querySelector('.chat-bubble');
+        bub.innerHTML = '<span class="chat-typing"><i></i><i></i><i></i></span>';
+        setTimeout(() => { bub.textContent = randomWish(); log.scrollTop = log.scrollHeight; }, 550);
+      }
       fab.setAttribute('aria-expanded', 'true');
       setTimeout(() => input.focus(), 50);
     }

@@ -18,7 +18,7 @@ export default {
   css: `
 .story { padding-block: 64px 24px; }
 .story-card { display: flex; flex-wrap: wrap; gap: 20px 40px; align-items: flex-start; border-radius: 28px; padding: 32px; box-shadow: 6px 6px 0 var(--mint); }
-.story-card h2 { flex: 1 1 240px; }
+.story-card h2 { flex: 0 1 260px; white-space: nowrap; }
 .story-body { flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 12px; font-size: 19px; line-height: 1.7; color: var(--muted); max-width: 65ch; }
 `,
 

@@ -44,6 +44,7 @@ export default {
 .amt span { font-size: 13px; line-height: 1.3; font-weight: 600; }
 .amt[aria-pressed="true"] { background: var(--mint); box-shadow: 4px 4px 0 var(--ink); transform: translate(-2px, -2px); }
 .donate-msg { font-size: 18px; line-height: 1.5; font-weight: 700; color: var(--accent); min-height: 27px; }
+.amt { text-align: left; }
 .qr { flex: 1 1 300px; min-width: 0; max-width: 380px; border-radius: 28px; padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; box-shadow: 8px 8px 0 var(--ink); animation: sway 4s ease-in-out infinite; }
 .qr-box { width: 200px; height: 200px; max-width: 100%; border: 3px dashed var(--mint2); border-radius: 18px; background: var(--bg); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px; color: var(--muted); overflow: hidden; }
 .qr-box img { width: 100%; height: 100%; object-fit: contain; background: #fff; }
@@ -58,9 +59,16 @@ export default {
 .feed-line small { font-size: 13px; color: var(--muted); font-weight: 500; }
 .feed-line.in { animation: feed-in .5s cubic-bezier(.2,1.4,.4,1) both; }
 @keyframes feed-in { from { opacity: 0; transform: translateY(14px) scale(.96); } }
+@media (max-width: 600px) {
+  .donate { gap: 20px; padding-block: 32px 56px; }
+  .amounts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .amt { min-width: 0; min-height: 58px; padding: 8px 12px; }
+  .amt:last-child { grid-column: 1 / -1; }
+  .qr { max-width: none; animation: none; }
+}
 .qr-memo { display: flex; flex-direction: column; align-items: center; gap: 4px; }
 .qr-memo small { font-size: 13px; color: var(--muted); font-weight: 600; }
-.qr-memo-code { font: 800 18px var(--font-body); letter-spacing: .06em; color: var(--ink); background: var(--sun); border: 2.5px dashed var(--ink); border-radius: 12px; padding: 6px 12px; cursor: pointer; }
+.qr-memo-code { min-height: 44px; font: 800 18px var(--font-body); letter-spacing: .06em; color: var(--ink); background: var(--sun); border: 2.5px dashed var(--ink); border-radius: 12px; padding: 6px 12px; cursor: pointer; }
 .qr-status { font-size: 14px; line-height: 1.5; color: var(--muted); display: flex; gap: 8px; align-items: center; justify-content: center; }
 .qr-status::before { content: ""; width: 10px; height: 10px; flex: 0 0 auto; border-radius: 999px; background: var(--mint2); animation: beat 1.4s ease-in-out infinite; }
 .qr-status.ok::before { animation: none; background: var(--deep); }

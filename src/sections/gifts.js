@@ -42,7 +42,15 @@ export default {
 .gift-links a { color: var(--ink); display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 2.5px solid var(--ink); border-radius: 999px; background: var(--mint); font-weight: 700; font-size: 14.5px; text-decoration: none; box-shadow: 2px 2px 0 var(--ink); }
 .gifts-note { align-self: flex-start; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 17px; background: var(--paper); border: 2.5px dashed var(--ink); border-radius: 16px; padding: 12px 18px; }
 .gifts-note a { color: var(--accent); font-weight: 700; }
-@media (max-width: 600px) { .gift { flex-direction: column; align-items: flex-start; } }
+@media (max-width: 600px) {
+  .gifts-grid { gap: 14px; }
+  .gift { flex-direction: row; align-items: center; gap: 16px; padding: 14px 16px; }
+  .gift-tile { width: 64px; height: 64px; border-radius: 18px; }
+  .gift-tile svg { width: 38px; height: auto; }
+  .gift h3 { font-size: 22px; }
+  .gift-open { margin-top: 2px; }
+}
+.gifts-note a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 4px; }
 `,
 
   render(site) {

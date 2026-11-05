@@ -49,7 +49,8 @@ const css = `
 @keyframes chat-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
 @media (max-width: 600px) {
   .chat-panel { right: 12px; bottom: 12px; height: calc(100dvh - 24px); }
-  .chat-fab { right: 12px; bottom: 12px; }
+  .chat-fab { right: 12px; bottom: 12px; min-height: 54px; padding: 3px; }
+  .chat-fab .chat-av, .chat-fab .googly { width: 46px; height: 46px; }
 }
 `;
 

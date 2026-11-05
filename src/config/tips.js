@@ -66,12 +66,22 @@ const TIPS = localize({
 // Góc AI: mỗi bài học là một module (nội dung trong src/ai/lessons.js)
 TIPS['vibe-code'].intro = [INTRO.order, INTRO.how];
 TIPS['vibe-code'].numbered = true;
-TIPS['vibe-code'].modules = LESSONS.map((l) => ({
-  title: l.title,
-  desc: l.goal,
-  tags: [l.outcome],
-  href: `/bai-hoc.html?bai=${l.id}`,
-  num: l.id,
-}));
+TIPS['vibe-code'].modules = [
+  ...LESSONS.map((l) => ({
+    title: l.title,
+    desc: l.goal,
+    tags: [l.outcome],
+    href: `/bai-hoc.html?bai=${l.id}`,
+    num: l.id,
+  })),
+  localize({
+    title: { vi: 'Kho prompt', en: 'Prompt library' },
+    desc: { vi: 'Prompt dùng ngay cho HR, việc văn phòng, vibe code và tự học. Bấm copy, thay chỗ tô vàng là xong.', en: 'Ready-to-use prompts for HR, office work, vibe coding and learning. Copy and fill in the yellow parts.' },
+    tags: [{ vi: 'Copy một chạm', en: 'One-tap copy' }],
+    href: '/kho-prompt.html',
+    badge: { vi: 'Kho prompt', en: 'Library' },
+    cta: { vi: 'Mở kho →', en: 'Open →' },
+  }),
+];
 
 export default TIPS;

@@ -43,7 +43,7 @@ export default localize({
     // Cần SEPAY_API_TOKEN trên Vercel. Đặt enabled: false để quay về QR tĩnh.
     sepay: { enabled: true, bankCode: 'MBBank' },
     accountNumber: 'VQRQANIVY8176',   // tài khoản ảo (VA) của SePay, tiền về tài khoản MB chính
-    accountName: 'NGUYỄN QUANG TRỌNG',
+    accountName: '',   // để trống: không hiện tên chủ tài khoản trên trang
   },
 
   // Khung chat AI. Đặt enabled: false để ẩn hẳn.

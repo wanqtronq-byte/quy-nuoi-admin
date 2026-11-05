@@ -15,7 +15,7 @@ const content = localize({
   qrPlaceholder: { vi: '[MÃ QR CỦA BẠN]', en: '[YOUR QR CODE]' },
   memoLabel: { vi: 'Nội dung chuyển khoản (giữ nguyên nha)', en: 'Transfer note (keep it as is)' },
   memoCopy: { vi: 'Copy nội dung', en: 'Copy note' },
-  waiting: { vi: 'Đang chờ bánh tới… chuyển xong là trang tự cảm ơn liền.', en: 'Waiting for your snack… the page will thank you as soon as it lands.' },
+  waiting: { vi: 'Đang chờ bánh tới…', en: 'Waiting for your snack…' },
   received: { vi: 'Đã nhận bánh, cảm ơn bạn!', en: 'Snack received, thank you!' },
   defaultPick: 2,
   options: [
